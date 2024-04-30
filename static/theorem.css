@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    font-family: urbanist;
+    font-size: small;
+}
+
+body {
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+.container1,
+.container2 {
+    background-color: white;
+    height: 50px;
+    border: 1px solid rgb(248, 244, 244);
+    border-radius: 1px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.navbar0 {
+    cursor: pointer;
+}
+
+.container1 .ALGO {
+    margin-left: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+    margin-right: auto;
+    padding: 5px;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgb(130, 219, 189);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+main {
+    display: flex;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    margin: 14px;
+}
+
+ul li a {
+    color: black;
+    text-decoration: none;
+    font-family: urbanist;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+    color: rgb(69, 69, 69);
+}
+
+ul li a:active {
+    color: aquamarine;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+main {
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bg {
+    text-align: center;
+}

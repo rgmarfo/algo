@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Algo - {% block title %}{% endblock title %}</title>
-</head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bisection.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='theorem.css') }}"
+    />
+  </head>
 
-<body>
+  <body>
     {% include("_nav.html") %}
     <main>
-        {% block content %}
-        <p>This is the base template.</p>
-        {% endblock content %}
+      {% block content %}
+      <p>This is the base template.</p>
+      {% endblock content %}
     </main>
-</body>
-
+  </body>
 </html>
