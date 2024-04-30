@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Algo - {% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    {% include("_nav.html") %}
+    <main>
+        {% block content %}
+        <p>This is the base template.</p>
+        {% endblock content %}
+    </main>
+</body>
+
+</html>
