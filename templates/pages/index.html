@@ -1,3 +1,104 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
-{% endblock header %}{% block content %} Index page {% endblock content %}
+{% endblock header %} {% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    label {
+        font-weight: bold;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+    #result-section {
+        margin-top: 20px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="container">
+    <h2>Bisection Method Calculator</h2>
+    <form id="bisection-form">
+        <label for="equation">Equation:</label><br />
+        <input type="text" id="equation" name="equation" placeholder="Enter equation" required /><br />
+        <label for="a">a:</label><br />
+        <input type="text" id="a" name="a" placeholder="Enter a" required /><br />
+        <label for="b">b:</label><br />
+        <input type="text" id="b" name="b" placeholder="Enter b" required /><br />
+        <input type="submit" value="Calculate" />
+    </form>
+    <div id="result-section"></div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#bisection-form").submit(function(event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: "/calculate",
+                data: formData,
+                success: function(response) {
+                    $("#result-section").html(response);
+                    MathJax.typeset();
+                },
+                error: function(xhr, status, error) {
+                    $("#result-section").html("<p>Error: " + error + "</p>");
+                },
+            });
+        });
+    });
+</script>
+
+{% endblock content %}
