@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from sympy import symbols, lambdify
+from sympy import symbols, lambdify, parse_expr
 from bisection import bisection_method
 
 
@@ -20,9 +20,16 @@ def calculate():
         # Generate the step
         steps_html = f"<h3> Showing the first 5 steps </h3>\n <h3>The function f(x) = {equation_str}</h3>\n<br/><br/>"
         for iteration, root_estimate, func_value in data[:5]:
-            steps_html += f"Iteration {iteration+1}: <br>"
-            steps_html += f"Function Value at Root Estimate = f({root_estimate}) = {func_value}<br>"
-            steps_html += f"---<br>"
+            x = symbols('x')
+            f = equation_str.replace('exp', 'exp(x)')
+            f = parse_expr(f)
+            f = lambdify(x, f)
+            steps_html += f"Iteration {iteration+1}: <br />"
+            steps_html += f"Here, f({a})={f(a)} > 0 and f({b})={f(b)} < 0 <br/>"
+            steps_html += f"∴ Now, Root lies between {a} and {b}<br/>"
+            steps_html += f"X_0 = ({a}+{b})/2 = {root_estimate}<br/>"
+            steps_html += f"f(X_0) = f({root_estimate}) = {func_value} > 0 <br/>"
+            steps_html += f"---<br/>"
         
         # Generate table for the first 10 iterations
         table_html = '<table><tr><th>Iteration</th><th>Root Estimate</th><th>Function Value at Root Estimate</th></tr>'

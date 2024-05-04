@@ -1,11 +1,13 @@
-from sympy import symbols, lambdify
-
+from sympy import symbols, lambdify, parse_expr
+from math import exp
 def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
     iterations = 0
     data = []
 
     x = symbols('x')
-    equation = lambdify(x, equation_str)
+    equation = equation_str.replace('exp', 'exp(x)')
+    equation = parse_expr(equation)
+    equation = lambdify(x, equation)
 
     if equation(a) * equation(b) >= 0:
         raise ValueError("Bisection method fails.")
