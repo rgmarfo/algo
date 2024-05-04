@@ -19,9 +19,9 @@ def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
         if func_value == 0:
             break
         if equation(c) * equation(a) < 0:
-            b = c
+            b = root_estimate
         else:
-            a = c
+            a = root_estimate
         iterations += 1
 
     return root_estimate, data

@@ -18,10 +18,9 @@ def calculate():
         root, data = bisection_method(equation_str,a, b,)
 
         # Generate the step
-        steps_html = f"<h3> Showing the first 5 steps </h3><h3>The function f(x) = {equation_str}</h3>\n<br/><br/>"
+        steps_html = f"<h3> Showing the first 5 steps </h3>\n <h3>The function f(x) = {equation_str}</h3>\n<br/><br/>"
         for iteration, root_estimate, func_value in data[:5]:
             steps_html += f"Iteration {iteration+1}: <br>"
-            steps_html += f"Root Estimate = ({a} + {b}) / 2 = {root_estimate}<br>"
             steps_html += f"Function Value at Root Estimate = f({root_estimate}) = {func_value}<br>"
             steps_html += f"---<br>"
         
@@ -31,7 +30,7 @@ def calculate():
             table_html += f'<tr><td>{iteration+1}</td><td>{root_estimate}</td><td>{func_value}</td></tr>'
         table_html += '</table>'
         
-        return f"<h3>The root of the equation: {root}</h3><h4>Steps:</h4>{steps_html}<h4>First 10 iterations:</h4>{table_html}"
+        return f"<h3>The root of the equation: {root}</h3><h3>Steps:</h3>{steps_html}<h3>First 10 iterations:</h3>{table_html}"
     except ValueError as e:
         return str(e)
 

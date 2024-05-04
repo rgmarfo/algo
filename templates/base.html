@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='bisection.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='theorem.css') }}"
+    />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script
       id="MathJax-script"
@@ -18,14 +22,6 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='theorem.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='feedback.css') }}"
-  />
 
   <body>
     {% include("_nav.html") %}
