@@ -1,0 +1,261 @@
+*{
+    text-decoration: none;
+    margin: 0;
+}
+.logo{
+    font-size: 40px;
+}
+.logo a{
+    font-weight:600;
+}
+.navbar{
+    background-color: bisque;
+    font-family: calibri;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.navbar1{
+    background-color: rgb(224, 216, 207);
+    font-family: calibri;
+    padding-left: 15px;
+    padding-right: 15px;
+    height:50px;
+    padding-top: 13px;
+    justify-content:center ;
+}
+.nav1ul{
+    margin-left:30%;
+}
+.navdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+li{
+    display: inline-block;
+    margin-right: 35px;
+}
+li a{
+    color: brown;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border: 1px solid transparent;
+    transition: 0.4s ease-in-out;
+}
+li a:hover{
+    color: rgb(150, 89, 89);
+}
+.btn{
+    color: brown;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 15px;
+    border-style:none;
+    background-color: aquamarine;
+}
+main{
+    display: flex;
+}
+button {
+  padding: 9px 25px;
+  background-color: rgb(130, 219, 189);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+#aside {
+  text-align: center;
+  width: 10%;
+  height: 700px;
+  padding: 10px;
+  background-color: #f5f3f3;
+}
+#section {
+  text-align: center;
+  width: 80%;
+  height: 700px;
+  padding: 30px;
+  background-color: #f5f3f3;
+}
+#article {
+  text-align: center;
+  width: 0%;
+  height: 700px;
+  float: left;
+  padding: 10px;
+  background-color: white;
+}
+aside {
+  text-align: justify;
+  width: 20%;
+  height: 1000px;
+  padding: 20px;
+  background-color: white;
+}
+section {
+  text-align: center;
+  width: 60%;
+  height: 1000px;
+  padding: 30px;
+  background-color: #f5f3f3;
+}
+article {
+  text-align: center;
+  width: 20%;
+  height: 1000px;
+  float: left;
+  padding: 10px;
+  background-color: white;
+}
+footer {
+  background-color: grey;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  clear: both;
+  height: 50%;
+}
+main,
+footer {
+  padding: 20px;
+}
+
+section,
+article {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+aside {
+  flex: 1;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.box1,
+.box2,
+.box3 {
+  padding: 20px;
+}
+
+section form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section form label {
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+section form select,
+section form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+section form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#loading {
+  text-align: center;
+}
+
+#line {
+  border: none;
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+#solution {
+  background-color: #e0e0e0;
+  padding: 20px;
+}
+.word {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.inputbox0 {
+  display: flex;
+}
+.inputbox1 {
+  display: flex;
+}
+
+.inputbox2 {
+  display: flex;
+}
+
+.inputbox3 {
+  display: flex;
+}
+#tolerance {
+  width: 300px; /* Adjust the width as needed */
+  padding: 5px;
+}
+.sidebar {
+  position: relative;
+  background: white;
+  width: 200px;
+  height: 65%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px;
+}
+
+.sidebar h3 {
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  font-weight: bold;
+  color: grey;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+  list-style-type: none;
+}
+
+.sidebar ul li a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: grey;
+}
+
+.sidebar ul li a:hover {
+  color: rgb(75, 196, 218);
+  margin-left: 10px;
+  transform: 0.4s;
+}
+hr {
+  border-top: 1px;
+}
