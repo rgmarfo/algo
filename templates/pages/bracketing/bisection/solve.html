@@ -199,7 +199,7 @@
     /*FOOTER*/
     
     .practice-page {
-        background: linear-gradient(270deg, #e5e7e8 50%, #f3f3f3 0);
+        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
     }
     
     .footer-section {
@@ -320,6 +320,38 @@
     
     .background {
         text-align: center;
+    }
+    /* Overlay styles */
+    
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent black */
+        display: none;
+        /* Initially hidden */
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Ensure the overlay appears on top of other elements */
+    }
+    /* Loading text styles */
+    
+    .loading-text {
+        color: white;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 
@@ -450,6 +482,11 @@
                     <input type="text" id="b" name="b" class="input1" placeholder="Enter b" required /><br />
                     <input type="submit" class="input1" value="Calculate" />
                 </form>
+                <div class="overlay" id="loading-overlay">
+                    <div class="wrap">
+                        <div class="loading-text">Loading...</div>
+                    </div>
+                </div>
                 <div id="result-section"></div>
             </div>
 
@@ -460,39 +497,39 @@
 
 <script>
     $(document).ready(function() {
-        $("#bisection-form").submit(function(event) {
+        $('#bisection-form').submit(function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
+
+            // Show overlay loading indicator
+            $('#loading-overlay').show();
+
             $.ajax({
-                type: "POST",
-                url: "/calculate",
+                type: 'POST',
+                url: '/calculate',
                 data: formData,
                 success: function(response) {
-                    // Extract root and data from response
+                    // Hide overlay loading indicator
+                    $('#loading-overlay').hide();
+
                     var root = response.root;
                     var stepsHtml = response.steps_html;
                     var tableHtml = response.table_html;
                     var updatedIntervals = response.updated_intervals;
 
-                    // Display root, steps, and table in result section
-                    $("#result-section").html(
-                        "<h3>The root of the equation: " +
-                        root +
-                        "</h3>" +
-                        stepsHtml +
-                        "<h3>First 10 iterations:</h3>" +
-                        tableHtml
-                    );
+                    $('#result-section').html("<h3>The root of the equation: " + root + "</h3><br/>" + stepsHtml + "<p>First 10 iterations:</p> <br/>" + tableHtml);
 
-                    // Update input fields with updated intervals
-                    $("#a").val(updatedIntervals[0][0]);
-                    $("#b").val(updatedIntervals[0][1]);
                 },
                 error: function(xhr, status, error) {
-                    $("#result-section").html("<p>Error: " + error + "</p>");
-                },
+                    $('#result-section').html('<p>Error: ' + error + '</p>');
+
+                    // Hide overlay loading indicator
+                    $('#loading-overlay').hide();
+                }
             });
         });
     });
 </script>
+
+
 {% endblock content %}

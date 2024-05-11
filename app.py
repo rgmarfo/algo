@@ -88,17 +88,18 @@ def falsepositionsolve():
 
 
 #### Endpoint Routes
+from flask import jsonify
+
 @app.route('/calculate', methods=['POST'])
 def calculate():
     equation_str = request.form['equation']
     a = float(request.form['a'])
     b = float(request.form['b'])
     try:
-        root, data = bisection_method(equation_str, a, b)
+        root, data, intervals = bisection_method(equation_str, a, b)
 
-        # Initialize steps_html and updated intervals
-        steps_html = f"<h3> Showing the first 5 steps </h3>\n <h3>The function f(x) = {equation_str}</h3>\n<br/><br/>"
-        updated_intervals = []
+        # Initialize steps_html
+        steps_html = f"<p> Showing the first 5 steps </p>\n <p>The function f(x) = {equation_str}</p>\n<br/><br/>"
         for iteration, root_estimate, func_value in data[:5]:
             # Replace 'exp' with 'exp(x)' and evaluate the function
             x = symbols('x')
@@ -106,19 +107,23 @@ def calculate():
             f_expr = parse_expr(f_expr)
             f = lambdify(x, f_expr)
             
-            # Determine the new intervals based on function values
-            if f(a) * f(root_estimate) < 0:
-                updated_intervals.append((a, root_estimate))
-            else:
-                updated_intervals.append((root_estimate, b))
-            
             # Generate steps HTML
-            steps_html += f"Iteration {iteration+1}: <br />"
-            steps_html += f"Here, f({a})={f(a)} > 0 and f({b})={f(b)} < 0 <br/>"
-            steps_html += f"∴ Now, Root lies between {a} and {b}<br/>"
-            steps_html += f"X_0 = ({a}+{b})/2 = {root_estimate}<br/>"
-            steps_html += f"f(X_0) = f({root_estimate}) = {func_value} > 0 <br/>"
-            steps_html += f"---<br/>"
+            steps_html += f"<div class='step'>\n"
+            steps_html += f"<h4>Iteration {iteration+1}:</h4>\n"
+            steps_html += '<br/>'
+            steps_html += f"<p>Here, f({intervals[iteration][0]}) = {f(intervals[iteration][0])} > 0 and f({intervals[iteration][1]})={f(intervals[iteration][1])} < 0</p>\n"
+            steps_html += '<br/>'
+            steps_html += f"<p>∴ Now, Root lies between {intervals[iteration][0]} and {intervals[iteration][1]}</p>\n"
+            steps_html += '<br/>'
+            steps_html += f"<p>X_0 = ({intervals[iteration][0]}+{intervals[iteration][1]})/2 = {root_estimate}<br/></p>\n"
+            steps_html += '<br/>'
+            steps_html += f"<p>f(X_0) = f({root_estimate}) = {func_value} > 0</p>\n"
+            steps_html += '<br/>'
+            steps_html += "</div>\n"
+            steps_html += '<br/>'
+            steps_html += '<br/>'
+        
+        steps_html += "</div>\n"
         
         # Generate table for the first 10 iterations
         table_html = '<table><tr><th>Iteration</th><th>Root Estimate</th><th>Function Value at Root Estimate</th></tr>'
@@ -130,10 +135,10 @@ def calculate():
             'root': root,
             'steps_html': steps_html,
             'table_html': table_html,
-            'updated_intervals': updated_intervals
+            'intervals': intervals
         })
     except ValueError as e:
-        return jsonify({'error': str(e)})
+        return str(e)
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

@@ -1,8 +1,9 @@
 from sympy import symbols, lambdify, parse_expr
-from math import exp
+
 def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
     iterations = 0
     data = []
+    intervals = []
 
     x = symbols('x')
     equation = equation_str.replace('exp', 'exp(x)')
@@ -18,6 +19,9 @@ def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
         func_value = equation(root_estimate)
         data.append((iterations, root_estimate, func_value))
         
+        # Save the current interval
+        intervals.append((a, b))
+        
         if func_value == 0:
             break
         if equation(c) * equation(a) < 0:
@@ -26,4 +30,4 @@ def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
             a = root_estimate
         iterations += 1
 
-    return root_estimate, data
+    return root_estimate, data, intervals
