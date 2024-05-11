@@ -2,33 +2,86 @@
 <html lang="en">
   <head>
     <title>Algo - {% block title %}{% endblock title %}</title>
-    <link
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bisection.css') }}" /> -->
+    <!-- <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='base.css') }}"
+      href="{{ url_for('static', filename='bisectionbackground.css') }}"
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='bisectionpage.css') }}"
+      href="{{ url_for('static', filename='bisectionexample.css') }}"
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='theorem.css') }}"
+      href="{{ url_for('static', filename='bisectiongraph.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bisectionlecturenote.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bisectiontheorem.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bracketexample.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bracketing.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bracketingtheorem.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bracklecturenote.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='falsepobackground.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='falsepoexample.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='falsepograph.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='falseposition.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='falsepotheorem.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='solvefalsepo.css') }}"
+    /> -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+    * {
+      margin: 0;
+      text-decoration: none;
+      list-style: none;
+      font-family: "Urbanist";
+    }
+  </style>
+
   <body>
-    {% include("_nav.html") %}
-    <main>
-      {% block content %}
+    <div class="practice-page mb">
+      {% include("_nav.html") %} {% block content %}
       <p>This is the base template.</p>
-      {% endblock content %}
-    </main>
+      {% endblock content %} {% include('_footer.html') %}
+    </div>
   </body>
 </html>

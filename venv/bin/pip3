@@ -1,4 +1,4 @@
-#!/Users/gyekye/Downloads/alo/venv/bin/python3.12
+#!/Users/gyekye/WebstormProjects/algo/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
