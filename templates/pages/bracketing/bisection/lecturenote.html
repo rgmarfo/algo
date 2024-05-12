@@ -169,6 +169,16 @@
         border-bottom-width: 0.666667px;
         border-bottom-style: solid;
     }
+    .backgroundlink:hover{
+        background:rgb(50, 55, 84);
+    }
+    .backgroundlink{
+        transition: color 0.3s ease;
+    }
+    .backgroundlink a:hover,
+    .backgroundlink a .active{
+    color:#555;
+    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -197,6 +207,7 @@
     .background {
         padding: 25px;
     }
+    
     /*FOOTER*/
     
     .practice-page {
@@ -341,7 +352,7 @@
                     <div class="backgroundlink">
                         <li>
                             <a href="/bracketing/bisection/lecturenote">
-                                <span class="link_name">Lecture Note</span>
+                                <span class="active">Lecture Note</span>
                             </a>
                         </li>
                     </div>
@@ -374,13 +385,13 @@
                 <h3 class="bracketing">LECTURE NOTE</h3>
             </div>
             <div class="background">
-                <img src="{{url_for('static', filename='imagebismethod1.jpg.png')}}" alt="bis-img1" />
-                <img src="{{url_for('static', filename='imagebispseudo2.jpg.png')}}" alt="bis-pseudocode1" />
-                <img src="{{url_for('static', filename='imagebispseudo3.jpg.png')}}" alt="bis-pseudocode2" />
-                <img src="{{url_for('static', filename='imagebisinterval4.jpg.png')}}" alt="bis-pseudocode3" />
-                <img src="{{url_for('static',filename='imagebis5.jpg.png')}}" alt="bis5" />
-                <img src="{{url_for('static', filename='imagebis6.jpg.png')}}" alt="bis6" />
-                <img src="{{url_for('static', filename='imagebis7.jpg.png')}}" alt="bis7" />
+                <img src="{{url_for('static', filename='imagebismethod1.jpg.png')}}" alt="bis-img1" /><br>
+                <img src="{{url_for('static', filename='imagebispseudo2.jpg.png')}}" alt="bis-pseudocode1" /><br>
+                <img src="{{url_for('static', filename='imagebispseudo3.jpg.png')}}" alt="bis-pseudocode2" /><br>
+                <img src="{{url_for('static', filename='imagebisinterval4.jpg.png')}}" alt="bis-pseudocode3" /><br>
+                <img src="{{url_for('static',filename='imagebis5.jpg.png')}}" alt="bis5" /><br>
+                <img src="{{url_for('static', filename='imagebis6.jpg.png')}}" alt="bis6" /><br>
+                <img src="{{url_for('static', filename='imagebis7.jpg.png')}}" alt="bis7" /><br>
                 <img src="{{url_for('static', filename='imagebis8.jpg.png')}}" alt="bis8" />
             </div>
         </div>

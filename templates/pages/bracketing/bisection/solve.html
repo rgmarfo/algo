@@ -168,6 +168,16 @@
         border-bottom-width: 0.666667px;
         border-bottom-style: solid;
     }
+    .backgroundlink:hover{
+        background:rgb(50, 55, 84);
+    }
+    .backgroundlink{
+        transition: color 0.3s ease;
+    }
+    .backgroundlink a:hover,
+    .backgroundlink a .active{
+    color:#555;
+    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -196,6 +206,7 @@
     .background {
         padding: 25px;
     }
+    
     /*FOOTER*/
     
     .practice-page {
@@ -397,7 +408,7 @@
                     <div class="backgroundlink">
                         <li>
                             <a href="/bracketing/bisection/solve">
-                                <span class="link_name">Solve</span>
+                                <span class="active">Solve</span>
                             </a>
                         </li>
                     </div>

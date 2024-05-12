@@ -169,6 +169,16 @@
         border-bottom-width: 0.666667px;
         border-bottom-style: solid;
     }
+    .backgroundlink:hover{
+        background:rgb(50, 55, 84);
+    }
+    .backgroundlink{
+        transition: color 0.3s ease;
+    }
+    .backgroundlink a:hover,
+    .backgroundlink a .active{
+    color:#555;
+    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -333,7 +343,7 @@
                 <ul class="nav">
                     <div class="backgroundlink">
                         <li>
-                            <a href="/bracketing/bisectionbackground">
+                            <a href="/bracketing/falsepositionbackground">
                                 <span class="link_name">Background</span>
                             </a>
                         </li>
@@ -374,13 +384,13 @@
                 <h3 class="bracketing">LECTURE NOTE</h3>
             </div>
             <div class="background">
-                <img src="{{url_for('static', filename='imagefalsepolecturenote1.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote2.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote3.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote4.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote5.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote6.jpg.png')}}" alt="falsepo-note1" />
-                <img src="{{url_for('static', filename='imagefalsepolecturenote7.jpg.png')}}" alt="falsepo-note1" />
+                <img src="{{url_for('static', filename='imagefalsepolecturenote1.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote2.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote3.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote4.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote5.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote6.jpg.png')}}" alt="falsepo-note1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepolecturenote7.jpg.png')}}" alt="falsepo-note1" /><br>
                 <img src="{{url_for('static', filename='imagefalsepolecturenote8.jpg.png')}}" alt="falsepo-note1" />
             </div>
         </div>

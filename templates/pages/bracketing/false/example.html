@@ -170,6 +170,16 @@
         border-bottom-width: 0.666667px;
         border-bottom-style: solid;
     }
+    .backgroundlink:hover{
+        background:rgb(50, 55, 84);
+    }
+    .backgroundlink{
+        transition: color 0.3s ease;
+    }
+    .backgroundlink a:hover,
+    .backgroundlink a .active{
+    color:#555;
+    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -334,7 +344,7 @@
                 <ul class="nav">
                     <div class="backgroundlink">
                         <li>
-                            <a href="/bracketing/bisectionbackground">
+                            <a href="/bracketing/falsepositionbackground">
                                 <span class="link_name">Background</span>
                             </a>
                         </li>
@@ -349,7 +359,7 @@
                     <div class="backgroundlink">
                         <li>
                             <a href="/bracketing/false/example">
-                                <span class="link_name">Example</span>
+                                <span class="active">Example</span>
                             </a>
                         </li>
                     </div>
@@ -375,11 +385,11 @@
                 <h3 class="bracketing">EXAMPLE</h3>
             </div>
             <div class="background">
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example1" />
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example2" />
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example3" />
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example4" />
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example5" />
+                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example1" /><br>
+                <img src="{{url_for('static', filename='imagefalsepoexample2.jpg.png')}}" alt="falsepo-example2"><br>
+                <img src="{{url_for('static', filename='imagefalsepoexample3.jpg.png')}}" alt="falsepo-example3"><br>
+                <img src="{{url_for('static', filename='imagefalsepoexample4.jpg.png')}}" alt="falsepo-example4"><br>
+                <img src="{{url_for('static', filename='imagefalsepoexample5.jpg.png')}}" alt="falsepo-example5">
             </div>
         </div>
     </div>

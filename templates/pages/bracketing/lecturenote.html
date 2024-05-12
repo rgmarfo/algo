@@ -168,6 +168,16 @@
         border-bottom-width: 0.666667px;
         border-bottom-style: solid;
     }
+    .backgroundlink:hover{
+        background:rgb(50, 55, 84);
+    }
+    .backgroundlink{
+        transition: color 0.3s ease;
+    }
+    .backgroundlink a:hover,
+    .backgroundlink a .active{
+    color:#555;
+    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -196,6 +206,7 @@
     .background {
         padding: 25px;
     }
+    
     /*FOOTER*/
     
     .practice-page {
@@ -326,8 +337,9 @@
     <div id="div3">
         <div id="div4">
             <div class="sidebar">
-                <h3 class="bracketing">BRACKETING METHOD</h3>
-                <hr />
+                <div class="brackbox">
+                    <h3 class="bracketing">BRACKETING METHOD</h3>
+                </div>
                 <ul class="nav">
                     <div class="backgroundlink">
                         <li>
@@ -353,7 +365,7 @@
                     <div class="backgroundlink">
                         <li>
                             <a href="/bracketing/lecturenote">
-                                <span class="link_name">Lecture Note</span>
+                                <span class="active">Lecture Note</span>
                             </a>
                         </li>
                     </div>
@@ -379,7 +391,7 @@
                 <h3 class="bracketing">LECTURE NOTE</h3>
             </div>
             <div class="background">
-                <img src="{{url_for('static', filename='imagebracketingnote0.jpg.png')}}" alt="bracketing-note0" />
+                <img src="{{url_for('static', filename='imagebracketingnote0.jpg.png')}}" alt="bracketing-note0" /><br>
                 <img src="{{url_for('static', filename='imagebracketingnote1.jpg.png')}}" alt="bracketing-note1" />
             </div>
         </div>
