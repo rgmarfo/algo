@@ -7,7 +7,7 @@
         margin: 0;
         text-decoration: none;
         list-style: none;
-        font-family: "urbanist";
+        font-family:cursive;
     }
     
     header {
@@ -152,9 +152,19 @@
         margin-bottom: 30px;
     }
     
-    .sidebar ul li {
-        margin: 20px 0;
-        list-style-type: none;
+    #div4 .sidebar ul{
+        padding-left: 1px;
+    }
+    #div4 .sidebar ul li{
+        padding: 20px;
+        border-bottom:1px solid rgb(229, 231, 232);
+        border-top: 1px solid rgba(229, 231, 232);
+    }
+    #div4 .sidebar ul li:hover{
+        background-color:rgb(50, 55, 84);
+    }
+    #div4 .sidebar ul li a:hover{
+        color:white;
     }
     
     .sidebar ul li a {
@@ -165,21 +175,6 @@
         text-align: center;
     }
     
-    .backgroundlink {
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-        border-bottom-style: solid;
-    }
-    .backgroundlink:hover{
-        background:rgb(50, 55, 84);
-    }
-    .backgroundlink{
-        transition: color 0.3s ease;
-    }
-    .backgroundlink a:hover,
-    .backgroundlink a .active{
-        color:#9a9898;
-    }
     
     .sidebar ul li a {
         font-weight: bold;
@@ -207,6 +202,9 @@
     
     .background {
         padding: 25px;
+    }
+    .active{
+        color:grey;
     }
     /*FOOTER*/
     
@@ -343,41 +341,41 @@
             </div>
             <div class="sidebar">
                 <ul class="nav">
-                    <div class="backgroundlink">
+                    
                         <li>
                             <a href="/bracketing/bisectionbackground">
                                 <span class="link_name">Background</span>
                             </a>
                         </li>
-                    </div>
-                    <div class="backgroundlink">
+                    
+                    
                         <li>
                             <a href="/bracketing/false/lecturenote">
                                 <span class="link_name">Lecture Note</span>
                             </a>
                         </li>
-                    </div>
-                    <div class="backgroundlink">
+                    
+                    
                         <li>
                             <a href="/bracketing/false/example">
                                 <span class="link_name">Example</span>
                             </a>
                         </li>
-                    </div>
-                    <div class="backgroundlink">
+                    
+                    
                         <li>
                             <a href="/bracketing/false/graph">
-                                <span class="active">Graph</span>
+                                <span class="active">Schematic Representation</span>
                             </a>
                         </li>
-                    </div>
-                    <div class="backgroundlink">
+                    
+                    
                         <li>
                             <a href="/bracketing/false/solve">
                                 <span class="link_name">Solve</span>
                             </a>
                         </li>
-                    </div>
+                    
                 </ul>
             </div>
         </div>
