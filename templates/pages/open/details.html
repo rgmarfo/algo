@@ -1,0 +1,427 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Bracketing Method {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+    * {
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        font-family: cursive;
+    }
+    
+    header {
+        background-color: #323754;
+        font-size: 16px;
+        position: relative;
+        display: flex;
+        max-width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .navbarleft {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    
+    .navbarright {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    
+    .navlinks li {
+        list-style: none;
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 10px 20px;
+    }
+    
+    .navlinks li a {
+        margin: 0 1.25rem;
+        line-height: 3.125rem;
+        letter-spacing: 0.5px;
+        color: white;
+    }
+    
+    .logo {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    
+    .logo a {
+        color: white;
+    }
+    
+    .searchbar {
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 1.875rem;
+        box-sizing: border-box;
+        color: hsla(0, 0%, 100%, 0.6);
+        border: 0;
+        border-right: 0;
+        width: 264px;
+        padding: 0 0 0 0.625rem;
+        margin: 0;
+        font-size: 14px;
+        outline: 0;
+        border-radius: 3px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .button .login {
+        font-size: 0.875rem;
+        color: hsla(200, 6%, 90%, 0.75);
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 3.125rem;
+        height: 3.125rem;
+        margin: 5px;
+        display: block;
+        position: relative;
+    }
+    
+    .button .signup:hover {
+        color: #fff;
+        background-color: #f60;
+    }
+    
+    .button .signup {
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid #f60;
+        border-radius: 0.3125rem;
+        box-sizing: border-box;
+        color: #f60;
+        padding: 0.25rem 0.625rem;
+        line-height: 1.875rem;
+        height: 1.875rem;
+        margin: 0.625rem;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+    }
+    
+    .button {
+        cursor: pointer;
+    }
+    /* MAIN */
+    
+    .main-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+    }
+    
+    .left-container .title {
+        margin: 30px 0;
+        text-transform: capitalize;
+        font-size: 24px;
+        color: #252c33;
+        font-weight: 300;
+    }
+    
+    .left-container .tracks-container {
+        margin-bottom: 16px;
+    }
+    
+    .left-container .tracks-container .top {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .left-container .tracks-container .top .card-wrapper {
+        min-height: 175px;
+    }
+    
+    .left-container .tracks-container .card-wrapper {
+        width: 310px;
+        background-color: #fff;
+        margin: 0 12px 24px 0;
+        border-radius: 8px;
+        box-shadow: 0 1px 1px 0 rgba(159, 167, 194, 0.4);
+        position: relative;
+        transition: all 0.5s;
+    }
+    
+    .left-container .tracks-container .card-wrapper:hover {
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .left-container .tracks-container .card-wrapper a {
+        text-decoration: none;
+    }
+    
+    .pointer,
+    a {
+        cursor: pointer;
+    }
+    
+    .left-container .tracks-container .card-wrapper .card {
+        display: flex;
+        padding: 12px 8px;
+        box-sizing: border-box;
+        margin-bottom: 70px;
+    }
+    
+    .left-container .tracks-container .card-wrapper .card .left {
+        width: 65px;
+        margin: 0 auto;
+    }
+    
+    .left-container .tracks-container .card-wrapper .card .left img {
+        margin: 10px;
+        width: 40px;
+    }
+    
+    user agent stylesheet img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+    
+    .left-container .tracks-container .card-wrapper .card .right .card-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #46535e;
+        line-height: 32px;
+    }
+    
+    .left-container .tracks-container .card-wrapper .card .right .card-desc {
+        font-size: 12px;
+        color: #9ca3a8;
+        line-height: 18px;
+        margin-top: 4px;
+    }
+    
+    .main-container .practice-right {
+        box-sizing: border-box;
+        background: #e5e7e8;
+        height: 100%;
+        width: 300px;
+    }
+    
+    .right-container {
+        margin-top: 24px;
+        padding: 20px;
+    }
+    
+    .practice-page {
+        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
+    }
+    
+    .practice-page .layout-container {
+        position: relative;
+        font-family: Open Sans, Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    /*FOOTER*/
+    
+    .footer-section {
+        background-color: #091e5c;
+    }
+    
+    .fixed-container {
+        max-width: 1280px;
+        margin: auto;
+        box-sizing: content-box;
+    }
+    
+    .footer-container .primary {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: center;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    @media only screen and (min-width: 758px) {
+        .primary {
+            flex-direction: row;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+    
+    .footer-container .primary ul {
+        padding: 0;
+    }
+    
+    user agent stylesheet ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        unicode-bidi: isolate;
+    }
+    
+    .footer-container .primary .section-heading {
+        font-family: Hack Bold;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    .footer-container .primary ul li {
+        display: block;
+        font-family: Proxima Nova;
+        font-size: 16px;
+        line-height: 30px;
+        color: #dbdbdb;
+        cursor: pointer;
+    }
+    
+    .primary ul li a {
+        color: #dbdbdb;
+    }
+    
+    .footer-container .secondary {
+        text-align: center;
+        background-color: #05133c;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 26px;
+    }
+    
+    .footer-container .secondary a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .footer-container .secondary li {
+        display: inline-block;
+        font-weight: 500;
+        font-family: Proxima Nova;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        color: #999;
+    }
+    
+    .footer-container .primary .social-icon-container {
+        flex-wrap: nowrap;
+        align-items: stretch;
+        align-content: stretch;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .footer-container .primary .social-icon-container i {
+        height: 20px;
+        width: 11px;
+        color: #848ead;
+        font-size: 25px;
+        margin-right: 30px;
+    }
+    
+    .logo1 {
+        font-size: 60px;
+        font-weight: 600;
+    }
+    
+    .logo1 a {
+        color: white;
+    }
+</style>
+
+<main class="layout-container">
+    <div class="main-container">
+        <div class="practice-left">
+            <div class="container mx-auto p-6">
+                <h1 class="text-4xl font-bold mb-8">Open Methods Details</h1>
+                <p class="text-lg text-gray-700 mb-8">
+                    Open Methods are numerical techniques used to find roots of equations by iteratively updating an initial guess. Unlike bracketing methods, open methods do not require an initial interval containing the root. These methods can converge faster but may not
+                    always converge or may converge to a wrong root if not applied carefully.
+                </p>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                    <h2 class="text-2xl font-semibold mb-4">Steps of an Open Method</h2>
+                    <ol class="list-decimal list-inside text-gray-700 mb-8 space-y-2 pl-4">
+                        <li>Choose an initial guess \( x_0 \).</li>
+                        <li>
+                            Iteratively update the guess using a function to obtain a sequence of approximations \( x_1, x_2, \ldots, x_n \).
+                        </li>
+                        <li>
+                            Repeat the process until a satisfactory approximation is obtained.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-4">Newton-Raphson Method</h2>
+                        <p class="text-gray-700 mb-4">
+                            Find the root of \( f(x) = x^2 - 4 \).
+                        </p>
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <p class="text-lg mb-2">1. Initial guess: \( x_0 = 2 \)</p>
+                            <p class="text-lg mb-2">
+                                2. Update formula: \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \)
+                            </p>
+                            <p class="text-lg mb-2">3. Derivative: \( f'(x) = 2x \)</p>
+                            <p class="text-lg mb-2">
+                                4. Iteration 1: \( x_1 = 2 - \frac{2^2 - 4}{2 \times 2} = 1.5 \)
+                            </p>
+                            <p class="text-lg mb-2">
+                                5. Continue iterations until convergence.
+                            </p>
+                        </div>
+                        <a href="/newton-raphson-details" class="text-blue-500 hover:underline">View Detailed Note</a
+            >
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Secant Method</h2>
+            <p class="text-gray-700 mb-4">
+              Find the root of \( f(x) = x^2 - 4 \).
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+              <p class="text-lg mb-2">
+                1. Initial guesses: \( x_0 = 1.5 \) and \( x_1 = 2 \)
+              </p>
+              <p class="text-lg mb-2">
+                2. Update formula: \( x_{n+1} = x_n - f(x_n) \times \frac{x_n -
+                x_{n-1}}{f(x_n) - f(x_{n-1})} \)
+              </p>
+              <p class="text-lg mb-2">
+                3. Iteration 2: Calculate \( x_2 \) using the formula.
+              </p>
+              <p class="text-lg mb-2">
+                4. Continue iterations until convergence.
+              </p>
+              <br />
+            </div>
+            <a
+              href="/secant-method-details"
+              class="text-blue-500 hover:underline"
+              >View Detailed Note</a
+            >
+          </div>
+        </div>
+
+        <a href="/" class="text-blue-500 hover:underline mt-8 block"
+          >← Back to Home</a
+        >
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

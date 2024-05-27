@@ -88,6 +88,13 @@ def falsepositionsolve():
 
 
 
+### Open Methods
+@app.route('/open/details')
+def OpenDetails():
+    return render_template('pages/open/details.html')
+
+
+
 
 #### Endpoint Routes
 from flask import jsonify
