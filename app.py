@@ -18,6 +18,10 @@ def index():
 def bracketing():
     return render_template('pages/bracketing/bracketing.html')
 
+@app.route('/bracketing/details')
+def bracketingDetails():
+    return render_template('pages/bracketing/details.html')
+
 @app.route('/bracketing/lecturenote')
 def lecturenote():
     return render_template('pages/bracketing/lecturenote.html')
@@ -99,7 +103,6 @@ def calculate():
         # Initialize steps_html
         steps_html = f"<p> Showing the first 5 steps </p>\n <p>The function f(x) = {equation_str}</p>\n<br/><br/>"
         for iteration, root_estimate, func_value in data[:5]:
-            
             # Replace 'exp' with 'exp(x)' and evaluate the function
             x = symbols('x')
             f_expr = equation_str.replace('exp', 'exp(x)')
