@@ -13,8 +13,6 @@ def index():
 
 
 
-
-
 ### Bracketing Method
 @app.route('/bracketing')
 def bracketing():
