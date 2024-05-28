@@ -11,8 +11,6 @@ def index():
 
 
 
-
-
 ### Bracketing Method
 @app.route('/bracketing')
 def bracketing():
@@ -33,7 +31,6 @@ def graph():
 @app.route('/bracketing/example')
 def example():
     return render_template('pages/bracketing/example.html')
-
 
 
 
@@ -62,7 +59,6 @@ def bisectionsolve():
 
 
 
-
 ### False Position Method
 @app.route('/bracketing/falsepositionbackground')
 def falsepositonbackground():
@@ -83,8 +79,6 @@ def falsepositionexample():
 @app.route('/bracketing/false/solve')
 def falsepositionsolve():
     return render_template('pages/bracketing/false/solve.html')
-
-
 
 
 
