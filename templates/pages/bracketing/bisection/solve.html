@@ -407,7 +407,7 @@
                     
                         <li>
                             <a href="/bracketing/bisection/solve">
-                                <span class="active">Try Calculator</span>
+                                <span class="active">Calculator</span>
                             </a>
                         </li>
                     
@@ -438,6 +438,7 @@
                     font-weight: bold;
                 }
                 
+                
                 .input1[type="text"] {
                     width: 100%;
                     padding: 10px;
@@ -447,14 +448,25 @@
                     box-sizing: border-box;
                 }
                 .input2[type="text"]{
-                    width: 50%;
+                    width: 90%;
                     padding: 10px;
                     margin: 5px 0 15px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
                     box-sizing: border-box;
                 }
+                .input3[type="text"]{
+                    width: 90%;
+                    padding: 10px;
+                    margin: 5px 0 15px;
+                    margin-left:20px;                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
                 
+                #ulimit{
+                    margin-left:20px;
+                }
                 .input1[type="submit"] {
                     background-color: #4caf50;
                     color: white;
@@ -489,11 +501,41 @@
                 }
                 .flex-input2{
                     display:flex;
+                    justify-content:space-between;
+                }
+                .legend{
+                    background-color:#f0f0f0;
+                    padding:10px;
+                    border:1px solid #ccc;
+                }
+                .legend li{
+                    margin-bottom:10px;
+                }
+                .legend ul{
+                    list-style:none;
+                    margin:0;
+                    padding:0;
+                }
+                .legend span{
+                    font-weight:bold;
+                    color:#666;
                 }
             </style>
 
             <div class="container">
                 <h2>Bisection Method Calculator</h2>
+
+                <div>
+                    <h3 class="legend">Legend</h3>
+                    <ul>
+                        <li><span>exp</span> - Exponentiation</li>
+                        <li><span>**</span> -  Caret(raise the preceding value to the power of the following value)</li>
+                        <li><span>+</span> -   Addition</li>
+                        <li><span>-</span> - Subtraction</li>
+                        <li><span>/</span> - Division</li>
+                    </ul>
+                </div>
+                
                 <form id="bisection-form">
                     <label for="equation">Equation:</label><br />
                     <input type="text" id="equation" class="input1" name="equation" placeholder="Enter equation" required /><br />
@@ -503,8 +545,8 @@
                         <input type="text" id="a" name="a" class="input2" placeholder="Enter a" required />
                         </div>
                         <div class="upper-limit">
-                            <label for="b">Upper Limit:</label><br />
-                        <input type="text" id="b" name="b" class="input2" placeholder="Enter b" required />
+                            <label id="ulimit" for="b">Upper Limit:</label><br />
+                        <input type="text" id="b" name="b" class="input3" placeholder="Enter b" required />
                         </div>
                         
                     </div>
