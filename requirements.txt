@@ -6,6 +6,7 @@ click==8.1.7
 defusedxml==0.7.1
 fastjsonschema==2.19.1
 Flask==3.0.3
+gunicorn==22.0.0
 handcalcs==1.6.5
 innerscope==0.7.0
 itsdangerous==2.2.0
