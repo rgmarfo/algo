@@ -110,6 +110,93 @@
     .button {
         cursor: pointer;
     }
+    /* Responsive Adjustments */
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .navbarleft,
+    .navbarright {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navlinks li {
+        padding: 5px 10px;
+    }
+
+    .searchbar {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .button .login,
+    .button .signup {
+        line-height: 2.5rem;
+        height: 2.5rem;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .navlinks li a {
+        font-size: 12px;
+        margin: 0 0.75rem;
+    }
+
+    .searchbar {
+        font-size: 12px;
+    }
+
+    .button .signup {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        line-height: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .navlinks {
+        flex-direction: column;
+    }
+
+    .navlinks li {
+        padding: 3px 5px;
+    }
+
+    .searchbar {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .button .login,
+    .button .signup {
+        font-size: 0.75rem;
+        line-height: 2rem;
+        height: 2rem;
+        margin: 3px 0;
+    }
+}
     /* MAIN */
     
     main {
@@ -467,10 +554,7 @@
             <div class="background">
                 <img src="{{url_for('static',filename='imagebisexample1.jpg.png')}}" alt="bis-example1" /><br>
                 <img src="{{url_for('static', filename='imagebisexample2.jpg.png')}}" alt="bis-example2" /><br>
-                <img src="{{url_for('static', filename='imagebisexample3.jpg.png')}}" alt="bis-example3" /><br>
-                <h2>TRY WORK<h2>
-                <img src="{{url_for('static', filename='imagebistrialexample.jpg.png')}}" alt="bis-example4" />
-
+                <img src="{{url_for('static', filename='imagebisexample3.jpg.png')}}" alt="bis-example3" />
             </div>
         </div>
     </div>
