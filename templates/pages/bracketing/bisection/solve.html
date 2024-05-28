@@ -120,6 +120,16 @@
         display: flex;
         flex-direction: row;
         margin: auto;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    @media (max-width:768px){
+        #div3{
+            align-items:center;
+        }
+    }
+    @media (max-width:480px){
+        width:100%;
     }
     
     #div4 {
@@ -197,6 +207,9 @@
         border-bottom-style: solid;
         border-bottom-color: rgb(229, 231, 232);
         border-bottom-width: 0.666667px;
+    }
+    @media (min-width:1200){
+        padding:40px;
     }
     
     .background {
