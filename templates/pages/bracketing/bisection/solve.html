@@ -4,7 +4,9 @@
 </h2>
 {% endblock header %} {% block content %}
 
-<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+<main class="bg-gray-100 py-8" style="
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+  ">
     <div class="container mx-auto flex flex-wrap justify-center mb-20">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
@@ -144,40 +146,52 @@
         url: "/calculate",
         data: formData,
         success: function (response) {
+          console.log(response);
+          // Hide overlay loading indicator
+          $("#loading-overlay").hide();
+          if (!response.error) {
+            // Root is defined, display the result
+            var root = response.root;
+            var stepsHtml = response.steps_html;
+            var tableHtml = response.table_html;
+            var updatedIntervals = response.updated_intervals;
+
+            $("#result-section").html(
+              "<h3 class='text-lg font-bold'>The root of the equation: " +
+                root +
+                "</h3><br/>" +
+                stepsHtml +
+                "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
+                tableHtml
+            );
+
+            // Apply Tailwind classes to the dynamically generated table
+            $("table").addClass("min-w-full bg-white border-collapse");
+            $("th").addClass(
+              "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
+            );
+            $("td").addClass("py-2 px-4 border");
+
+            // Apply Tailwind classes to the stepsHtml section if needed
+            $("#stepsHtml").addClass("mt-4");
+          } else {
+            // Root is undefined, display the error message
+            $("#result-section").html(
+              '<p class="text-red-500">Error: ' +
+                response.error +
+                ": Invalid intervals" +
+                "</p>"
+            );
+          }
+        },
+        error: function (xhr, status, error) {
           // Hide overlay loading indicator
           $("#loading-overlay").hide();
 
-          var root = response.root;
-          var stepsHtml = response.steps_html;
-          var tableHtml = response.table_html;
-          var updatedIntervals = response.updated_intervals;
-
-          $("#result-section").html(
-            "<h3 class='text-lg font-bold'>The root of the equation: " +
-              root +
-              "</h3><br/>" +
-              stepsHtml +
-              "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
-              tableHtml
-          );
-
-          // Apply Tailwind classes to the dynamically generated table
-          $("table").addClass("min-w-full bg-white border-collapse");
-          $("th").addClass(
-            "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
-          );
-          $("td").addClass("py-2 px-4 border");
-
-          // Apply Tailwind classes to the stepsHtml section if needed
-          $("#stepsHtml").addClass("mt-4");
-        },
-        error: function (xhr, status, error) {
+          // Show error message in result section
           $("#result-section").html(
             '<p class="text-red-500">Error: ' + error + "</p>"
           );
-
-          // Hide overlay loading indicator
-          $("#loading-overlay").hide();
         },
       });
     });

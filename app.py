@@ -145,7 +145,8 @@ def calculate():
             'intervals': intervals
         })
     except ValueError as e:
-        return str(e)
+        print(e)
+        return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
