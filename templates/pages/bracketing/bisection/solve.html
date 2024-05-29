@@ -1,735 +1,187 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} Bisection Solver{% endblock title %}</h2>
+<h2 class="text-2xl font-bold text-center mt-8">
+    {% block title %} Bisection Solver{% endblock title %}
+</h2>
 {% endblock header %} {% block content %}
-<style>
-    * {
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        font-family:cursive;
-    }
-    
-    header {
-        background-color: #323754;
-        font-size: 16px;
-        position: relative;
-        display: flex;
-        max-width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .navbarleft {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navbarright {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navlinks li {
-        list-style: none;
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 10px 20px;
-    }
-    
-    .navlinks li a {
-        margin: 0 1.25rem;
-        line-height: 3.125rem;
-        letter-spacing: 0.5px;
-        color: white;
-    }
-    
-    .logo {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    
-    .logo a {
-        color: white;
-    }
-    
-    .searchbar {
-        background-color: rgba(0, 0, 0, 0.2);
-        height: 1.875rem;
-        box-sizing: border-box;
-        color: hsla(0, 0%, 100%, 0.6);
-        border: 0;
-        border-right: 0;
-        width: 264px;
-        padding: 0 0 0 0.625rem;
-        margin: 0;
-        font-size: 14px;
-        outline: 0;
-        border-radius: 3px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-    .button .login {
-        font-size: 0.875rem;
-        color: hsla(200, 6%, 90%, 0.75);
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 3.125rem;
-        height: 3.125rem;
-        margin: 5px;
-        display: block;
-        position: relative;
-    }
-    
-    .button .signup:hover {
-        color: #fff;
-        background-color: #f60;
-    }
-    
-    .button .signup {
-        font-size: 0.875rem;
-        font-weight: 600;
-        border: 1px solid #f60;
-        border-radius: 0.3125rem;
-        box-sizing: border-box;
-        color: #f60;
-        padding: 0.25rem 0.625rem;
-        line-height: 1.875rem;
-        height: 1.875rem;
-        margin: 0.625rem;
-        -webkit-transition: 0.3s;
-        transition: 0.3s;
-    }
-    
-    .button {
-        cursor: pointer;
-    }
 
-    /* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding-left: 2%;
-        padding-right: 2%;
-    }
-
-    .navlinks li {
-        padding: 10px 10px;
-    }
-
-    .searchbar {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .button .login, .button .signup {
-        margin: 5px 0;
-        line-height: normal;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding-left: 1%;
-        padding-right: 1%;
-    }
-
-    .navlinks li {
-        padding: 10px 5px;
-        font-size: 12px;
-    }
-
-    .searchbar {
-        font-size: 12px;
-    }
-
-    .button .login, .button .signup {
-        font-size: 12px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-}
-    /* MAIN */
-    
-    main {
-        background-color: #f3f3f3;
-    }
-    
-    #div3 {
-        width: 85%;
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-    @media (max-width:768px){
-        #div3{
-            align-items:center;
-        }
-    }
-    @media (max-width:480px){
-        width:100%;
-    }
-    
-    #div4 {
-        background-color: rgb(243, 243, 243, 0.4);
-        flex-grow: 1;
-        margin: 1px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-right: 10px;
-    }
-    
-    #div5 {
-        background-color: white;
-        flex-grow: 6;
-        margin: 1px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-        box-sizing: border-box;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-    
-    #div4 .sidebar ul{
-        padding-left: 1px;
-    }
-    #div4 .sidebar ul li{
-        padding: 20px;
-        border-bottom:1px solid rgb(229, 231, 232);
-        border-top: 1px solid rgba(229, 231, 232);
-    }
-    #div4 .sidebar ul li:hover{
-        background-color:rgb(50, 55, 84);
-    }
-    #div4 .sidebar ul li a:hover{
-        color:white;
-    }
-    
-    .sidebar ul li a {
-        padding: 0 6px;
-        text-decoration: none;
-        color: black;
-        font-weight: 400;
-        text-align: center;
-    }
-    
-    
-    .sidebar ul li a {
-        font-weight: bold;
-        line-height: 40px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .sidebartop {
-        background-color: rgb(50, 202, 12);
-        text-align: center;
-        padding: 5px;
-        font-weight: bold;
-        border-radius: 5px;
-    }
-    
-    .brackbox {
-        text-align: center;
-        padding: 20px;
-        font-weight: 600;
-        background-color: white;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-    }
-    @media (min-width:1200){
-        padding:40px;
-    }
-    
-    .background {
-        padding: 25px;
-    }
-    .active{
-        color:grey;
-    }
-    
-    /*FOOTER*/
-    
-    .practice-page {
-        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
-    }
-    
-    .footer-section {
-        background-color: #091e5c;
-    }
-    
-    .fixed-container {
-        max-width: 1280px;
-        margin: auto;
-        box-sizing: content-box;
-    }
-    
-    .footer-container .primary {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-content: center;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    
-    @media only screen and (max-width: 1200px) {
-        .footer-container .primary {
-            flex-direction: row;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    
-    @media only screen and (max-width: 992px) {
-        .footer-container .primary {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-    
-        .footer-container .primary .section-heading {
-            font-size: 0.9rem;
-            line-height: 1.1rem;
-        }
-    
-        .footer-container .primary ul li {
-            font-size: 15px;
-            line-height: 28px;
-        }
-    
-        .footer-container .primary .social-icon-container {
-            margin-top: 20px;
-        }
-    }
-    
-    @media only screen and (max-width: 768px) {
-        .footer-container .primary {
-            padding-top: 40px;
-            padding-bottom: 15px;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    
-        .footer-container .primary ul {
-            padding: 0;
-        }
-    
-        .footer-container .primary ul li {
-            font-size: 14px;
-            line-height: 26px;
-        }
-    
-        .footer-container .primary .social-icon-container i {
-            margin-right: 20px;
-        }
-    }
-    
-    @media only screen and (max-width: 576px) {
-        .footer-container .primary {
-            padding-top: 30px;
-            padding-bottom: 10px;
-        }
-    
-        .footer-container .primary ul li {
-            font-size: 13px;
-            line-height: 24px;
-        }
-    
-        .footer-container .primary .social-icon-container i {
-            font-size: 22px;
-            margin-right: 15px;
-        }
-    
-        .logo1 {
-            font-size: 50px;
-        }
-    }
-    
-    
-    .footer-container .primary ul {
-        padding: 0;
-    }
-    
-    user agent stylesheet ul {
-        display: block;
-        list-style-type: disc;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        padding-inline-start: 40px;
-        unicode-bidi: isolate;
-    }
-    
-    .footer-container .primary .section-heading {
-        font-family: Hack Bold;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .footer-container .primary ul li {
-        display: block;
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 30px;
-        color: #dbdbdb;
-        cursor: pointer;
-    }
-    
-    .primary ul li a {
-        color: #dbdbdb;
-    }
-    
-    .footer-container .secondary {
-        text-align: center;
-        background-color: #05133c;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        line-height: 26px;
-    }
-    
-    .footer-container .secondary a {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .footer-container .secondary li {
-        display: inline-block;
-        font-weight: 500;
-        font-family: Proxima Nova;
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: #999;
-    }
-    
-    .footer-container .primary .social-icon-container {
-        flex-wrap: nowrap;
-        align-items: stretch;
-        align-content: stretch;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .footer-container .primary .social-icon-container i {
-        height: 20px;
-        width: 11px;
-        color: #848ead;
-        font-size: 25px;
-        margin-right: 30px;
-    }
-    
-    .logo1 {
-        font-size: 60px;
-        font-weight: 600;
-    }
-    
-    .logo1 a {
-        color: white;
-    }
-    
-    .background {
-        text-align: center;
-    }
-    /* Overlay styles */
-    
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Semi-transparent black */
-        display: none;
-        /* Initially hidden */
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        /* Ensure the overlay appears on top of other elements */
-    }
-    /* Loading text styles */
-    
-    .loading-text {
-        color: white;
-        font-size: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
-<main>
-    <div id="div3">
-        <div id="div4">
-            <div class="brackbox">
-                <h3 class="bracketing">
-                    BISECTION METHOD
-                </h3>
-            </div>
-            <div class="sidebar">
-                <hr>
-                <ul class="nav">
-                    <div class="backgroundlink">
-                        <li>
-                            <a href="/bracketing/bisectionbackground">
-                                <span class="link_name">Background</span>
-                            </a>
-                        </li>
-                    </div>
-                    
-                        <li>
-                            <a href="/bracketing/bisection/lecturenote">
-                                <span class="link_name">Lecture Note</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/bisection/example">
-                                <span class="link_name">Example</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/bisection/graph">
-                                <span class="link_name">Schematic Representation</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/bisection/solve">
-                                <span class="active">Calculator</span>
-                            </a>
-                        </li>
-                    
-                </ul>
-            </div>
-
-        </div>
-        <div id="div5">
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 0;
-                }
-                
-                .container {
-                    max-width: 600px;
-                    margin: 0 auto;
-                    padding: 20px;
-                }
-                
-                h2 {
-                    margin-bottom: 20px;
-                    color: #333;
-                }
-                
-                label {
-                    font-weight: bold;
-                }
-                
-                
-                .input1[type="text"] {
-                    width: 100%;
-                    padding: 10px;
-                    margin: 5px 0 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    box-sizing: border-box;
-                }
-                .input2[type="text"]{
-                    width: 90%;
-                    padding: 10px;
-                    margin: 5px 0 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    box-sizing: border-box;
-                }
-                .input3[type="text"]{
-                    width: 90%;
-                    padding: 10px;
-                    margin: 5px 0 15px;
-                    margin-left:20px;                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    box-sizing: border-box;
-                }
-                
-                #ulimit{
-                    margin-left:20px;
-                }
-                .input1[type="submit"] {
-                    background-color: #4caf50;
-                    color: white;
-                    padding: 12px 20px;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                }
-                
-                .input1[type="submit"]:hover {
-                    background-color: #45a049;
-                }
-                
-                #result-section {
-                    margin-top: 20px;
-                }
-                
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                
-                th,
-                td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
-                }
-                
-                th {
-                    background-color: #f2f2f2;
-                }
-                .flex-input2{
-                    display:flex;
-                    justify-content:space-between;
-                }
-                .legend{
-                    background-color:#f0f0f0;
-                    padding:10px;
-                    border:1px solid #ccc;
-                }
-                .legend li{
-                    margin-bottom:10px;
-                }
-                .legend ul{
-                    list-style:none;
-                    margin:0;
-                    padding:0;
-                }
-                .legend span{
-                    font-weight:bold;
-                    color:#666;
-                }
-            </style>
-
-            <div class="container">
-                <h2>Bisection Method Calculator</h2>
-
-                <div>
-                    <h3 class="legend">Legend</h3>
-                    <ul>
-                        <li><span>exp</span> - Exponentiation</li>
-                        <li><span>**</span> -  Caret(raise the preceding value to the power of the following value)</li>
-                        <li><span>+</span> -   Addition</li>
-                        <li><span>-</span> - Subtraction</li>
-                        <li><span>/</span> - Division</li>
-                    </ul>
-                </div>
-                
-                <form id="bisection-form">
-                    <label for="equation">Equation:</label><br />
-                    <input type="text" id="equation" class="input1" name="equation" placeholder="Enter equation" required /><br />
-                    <div class="flex-input2">
-                        <div class="lower-limit">
-                            <label for="a">Lower Limit:</label><br />
-                        <input type="text" id="a" name="a" class="input2" placeholder="Enter a" required />
-                        </div>
-                        <div class="upper-limit">
-                            <label id="ulimit" for="b">Upper Limit:</label><br />
-                        <input type="text" id="b" name="b" class="input3" placeholder="Enter b" required />
-                        </div>
-                        
-                    </div>
-                    <input type="submit" class="input1" value="Calculate" />
-                </form>
-                <div class="overlay" id="loading-overlay">
-                    <div class="wrap">
-                        <div class="loading-text">Loading...</div>
-                    </div>
-                </div>
-                <div id="result-section"></div>
-            </div>
-
-        </div>
+<main class="bg-gray-100 py-8">
+    <div class="container mx-auto flex flex-wrap justify-center mb-20">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/graph"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Schematic Representation</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/solve"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              >Calculator</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="w-full md:w-3/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="container mx-auto">
+          <h2 class="text-2xl font-bold mb-6">Bisection Method Calculator</h2>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-4">Legend</h3>
+            <ul class="list-disc pl-5 space-y-2">
+              <li><span class="font-semibold">exp</span> - Exponentiation</li>
+              <li>
+                <span class="font-semibold">**</span> - Caret (raise the
+                preceding value to the power of the following value)
+              </li>
+              <li><span class="font-semibold">+</span> - Addition</li>
+              <li><span class="font-semibold">-</span> - Subtraction</li>
+              <li><span class="font-semibold">/</span> - Division</li>
+            </ul>
+          </div>
+
+          <form id="bisection-form">
+            <label for="equation" class="block font-bold mb-2">Equation:</label>
+            <input
+              type="text"
+              id="equation"
+              class="w-full p-2 border border-gray-300 rounded mb-4"
+              name="equation"
+              placeholder="Enter equation f(x)"
+              required
+            />
+
+            <div class="flex space-x-4 mb-4">
+              <div class="w-1/2">
+                <label for="a" class="block font-bold mb-2">Lower Limit:</label>
+                <input
+                  type="text"
+                  id="a"
+                  name="a"
+                  class="w-full p-2 border border-gray-300 rounded"
+                  placeholder="Enter upper bound (a)"
+                  required
+                />
+              </div>
+              <div class="w-1/2">
+                <label for="b" class="block font-bold mb-2">Upper Limit:</label>
+                <input
+                  type="text"
+                  id="b"
+                  name="b"
+                  class="w-full p-2 border border-gray-300 rounded"
+                  placeholder="Enter upper bound (b)"
+                  required
+                />
+              </div>
+            </div>
+
+            <input
+              type="submit"
+              class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+              value="Calculate"
+            />
+          </form>
+
+          <div
+            class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+            id="loading-overlay"
+            style="display: none"
+          >
+            <div class="text-white text-2xl">Loading...</div>
+          </div>
+
+          <div id="result-section" class="mt-8"></div>
+        </div>
+      </div>
     </div>
+  </div>
 </main>
 
 <script>
-    $(document).ready(function() {
-        $('#bisection-form').submit(function(event) {
-            event.preventDefault();
-            var formData = $(this).serialize();
+  $(document).ready(function () {
+    $("#bisection-form").submit(function (event) {
+      event.preventDefault();
+      var formData = $(this).serialize();
 
-            // Show overlay loading indicator
-            $('#loading-overlay').show();
+      // Show overlay loading indicator
+      $("#loading-overlay").show();
 
-            $.ajax({
-                type: 'POST',
-                url: '/calculate',
-                data: formData,
-                success: function(response) {
-                    // Hide overlay loading indicator
-                    $('#loading-overlay').hide();
+      $.ajax({
+        type: "POST",
+        url: "/calculate",
+        data: formData,
+        success: function (response) {
+          // Hide overlay loading indicator
+          $("#loading-overlay").hide();
 
-                    var root = response.root;
-                    var stepsHtml = response.steps_html;
-                    var tableHtml = response.table_html;
-                    var updatedIntervals = response.updated_intervals;
+          var root = response.root;
+          var stepsHtml = response.steps_html;
+          var tableHtml = response.table_html;
+          var updatedIntervals = response.updated_intervals;
 
-                    $('#result-section').html("<h3>The root of the equation: " + root + "</h3><br/>" + stepsHtml + "<p>First 10 iterations:</p> <br/>" + tableHtml);
+          $("#result-section").html(
+            "<h3 class='text-lg font-bold'>The root of the equation: " +
+              root +
+              "</h3><br/>" +
+              stepsHtml +
+              "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
+              tableHtml
+          );
 
-                },
-                error: function(xhr, status, error) {
-                    $('#result-section').html('<p>Error: ' + error + '</p>');
+          // Apply Tailwind classes to the dynamically generated table
+          $("table").addClass("min-w-full bg-white border-collapse");
+          $("th").addClass(
+            "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
+          );
+          $("td").addClass("py-2 px-4 border");
 
-                    // Hide overlay loading indicator
-                    $('#loading-overlay').hide();
-                }
-            });
-        });
+          // Apply Tailwind classes to the stepsHtml section if needed
+          $("#stepsHtml").addClass("mt-4");
+        },
+        error: function (xhr, status, error) {
+          $("#result-section").html(
+            '<p class="text-red-500">Error: ' + error + "</p>"
+          );
+
+          // Hide overlay loading indicator
+          $("#loading-overlay").hide();
+        },
+      });
     });
+  });
 </script>
-
 
 {% endblock content %}

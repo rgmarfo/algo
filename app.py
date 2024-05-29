@@ -56,6 +56,10 @@ def bisectionexample():
 def bisectionsolve():
     return render_template('pages/bracketing/bisection/solve.html')
 
+@app.route('/bracketing/bisection/exercise')
+def bisectionexe():
+    return render_template('pages/bracketing/bisection/exercise.html')
+
 
 
 

@@ -1,432 +1,99 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-<style>
-    @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
-    * {
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        font-family: cursive;
-    }
-    
-    header {
-        background-color: #323754;
-        font-size: 16px;
-        position: relative;
-        display: flex;
-        max-width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .navbarleft {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navbarright {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navlinks li {
-        list-style: none;
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 10px 20px;
-    }
-    
-    .navlinks li a {
-        margin: 0 1.25rem;
-        line-height: 3.125rem;
-        letter-spacing: 0.5px;
-        color: white;
-    }
-    
-    .logo {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    
-    .logo a {
-        color: white;
-    }
-    
-    .searchbar {
-        background-color: rgba(0, 0, 0, 0.2);
-        height: 1.875rem;
-        box-sizing: border-box;
-        color: hsla(0, 0%, 100%, 0.6);
-        border: 0;
-        border-right: 0;
-        width: 264px;
-        padding: 0 0 0 0.625rem;
-        margin: 0;
-        font-size: 14px;
-        outline: 0;
-        border-radius: 3px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-    .button .login {
-        font-size: 0.875rem;
-        color: hsla(200, 6%, 90%, 0.75);
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 3.125rem;
-        height: 3.125rem;
-        margin: 5px;
-        display: block;
-        position: relative;
-    }
-    
-    .button .signup:hover {
-        color: #fff;
-        background-color: #f60;
-    }
-    
-    .button .signup {
-        font-size: 0.875rem;
-        font-weight: 600;
-        border: 1px solid #f60;
-        border-radius: 0.3125rem;
-        box-sizing: border-box;
-        color: #f60;
-        padding: 0.25rem 0.625rem;
-        line-height: 1.875rem;
-        height: 1.875rem;
-        margin: 0.625rem;
-        -webkit-transition: 0.3s;
-        transition: 0.3s;
-    }
-    
-    .button {
-        cursor: pointer;
-    }
-    /* MAIN */
-    
-    .main-container {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 80px;
-    }
-    
-    .left-container .title {
-        margin: 30px 0;
-        text-transform: capitalize;
-        font-size: 24px;
-        color: #252c33;
-        font-weight: 300;
-    }
-    
-    .left-container .tracks-container {
-        margin-bottom: 16px;
-    }
-    
-    .left-container .tracks-container .top {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .left-container .tracks-container .top .card-wrapper {
-        min-height: 175px;
-    }
-    
-    .left-container .tracks-container .card-wrapper {
-        width: 310px;
-        background-color: #fff;
-        margin: 0 12px 24px 0;
-        border-radius: 8px;
-        box-shadow: 0 1px 1px 0 rgba(159, 167, 194, 0.4);
-        position: relative;
-        transition: all 0.5s;
-    }
-    
-    .left-container .tracks-container .card-wrapper:hover {
-        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
-    }
-    
-    .left-container .tracks-container .card-wrapper a {
-        text-decoration: none;
-    }
-    
-    .pointer,
-    a {
-        cursor: pointer;
-    }
-    
-    .left-container .tracks-container .card-wrapper .card {
-        display: flex;
-        padding: 12px 8px;
-        box-sizing: border-box;
-        margin-bottom: 70px;
-    }
-    
-    .left-container .tracks-container .card-wrapper .card .left {
-        width: 65px;
-        margin: 0 auto;
-    }
-    
-    .left-container .tracks-container .card-wrapper .card .left img {
-        margin: 10px;
-        width: 40px;
-    }
-    
-    user agent stylesheet img {
-        overflow-clip-margin: content-box;
-        overflow: clip;
-    }
-    
-    .left-container .tracks-container .card-wrapper .card .right .card-title {
-        font-size: 22px;
-        font-weight: 600;
-        color: #46535e;
-        line-height: 32px;
-    }
-    
-    .left-container .tracks-container .card-wrapper .card .right .card-desc {
-        font-size: 12px;
-        color: #9ca3a8;
-        line-height: 18px;
-        margin-top: 4px;
-    }
-    
-    .main-container .practice-right {
-        box-sizing: border-box;
-        background: #e5e7e8;
-        height: 100%;
-        width: 300px;
-    }
-    
-    .right-container {
-        margin-top: 24px;
-        padding: 20px;
-    }
-    
-    .practice-page {
-        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
-    }
-    
-    .practice-page .layout-container {
-        position: relative;
-        font-family: Open Sans, Helvetica, Arial, sans-serif;
-        box-sizing: border-box;
-        max-width: 1280px;
-        margin: 0 auto;
-    }
-    /*FOOTER*/
-    
-    .footer-section {
-        background-color: #091e5c;
-    }
-    
-    .fixed-container {
-        max-width: 1280px;
-        margin: auto;
-        box-sizing: content-box;
-    }
-    
-    .footer-container .primary {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-content: center;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    
-    @media only screen and (min-width: 758px) {
-        .primary {
-            flex-direction: row;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    
-    .footer-container .primary ul {
-        padding: 0;
-    }
-    
-    user agent stylesheet ul {
-        display: block;
-        list-style-type: disc;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        padding-inline-start: 40px;
-        unicode-bidi: isolate;
-    }
-    
-    .footer-container .primary .section-heading {
-        font-family: Hack Bold;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .footer-container .primary ul li {
-        display: block;
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 30px;
-        color: #dbdbdb;
-        cursor: pointer;
-    }
-    
-    .primary ul li a {
-        color: #dbdbdb;
-    }
-    
-    .footer-container .secondary {
-        text-align: center;
-        background-color: #05133c;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        line-height: 26px;
-    }
-    
-    .footer-container .secondary a {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .footer-container .secondary li {
-        display: inline-block;
-        font-weight: 500;
-        font-family: Proxima Nova;
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: #999;
-    }
-    
-    .footer-container .primary .social-icon-container {
-        flex-wrap: nowrap;
-        align-items: stretch;
-        align-content: stretch;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .footer-container .primary .social-icon-container i {
-        height: 20px;
-        width: 11px;
-        color: #848ead;
-        font-size: 25px;
-        margin-right: 30px;
-    }
-    
-    .logo1 {
-        font-size: 60px;
-        font-weight: 600;
-    }
-    
-    .logo1 a {
-        color: white;
-    }
-</style>
-
-<main class="layout-container">
-    <div class="main-container">
-        <div class="practice-left">
-            <div class="container mx-auto p-4">
-                <h1 class="text-3xl font-bold mb-8">Numerical Analysis Calculator</h1>
-                <div class="space-y-6">
-                    <!-- Card 1: Bracketing Method Formulas -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex">
-                        <img src="{{url_for('static', filename='algorithms@2x.png')}}" alt="Bracketing Method" class="w-32 h-32 object-cover rounded-md" />
-                        <div class="ml-6">
-                            <h2 class="text-xl font-semibold">Bracketing Method Formulas</h2>
-                            <p class="mt-2 text-gray-600">
-                                Explore various bracketing methods for finding roots, including the Bisection Method and False Position Method.
-                            </p>
-                            <a href="/bracketing/details" class="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">View Formulas</a
-              >
-            </div>
+<main class="bg-gray-100 min-h-screen py-8 flex items-center justify-center">
+    <div class="container mx-auto px-4">
+        <div class="w-3/6 mx-auto">
+            <div class="grid gap-4 grid-cols-2">
+                <!-- Card 1: Bracketing Method Formulas -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm">
+                    <img class="w-full h-32 object-cover rounded-t-lg" src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png" alt="Bracketing Method" />
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            Bracketing Method Formulas
+                        </h2>
+                        <p class="mt-2 text-gray-600">
+                            Explore various bracketing methods for finding roots, including the Bisection Method and False Position Method.
+                        </p>
+                        <a href="/bracketing/details" class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700">View Formulas</a
+            >
           </div>
+        </div>
 
-          <!-- Card 2: Open Method Formulas -->
-          <div class="bg-white rounded-lg shadow-lg p-6 flex">
-            <img
-              src="{{url_for('static', filename='basic-programming@2x.png')}}"
-              alt="Open Method"
-              class="w-38 h-32 object-cover rounded-md"
-            />
-            <div class="ml-6">
-              <h2 class="text-xl font-semibold">Open Method Formulas</h2>
-              <p class="mt-2 text-gray-600">
-                Discover open methods for solving equations, including
-                Newton-Raphson Method and Secant Method.
-              </p>
-              <a
-                href="/open/details"
-                class="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >View Formulas</a
-              >
-            </div>
+        <!-- Card 2: Open Method Formulas -->
+        <div
+          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
+        >
+          <img
+            class="w-full h-32 object-cover rounded-t-lg"
+            src="https://image1.slideserve.com/3603538/open-methods-convergence-and-divergence-concepts-l.jpg"
+            alt="Open Method"
+          />
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800">
+              Open Method Formulas
+            </h2>
+            <p class="mt-2 text-gray-600">
+              Discover open methods for solving equations, including
+              Newton-Raphson Method and Secant Method.
+            </p>
+            <a
+              href="/open/details"
+              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
+              >View Formulas</a
+            >
           </div>
+        </div>
 
-          <!-- Card 3: Numerical Calculus -->
-          <div class="bg-white rounded-lg shadow-lg p-6 flex">
-            <img
-              src="{{url_for('static', filename='math@2x.png')}}"
-              alt="Numerical Calculus"
-              class="w-32 h-32 object-cover rounded-md"
-            />
-            <div class="ml-6">
-              <h2 class="text-xl font-semibold">Numerical Calculus</h2>
-              <p class="mt-2 text-gray-600">
-                Learn about numerical integration and differentiation methods,
-                such as Trapezoidal Rule and Simpson's Rule.
-              </p>
-              <a
-                href="/numerical-calculus"
-                class="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >View Formulas</a
-              >
-            </div>
+        <!-- Card 3: Numerical Calculus -->
+        <div
+          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
+        >
+          <img
+            class="w-full h-32 object-cover rounded-t-lg"
+            src="https://st4.depositphotos.com/3711911/23456/i/600/depositphotos_234567460-stock-photo-definition-gauss-bell-function-its.jpg"
+            alt="Numerical Calculus"
+          />
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800">
+              Numerical Calculus
+            </h2>
+            <p class="mt-2 text-gray-600">
+              Learn about numerical integration and differentiation methods,
+              such as Trapezoidal Rule and Simpson's Rule.
+            </p>
+            <a
+              href="/numerical-calculus"
+              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
+              >View Formulas</a
+            >
           </div>
+        </div>
 
-          <!-- Card 4: Linear Systems -->
-          <div class="bg-white rounded-lg shadow-lg p-6 flex">
-            <img
-              src="{{url_for('static', filename='machine-learning@2x.png')}}"
-              alt="Linear Systems"
-              class="w-32 h-32 object-cover rounded-md"
-            />
-            <div class="ml-6">
-              <h2 class="text-xl font-semibold">Linear Systems</h2>
-              <p class="mt-2 text-gray-600">
-                Understand how to solve linear systems using methods like
-                Gaussian Elimination and LU Decomposition.
-              </p>
-              <a
-                href="/linear-systems"
-                class="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >View Formulas</a
-              >
-            </div>
+        <!-- Card 4: Linear Systems -->
+        <div
+          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
+        >
+          <img
+            class="w-full h-32 object-cover rounded-t-lg"
+            src="https://d20khd7ddkh5ls.cloudfront.net/solve_systems_of_linear_equations_by_substitution_2.png"
+            alt="Linear Systems"
+          />
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800">Linear Systems</h2>
+            <p class="mt-2 text-gray-600">
+              Understand how to solve linear systems using methods like Gaussian
+              Elimination and LU Decomposition.
+            </p>
+            <a
+              href="/linear-systems"
+              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
+              >View Formulas</a
+            >
           </div>
         </div>
       </div>
     </div>
   </div>
 </main>
-
 {% endblock content %}

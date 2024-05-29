@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Algo - {% block title %}{% endblock title %}</title>
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='bisection.css') }}" /> -->
     <!-- <link
@@ -68,51 +69,76 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-        },
-      };
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["\\(", "\\)"]
+                ],
+                displayMath: [
+                    ["\\[", "\\]"]
+                ],
+            },
+        };
     </script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
-    ></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-        },
-      };
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["\\(", "\\)"]
+                ],
+                displayMath: [
+                    ["\\[", "\\]"]
+                ],
+            },
+        };
     </script>
-  </head>
+</head>
 
-  <style>
+<style>
     @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
     * {
-      margin: 0;
-      text-decoration: none;
-      list-style: none;
-      font-family: "Urbanist";
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        font-family: Urbanist;
     }
-  </style>
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    main {
+        flex-grow: 1;
+    }
+</style>
 
-  <body>
+<body>
     <div class="practice-page mb">
-      {% include("_nav.html") %} {% block content %}
-      <p>This is the base template.</p>
-      {% endblock content %} {% include('_footer.html') %}
+        {% include("_nav.html") %}
+        <div class="mb-30">
+            {% block content %}
+            <p>This is the base template.</p>
+            {% endblock content %}
+        </div>
+        {% include('_footer.html') %}
     </div>
     <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-        },
-      };
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["\\(", "\\)"]
+                ],
+                displayMath: [
+                    ["\\[", "\\]"]
+                ],
+            },
+        };
     </script>
-  </body>
+</body>
+
 </html>

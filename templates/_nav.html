@@ -1,21 +1,22 @@
 <div class="practice-page">
-  <header class="header">
-    <nav class="navbarleft">
-      <div class="logo"><a href="#">ALGO</a></div>
-      <ul class="navlinks">
-        <li><a href="/">HOME</a></li>
-        <li><a href="#">SPEED COMPARISON</a></li>
-        <li><a href="#">FEEDBACK</a></li>
-        <li><a href="#">FORUM</a></li>
-      </ul>
-    </nav>
-    <nav class="navbarright">
-      <input type="text" placeholder="Search Problem" class="searchbar" />
-      <div class="button">
-        <span class="login">LOGIN</span>
-      </div>
-      <div class="button">
-        <span class="signup">Sign Up</span>
+    <header class="bg-blue-900 text-white text-sm flex justify-between items-center p-4 md:px-10">
+        <nav class="flex items-center space-x-12">
+            <div class="logo text-2xl font-semibold"><a href="#">ALGO</a></div>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="/" class="hover:text-gray-300">Home</a></li>
+                <li><a href="#" class="hover:text-gray-300">Formula comparison</a></li>
+                <li><a href="#" class="hover:text-gray-300">Feedback</a></li>
+                <li><a href="#" class="hover:text-gray-300">Forum</a></li>
+            </ul>
+        </nav>
+        <nav class="flex items-center space-x-4">
+            <input type="text" placeholder="Search Problem" class="searchbar bg-black bg-opacity-20 text-white placeholder-white border-none rounded-lg py-2 px-3 focus:outline-none w-64" />
+            <div class="button">
+                <span class="login text-sm font-semibold cursor-pointer">LOGIN</span>
+            </div>
+            <div class="button">
+                <span class="signup text-sm font-semibold border border-orange-600 text-orange-600 rounded py-1 px-3 hover:bg-orange-600 hover:text-white transition duration-300">Sign Up</span
+        >
       </div>
     </nav>
   </header>
