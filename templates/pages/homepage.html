@@ -1,96 +1,94 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-<main class="bg-gray-100 min-h-screen py-8 flex items-center justify-center">
+<main class="bg-white min-h-screen py-8 flex items-center justify-center" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
     <div class="container mx-auto px-4">
-        <div class="w-3/6 mx-auto">
-            <div class="grid gap-4 grid-cols-2">
-                <!-- Card 1: Bracketing Method Formulas -->
-                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm">
-                    <img class="w-full h-32 object-cover rounded-t-lg" src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png" alt="Bracketing Method" />
-                    <div class="p-4">
-                        <h2 class="text-xl font-semibold text-gray-800">
-                            Bracketing Method Formulas
-                        </h2>
-                        <p class="mt-2 text-gray-600">
-                            Explore various bracketing methods for finding roots, including the Bisection Method and False Position Method.
-                        </p>
-                        <a href="/bracketing/details" class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700">View Formulas</a
-            >
-          </div>
+        <div class="w-full grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <!-- Card 1: Bracketing Method Formulas -->
+            <div class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                <img class="w-full h-64 object-cover rounded-t-lg" src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png" alt="Bracketing Method" />
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">
+                        Bracketing Method Formulas
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        Explore various bracketing methods for finding roots, including the Bisection Method and False Position Method.
+                    </p>
+                    <a href="/bracketing/details" class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300">View Formulas</a
+          >
         </div>
+      </div>
 
-        <!-- Card 2: Open Method Formulas -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
-        >
-          <img
-            class="w-full h-32 object-cover rounded-t-lg"
-            src="https://image1.slideserve.com/3603538/open-methods-convergence-and-divergence-concepts-l.jpg"
-            alt="Open Method"
-          />
-          <div class="p-4">
-            <h2 class="text-xl font-semibold text-gray-800">
-              Open Method Formulas
-            </h2>
-            <p class="mt-2 text-gray-600">
-              Discover open methods for solving equations, including
-              Newton-Raphson Method and Secant Method.
-            </p>
-            <a
-              href="/open/details"
-              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
-              >View Formulas</a
-            >
-          </div>
+      <!-- Card 2: Open Method Formulas -->
+      <div
+        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+      >
+        <img
+          class="w-full h-64 object-cover rounded-t-lg"
+          src="https://image1.slideserve.com/3603538/open-methods-convergence-and-divergence-concepts-l.jpg"
+          alt="Open Method"
+        />
+        <div class="p-4">
+          <h2 class="text-xl font-semibold text-gray-800">
+            Open Method Formulas
+          </h2>
+          <p class="mt-2 text-gray-600">
+            Discover open methods for solving equations, including
+            Newton-Raphson Method and Secant Method.
+          </p>
+          <a
+            href="/open/details"
+            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
+            >View Formulas</a
+          >
         </div>
+      </div>
 
-        <!-- Card 3: Numerical Calculus -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
-        >
-          <img
-            class="w-full h-32 object-cover rounded-t-lg"
-            src="https://st4.depositphotos.com/3711911/23456/i/600/depositphotos_234567460-stock-photo-definition-gauss-bell-function-its.jpg"
-            alt="Numerical Calculus"
-          />
-          <div class="p-4">
-            <h2 class="text-xl font-semibold text-gray-800">
-              Numerical Calculus
-            </h2>
-            <p class="mt-2 text-gray-600">
-              Learn about numerical integration and differentiation methods,
-              such as Trapezoidal Rule and Simpson's Rule.
-            </p>
-            <a
-              href="/numerical-calculus"
-              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
-              >View Formulas</a
-            >
-          </div>
+      <!-- Card 3: Numerical Calculus -->
+      <div
+        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+      >
+        <img
+          class="w-full h-64 object-cover rounded-t-lg"
+          src="https://st4.depositphotos.com/3711911/23456/i/600/depositphotos_234567460-stock-photo-definition-gauss-bell-function-its.jpg"
+          alt="Numerical Calculus"
+        />
+        <div class="p-4">
+          <h2 class="text-xl font-semibold text-gray-800">
+            Numerical Calculus
+          </h2>
+          <p class="mt-2 text-gray-600">
+            Learn about numerical integration and differentiation methods, such
+            as Trapezoidal Rule and Simpson's Rule.
+          </p>
+          <a
+            href="/numerical-calculus"
+            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
+            >View Formulas</a
+          >
         </div>
+      </div>
 
-        <!-- Card 4: Linear Systems -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
-        >
-          <img
-            class="w-full h-32 object-cover rounded-t-lg"
-            src="https://d20khd7ddkh5ls.cloudfront.net/solve_systems_of_linear_equations_by_substitution_2.png"
-            alt="Linear Systems"
-          />
-          <div class="p-4">
-            <h2 class="text-xl font-semibold text-gray-800">Linear Systems</h2>
-            <p class="mt-2 text-gray-600">
-              Understand how to solve linear systems using methods like Gaussian
-              Elimination and LU Decomposition.
-            </p>
-            <a
-              href="/linear-systems"
-              class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700"
-              >View Formulas</a
-            >
-          </div>
+      <!-- Card 4: Linear Systems -->
+      <div
+        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+      >
+        <img
+          class="w-full h-64 object-cover rounded-t-lg"
+          src="https://d20khd7ddkh5ls.cloudfront.net/solve_systems_of_linear_equations_by_substitution_2.png"
+          alt="Linear Systems"
+        />
+        <div class="p-4">
+          <h2 class="text-xl font-semibold text-gray-800">Linear Systems</h2>
+          <p class="mt-2 text-gray-600">
+            Understand how to solve linear systems using methods like Gaussian
+            Elimination and LU Decomposition.
+          </p>
+          <a
+            href="/linear-systems"
+            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
+            >View Formulas</a
+          >
         </div>
       </div>
     </div>
