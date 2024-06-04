@@ -1,20 +1,37 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-<main class="bg-white min-h-screen py-8 flex items-center justify-center" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
-    <div class="container mx-auto px-4">
-        <div class="w-full grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <!-- Card 1: Bracketing Method Formulas -->
-            <div class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-                <img class="w-full h-64 object-cover rounded-t-lg" src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png" alt="Bracketing Method" />
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold text-gray-800">
-                        Bracketing Method Formulas
-                    </h2>
-                    <p class="mt-2 text-gray-600">
-                        Explore various bracketing methods for finding roots, including the Bisection Method and False Position Method.
-                    </p>
-                    <a href="/bracketing/details" class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300">View Formulas</a
+<main
+  class="bg-white min-h-screen py-8 flex items-center justify-center"
+  style="
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+  "
+>
+  <div class="container mx-auto px-4">
+    <div
+      class="w-full grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
+      <!-- Card 1: Bracketing Method Formulas -->
+      <div
+        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+      >
+        <img
+          class="w-full h-64 object-cover rounded-t-lg"
+          src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png"
+          alt="Bracketing Method"
+        />
+        <div class="p-4">
+          <h2 class="text-xl font-semibold text-gray-800">
+            Bracketing Method 
+          </h2>
+          <p class="mt-2 text-gray-600">
+            Explore various bracketing methods for finding roots, including the
+            Bisection Method and False Position Method.
+          </p>
+          <a
+            href="/bracketing/details"
+            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
+            >Available Methods</a
           >
         </div>
       </div>
@@ -30,17 +47,29 @@
         />
         <div class="p-4">
           <h2 class="text-xl font-semibold text-gray-800">
-            Open Method Formulas
+            Open Method 
           </h2>
           <p class="mt-2 text-gray-600">
             Discover open methods for solving equations, including
             Newton-Raphson Method and Secant Method.
           </p>
-          <a
-            href="/open/details"
-            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >View Formulas</a
-          >
+          <div class="relative group inline-block mt-4">
+            <button
+              class="inline-block peer bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
+              >Available Methods
+
+              <div
+                class="absolute left-0 top-9 w-[13rem] opacity-0 p-4 border rounded bg-white group-hover:opacity-100 pointer-none duration-300"
+              >
+            
+            <ul class="text-black text-left">
+                <li class='hover:bg-red-500 '><a href="/bracketing/bisectionbackground" class='block px-4 py-2'>Bisection Method</a><li>
+                <li class='hover:bg-red-500 '><a class='block px-4 py-2'>  False Position Method</a><li>
+               
+            </ul>
+            </div>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -64,7 +93,7 @@
           <a
             href="/numerical-calculus"
             class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >View Formulas</a
+            >Available Methods</a
           >
         </div>
       </div>
@@ -87,7 +116,7 @@
           <a
             href="/linear-systems"
             class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >View Formulas</a
+            >Available Methods</a
           >
         </div>
       </div>
