@@ -1,15 +1,23 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Bisection Lecture Note {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
-    <div class="container mx-auto flex flex-col md:flex-row justify-center">
-        <div class="w-full md:w-1/4 p-4">
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
-                <hr class="mb-4" />
-                <ul class="space-y-4">
-                    <li>
-                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+<main
+  class="bg-gray-100 py-8"
+  style="
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+  "
+>
+  <div class="container mx-auto flex flex-col md:flex-row justify-center">
+    <div class="w-full md:w-1/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+        <hr class="mb-4" />
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="/bracketing/bisectionbackground"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Background</a
             >
           </li>
           <li>
@@ -56,39 +64,59 @@
           <div class="brackbox">
             <h3 class="bracketing">LECTURE NOTE</h3>
           </div>
+
           <div class="mx-auto">
-            <img
-              src="{{url_for('static', filename='imagebismethod1.jpg.png')}}"
-              alt="bis-img1"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebispseudo2.jpg.png')}}"
-              alt="bis-pseudocode1"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebispseudo3.jpg.png')}}"
-              alt="bis-pseudocode2"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebisinterval4.jpg.png')}}"
-              alt="bis-pseudocode3"
-            /><br />
-            <img
-              src="{{url_for('static',filename='imagebis5.jpg.png')}}"
-              alt="bis5"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebis6.jpg.png')}}"
-              alt="bis6"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebis7.jpg.png')}}"
-              alt="bis7"
-            /><br />
-            <img
-              src="{{url_for('static', filename='imagebis8.jpg.png')}}"
-              alt="bis8"
-            />
+            <swiper-container class="mySwiper" navigation="true">
+              <swiper-slide>
+                <img
+                  src="{{url_for('static', filename='imagebismethod1.jpg.png')}}"
+                  alt="bis-img1"
+                /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                  src="{{url_for('static', filename='imagebispseudo2.jpg.png')}}"
+                  alt="bis-pseudocode1"
+                /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='imagebispseudo3.jpg.png')}}"
+                alt="bis-pseudocode2"
+              /><br />
+              </swiper-slide>
+
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='imagebisinterval4.jpg.png')}}"
+                alt="bis-pseudocode3"
+              /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                 src="{{url_for('static',filename='imagebis5.jpg.png')}}"
+                 alt="bis5"
+                /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                 src="{{url_for('static', filename='imagebis6.jpg.png')}}"
+                 alt="bis6"
+               /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='imagebis7.jpg.png')}}"
+                alt="bis7"
+              /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='imagebis8.jpg.png')}}"
+                alt="bis8"
+              />
+              </swiper-slide>
+            </swiper-container>
           </div>
         </div>
       </div>
