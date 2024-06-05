@@ -110,8 +110,7 @@ def calculate():
         for iteration, root_estimate, func_value in data[:5]:
             # Replace 'exp' with 'exp(x)' and evaluate the function
             x = symbols('x')
-            f_expr = equation_str.replace('exp', 'exp(x)')
-            f_expr = parse_expr(f_expr)
+            f_expr = parse_expr(equation_str)
             f = lambdify(x, f_expr)
             
             # Generate steps HTML

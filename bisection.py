@@ -6,8 +6,7 @@ def bisection_method(equation_str, a, b, tol=1e-6, max_iter=1000):
     intervals = []
 
     x = symbols('x')
-    equation = equation_str.replace('exp', 'exp(x)')
-    equation = parse_expr(equation)
+    equation = parse_expr(equation_str)
     equation = lambdify(x, equation)
 
     if equation(a) * equation(b) >= 0:

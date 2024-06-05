@@ -26,30 +26,43 @@
             Explore various bracketing methods for finding roots, including the
             Bisection Method and False Position Method.
           </p>
-
           <div class="relative group inline-block mt-4">
-            <button
-              class="inline-block peer bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >
-              Available Methods
-            </button>
-
             <div
-              class="absolute left-0 top-9 w-[13rem] opacity-0 p-4 border rounded z-50 bg-white group-hover:opacity-100 pointer-none duration-300"
+              class="inline-flex items-center cursor-pointer text-blue-500"
+              id="dropdownBtn1"
+            >
+              <span>Available Methods</span>
+              <svg
+                class="ml-2 h-4 w-4 transform group-hover:rotate-180 transition duration-300"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
             >
               <ul class="text-black text-left">
-                <li class="hover:bg-gray-400">
+                <li class="hover:bg-gray-100">
                   <a
                     href="/bracketing/bisectionbackground"
                     class="block px-4 py-2"
                     >Bisection Method</a
                   >
                 </li>
-                <li></li>
-                <li class="hover:bg-gray-400">
-                  <a class="block px-4 py-2"> False Position Method</a>
+                <li class="hover:bg-gray-100">
+                  <a href="/bracketing/falseposition" class="block px-4 py-2"
+                    >False Position Method</a
+                  >
                 </li>
-                <li></li>
               </ul>
             </div>
           </div>
@@ -72,25 +85,39 @@
             Newton-Raphson Method and Secant Method.
           </p>
           <div class="relative group inline-block mt-4">
-            <button
-              class="inline-block peer bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >
-              Available Methods
-            </button>
-
             <div
-              class="absolute left-0 top-9 w-[13rem] opacity-0 p-4 border rounded bg-white group-hover:opacity-100 pointer-none duration-300"
+              class="inline-flex items-center cursor-pointer text-blue-500"
+              id="dropdownBtn2"
+            >
+              <span>Available Methods</span>
+              <svg
+                class="ml-2 h-4 w-4 transform group-hover:rotate-180 transition duration-300"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
             >
               <ul class="text-black text-left">
-                <li class="hover:bg-gray-400">
-                  <a
-                    href="/bracketing/bisectionbackground"
-                    class="block px-4 py-2"
+                <li class="hover:bg-gray-100">
+                  <a href="/open-methods/newtonraphson" class="block px-4 py-2"
                     >Newton-Raphson Method</a
                   >
                 </li>
-                <li class="hover:bg-gray-400">
-                  <a class="block px-4 py-2"> Secant Method</a>
+                <li class="hover:bg-gray-100">
+                  <a href="/open-methods/secant" class="block px-4 py-2"
+                    >Secant Method</a
+                  >
                 </li>
               </ul>
             </div>
@@ -115,11 +142,46 @@
             Learn about numerical integration and differentiation methods, such
             as Trapezoidal Rule and Simpson's Rule.
           </p>
-          <a
-            href="/numerical-calculus"
-            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300 "
-            >Available Methods</a
-          >
+          <div class="relative group inline-block mt-4">
+            <div
+              class="inline-flex items-center cursor-pointer text-blue-500"
+              id="dropdownBtn1"
+            >
+              <span>Available Methods</span>
+              <svg
+                class="ml-2 h-4 w-4 transform group-hover:rotate-180 transition duration-300"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ul class="text-black text-left">
+                <li class="hover:bg-gray-100">
+                  <a
+                    href="/bracketing/bisectionbackground"
+                    class="block px-4 py-2"
+                    >Bisection Method</a
+                  >
+                </li>
+                <li class="hover:bg-gray-100">
+                  <a href="/bracketing/falseposition" class="block px-4 py-2"
+                    >False Position Method</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -138,11 +200,46 @@
             Understand how to solve linear systems using methods like Gaussian
             Elimination and LU Decomposition.
           </p>
-          <a
-            href="/linear-systems"
-            class="inline-block mt-4 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-700 transition duration-300"
-            >Available Methods</a
-          >
+          <div class="relative group inline-block mt-4">
+            <div
+              class="inline-flex items-center cursor-pointer text-blue-500"
+              id="dropdownBtn1"
+            >
+              <span>Available Methods</span>
+              <svg
+                class="ml-2 h-4 w-4 transform group-hover:rotate-180 transition duration-300"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+            >
+              <ul class="text-black text-left">
+                <li class="hover:bg-gray-100">
+                  <a
+                    href="/bracketing/bisectionbackground"
+                    class="block px-4 py-2"
+                    >Bisection Method</a
+                  >
+                </li>
+                <li class="hover:bg-gray-100">
+                  <a href="/bracketing/falseposition" class="block px-4 py-2"
+                    >False Position Method</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
