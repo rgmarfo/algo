@@ -1,430 +1,105 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} False Position Method {% endblock title %}</h2>
+<h2>{% block title %} Bisection Method {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-
-<style>
-    * {
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        font-family:cursive;
-    }
-    
-    header {
-        background-color: #323754;
-        font-size: 16px;
-        position: relative;
-        display: flex;
-        max-width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .navbarleft {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navbarright {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navlinks li {
-        list-style: none;
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 10px 20px;
-    }
-    
-    .navlinks li a {
-        margin: 0 1.25rem;
-        line-height: 3.125rem;
-        letter-spacing: 0.5px;
-        color: white;
-    }
-    
-    .logo {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    
-    .logo a {
-        color: white;
-    }
-    
-    .searchbar {
-        background-color: rgba(0, 0, 0, 0.2);
-        height: 1.875rem;
-        box-sizing: border-box;
-        color: hsla(0, 0%, 100%, 0.6);
-        border: 0;
-        border-right: 0;
-        width: 264px;
-        padding: 0 0 0 0.625rem;
-        margin: 0;
-        font-size: 14px;
-        outline: 0;
-        border-radius: 3px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-    .button .login {
-        font-size: 0.875rem;
-        color: hsla(200, 6%, 90%, 0.75);
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 3.125rem;
-        height: 3.125rem;
-        margin: 5px;
-        display: block;
-        position: relative;
-    }
-    
-    .button .signup:hover {
-        color: #fff;
-        background-color: #f60;
-    }
-    
-    .button .signup {
-        font-size: 0.875rem;
-        font-weight: 600;
-        border: 1px solid #f60;
-        border-radius: 0.3125rem;
-        box-sizing: border-box;
-        color: #f60;
-        padding: 0.25rem 0.625rem;
-        line-height: 1.875rem;
-        height: 1.875rem;
-        margin: 0.625rem;
-        -webkit-transition: 0.3s;
-        transition: 0.3s;
-    }
-    
-    .button {
-        cursor: pointer;
-    }
-    /* MAIN */
-    
-    main {
-        background-color: #f3f3f3;
-    }
-    
-    #div3 {
-        width: 85%;
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-    }
-    
-    #div4 {
-        background-color: rgb(243, 243, 243, 0.4);
-        flex-grow: 1;
-        margin: 1px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-right: 10px;
-    }
-    
-    #div5 {
-        background-color: white;
-        flex-grow: 6;
-        margin: 1px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-        box-sizing: border-box;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-    
-    #div4 .sidebar ul{
-        padding-left: 1px;
-    }
-    #div4 .sidebar ul li{
-        padding: 20px;
-        border-bottom:1px solid rgb(229, 231, 232);
-        border-top: 1px solid rgba(229, 231, 232);
-    }
-    #div4 .sidebar ul li:hover{
-        background-color:rgb(50, 55, 84);
-        color:white;
-    }
-    #div4 .sidebar ul li a:hover{
-        color:white;
-    }
-    
-    #div4 .sidebar ul{
-        padding-left: 1px;
-    }
-    #div4 .sidebar ul li{
-        padding: 20px;
-        border-bottom:1px solid rgb(229, 231, 232);
-        border-top: 1px solid rgba(229, 231, 232);
-    }
-    
-    
-    .sidebar ul li a {
-        padding: 0 6px;
-        text-decoration: none;
-        color: black;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    
-    
-    .sidebar ul li a {
-        font-weight: bold;
-        line-height: 40px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .sidebartop {
-        background-color: rgb(50, 202, 12);
-        text-align: center;
-        padding: 5px;
-        font-weight: bold;
-        border-radius: 5px;
-    }
-    
-    .brackbox {
-        text-align: center;
-        padding: 20px;
-        font-weight: 600;
-        background-color: white;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-    }
-    
-    .background {
-        padding: 25px;
-    }
-    .left-align{
-        text-align:left;
-    }
-    .left-align h3{
-        text-align:left;
-    }
-    .active{
-        color:grey;
-    }
-    /*FOOTER*/
-    
-    .practice-page {
-        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
-    }
-    
-    .footer-section {
-        background-color: #091e5c;
-    }
-    
-    .fixed-container {
-        max-width: 1280px;
-        margin: auto;
-        box-sizing: content-box;
-    }
-    
-    .footer-container .primary {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-content: center;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    
-    @media only screen and (min-width: 758px) {
-        .primary {
-            flex-direction: row;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    
-    .footer-container .primary ul {
-        padding: 0;
-    }
-    
-    user agent stylesheet ul {
-        display: block;
-        list-style-type: disc;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        padding-inline-start: 40px;
-        unicode-bidi: isolate;
-    }
-    
-    .footer-container .primary .section-heading {
-        font-family: Hack Bold;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .footer-container .primary ul li {
-        display: block;
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 30px;
-        color: #dbdbdb;
-        cursor: pointer;
-    }
-    
-    .primary ul li a {
-        color: #dbdbdb;
-    }
-    
-    .footer-container .secondary {
-        text-align: center;
-        background-color: #05133c;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        line-height: 26px;
-    }
-    
-    .footer-container .secondary a {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .footer-container .secondary li {
-        display: inline-block;
-        font-weight: 500;
-        font-family: Proxima Nova;
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: #999;
-    }
-    
-    .footer-container .primary .social-icon-container {
-        flex-wrap: nowrap;
-        align-items: stretch;
-        align-content: stretch;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .footer-container .primary .social-icon-container i {
-        height: 20px;
-        width: 11px;
-        color: #848ead;
-        font-size: 25px;
-        margin-right: 30px;
-    }
-    
-    .logo1 {
-        font-size: 60px;
-        font-weight: 600;
-    }
-    
-    .logo1 a {
-        color: white;
-    }
-    
-    .background {
-        text-align:left;
-        margin:40px;
-        width:700px;
-        line-height:30px;
-    }
-</style>
-<main>
-    <div id="div3">
-        <div id="div4">
-            <div class="brackbox">
-                <h3 class="bracketing">FALSE POSITION METHOD</h3>
-            </div>
-            <div class="sidebar">
-                <ul>
-                    
-                        <li>
-                            <a href="/bracketing/falsepositionbackground">
-                                <span class="active">Background</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/lecturenote">
-                                <span class="link_name">Lecture Note</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/example">
-                                <span class="link_name">Example</span>
-                            </a>
-                        </li>
-                    
-                
-                        <li>
-                            <a href="/bracketing/false/graph">
-                                <span class="link_name">Schematic Representation</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/solve">
-                                <span class="link_name">Calculator</span>
-                            </a>
-                        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div id="div5">
-            <div class="brackbox">
-                <h3 class="bracketing">BACKGROUND</h3>
-            </div>
-            <div class="background">
-                <p class="left-align">
-                    <h3>False Position Method</h3>
-                    \(\textbf{The Method of False Position}\)
-                    Each successive pair of approximations in the Bisection method brackets a root p of the equation; that is, for each positive integer n, a root lies between \(a_n\) and \(b_n\). This implies that, for each n, the Bisection method iterations satisfy
-                    \[|p_n - p| < \frac{1}{2}|a_n - b_n|\] 
-                    which provides an easily calculated error bound for the approximations. <br> Root bracketing is not guaranteed for either Newton's method or the Secant method.
-                    The \(\textbf{method of False Position}\) (also called Regula Falsi) generates approximations in the same manner as the Secant method, but it includes a test to ensure that the root is always bracketed between successive iterations. Although it is not a method we generally recommend, it illustrates how bracketing can be incorporated.
-                    First choose initial approximations \(p_0\) and \(p_0\) with \(f(p_0)\).\(f(p_1) < 0\). The approximation \(p_2\) is chosen initial approximations \(p_2\) is chosen in the same manner as in the Secant method, as the x-intercept of the line joining \(p(p_0,f(p_0))\) and \(p(p_1,f(p_1))\). To decide which secant line to use to compute \(p_3\) consider \(f(p_2)\).\(f(p_1)\)  
-                </p>
-                <p>
-                    <ul>
-                        <li>If sign \(f(p_2)\) sign \(f(p_1)<0\), then \(p_1\) and \(p_2\) bracket a root. Choose \(p_3\) as the x-intercept of the line joining \((p_1,f(p_1))\) and \((p_2,f(p_2))\).</li>
-                        <li>If not, choose \(p_3\) as the x-intercept of the line joining \((p_0,f(p_0))\) and \((p_2,f(p_2))\), and then interchange the indices on \(p_0\) and \(p_1\).</li>
-                        <li>If not, choose \(p_3\) as the x-intercept of the line joining \((p_0,f(p_0))\) and \((p_2,f(p_2))\), and then interchange the indices on \(p_0\) and \(p_1\).</li>
-                    </ul>
-	
-	                In a similar manner, once \(p_3\)  is found, the sign of \(f(p_1).f(p_2)\) determines whether we use \(p_2\) and \(p_3\) or \(p_3\) and  \(p_1\) to compute \(p_4\). In the latter case a relabeling of \(p_2\) and \(p_1\) is performed. The relabeling ensures that the root is bracketed  between successive iterations.
-                </p>
-            </div>
-        </div>
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/bracketing/bisection/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  Bisection Techniques
+                </p>
+                <p class="mb-4">
+                  The first technique, based on the Intermediate Value Theorem, is
+                  called the Bisection, or Binary-search, method. Suppose f is a
+                  continuous function defined on the interval [a,b], with \(f(a)\) and
+                  \(f(b)\) of opposite sign. The Intermediate Value Theorem implies that
+                  a number p exists in \((a,b)\) with \(f(p) = 0\). Although the
+                  procedure will work when there is more than one root in the interval
+                  \((a,b)\), we assume for simplicity that
+                   the root in this interval is
+                  unique. The method calls for a repeated halving (or bisecting) of
+                  subintervals of \([a,b]\) and, at each step, locating the half
+                  containing p.
+                </p>
+                <p class="mb-4">
+                  To begin, set \(a_1 = a \) and \(b_1 = b\), and let \(p_1\) be the
+                  midpoint of [a,b]; that is \[p_1 = a_1 + \frac{b_1 - a_1}{2} =
+                  \frac{a_1 + b_1}{2}\].
+                </p>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>If \(f(p_1) = 0\), then \(p=p_1\), and we are done.</li>
+                  <li>
+                    If \(f(p_1) \neq 0\), then \(f(p_1)\) has the same sign as either
+                    \(f(a_1)\) or \( f(b_1)\).
+                  </li>
+                  <li>
+                    If \(f(p_1)\) and \(f(a_1)\) have the same sign, \(p \in(p_1,b_1)\).
+                    Set \(a_2 = p_1\) and \(b_2 = b_1\).
+                  </li>
+                  <li>
+                    If \(f(p_1)\) and \(f(a_1)\) have opposite signs, \(p
+                    \in(a_1,b_1)\). Set \(a_2 = p_1\) and \(b_2 = p_1\).
+                  </li>
+                </ul><br>
+                <h2 class='text-center font-bold underline'>GRAPH FOR BISECTION</h2>
+                <img
+              src="{{url_for('static', filename='imagebisectiongraph.jpg.png')}}"
+              alt="bis-graph" class='mx-auto'
+            />
+            <ul>
+              <li><a href='https://books.google.com/books/about/Numerical_Analysis.html?id=zXnSxY9G2JgC' class='text-red-500 font-bold underline'>References: Numerical Analysis, 9th by Richard L. Burden and J.Douglas Faires</a></li>
+            </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 </main>
-
 {% endblock content %}

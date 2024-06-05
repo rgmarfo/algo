@@ -12,25 +12,25 @@ def index():
 
 
 ### Bracketing Method
-@app.route('/bracketing')
-def bracketing():
-    return render_template('pages/bracketing/bracketing.html')
+#@app.route('/bracketing')
+#def bracketing():
+#    return render_template('pages/bracketing/bracketing.html')
 
-@app.route('/bracketing/details')
-def bracketingDetails():
-    return render_template('pages/bracketing/details.html')
+#@app.route('/bracketing/details')
+#def bracketingDetails():
+#    return render_template('pages/bracketing/details.html')
 
-@app.route('/bracketing/lecturenote')
-def lecturenote():
-    return render_template('pages/bracketing/lecturenote.html')
+#@app.route('/bracketing/lecturenote')
+#def lecturenote():
+#    return render_template('pages/bracketing/lecturenote.html')
 
-@app.route('/bracketing/graph')
-def graph():
-    return render_template('pages/bracketing/graph.html')
+#@app.route('/bracketing/graph')
+#def graph():
+#    return render_template('pages/bracketing/graph.html')
 
-@app.route('/bracketing/example')
-def example():
-    return render_template('pages/bracketing/example.html')
+#@app.route('/bracketing/example')
+#def example():
+#    return render_template('pages/bracketing/example.html')
 
 
 

@@ -1,395 +1,75 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} False Position Example {% endblock title %}</h2>
+<h2>{% block title %} Bisection Example {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-
-<style>
-    * {
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        font-family:cursive;
-    }
-    
-    header {
-        background-color: #323754;
-        font-size: 16px;
-        position: relative;
-        display: flex;
-        max-width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .navbarleft {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navbarright {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    
-    .navlinks li {
-        list-style: none;
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 10px 20px;
-    }
-    
-    .navlinks li a {
-        margin: 0 1.25rem;
-        line-height: 3.125rem;
-        letter-spacing: 0.5px;
-        color: white;
-    }
-    
-    .logo {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    
-    .logo a {
-        color: white;
-    }
-    
-    .searchbar {
-        background-color: rgba(0, 0, 0, 0.2);
-        height: 1.875rem;
-        box-sizing: border-box;
-        color: hsla(0, 0%, 100%, 0.6);
-        border: 0;
-        border-right: 0;
-        width: 264px;
-        padding: 0 0 0 0.625rem;
-        margin: 0;
-        font-size: 14px;
-        outline: 0;
-        border-radius: 3px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-    .button .login {
-        font-size: 0.875rem;
-        color: hsla(200, 6%, 90%, 0.75);
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 3.125rem;
-        height: 3.125rem;
-        margin: 5px;
-        display: block;
-        position: relative;
-    }
-    
-    .button .signup:hover {
-        color: #fff;
-        background-color: #f60;
-    }
-    
-    .button .signup {
-        font-size: 0.875rem;
-        font-weight: 600;
-        border: 1px solid #f60;
-        border-radius: 0.3125rem;
-        box-sizing: border-box;
-        color: #f60;
-        padding: 0.25rem 0.625rem;
-        line-height: 1.875rem;
-        height: 1.875rem;
-        margin: 0.625rem;
-        -webkit-transition: 0.3s;
-        transition: 0.3s;
-    }
-    
-    .button {
-        cursor: pointer;
-    }
-    /* MAIN */
-    
-    main {
-        background-color: #f3f3f3;
-    }
-    
-    #div3 {
-        width: 85%;
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-    }
-    
-    #div4 {
-        background-color: rgb(243, 243, 243, 0.4);
-        flex-grow: 1;
-        margin: 1px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-right: 10px;
-    }
-    
-    #div5 {
-        background-color: white;
-        flex-grow: 6;
-        margin: 1px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-        box-sizing: border-box;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-    
-    #div4 .sidebar ul{
-        padding-left: 1px;
-    }
-    #div4 .sidebar ul li{
-        padding: 20px;
-        border-bottom:1px solid rgb(229, 231, 232);
-        border-top: 1px solid rgba(229, 231, 232);
-    }
-    #div4 .sidebar ul li:hover{
-        background-color:rgb(50, 55, 84);
-    }
-    #div4 .sidebar ul li a:hover{
-        color:white;
-    }
-    
-    .sidebar ul li a {
-        padding: 0 6px;
-        text-decoration: none;
-        color: black;
-        font-weight: 400;
-        text-align: center;
-    }
-    
-    
-    .sidebar ul li a {
-        font-weight: bold;
-        line-height: 40px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .sidebartop {
-        background-color: rgb(50, 202, 12);
-        text-align: center;
-        padding: 5px;
-        font-weight: bold;
-        border-radius: 5px;
-    }
-    
-    .brackbox {
-        text-align: center;
-        padding: 20px;
-        font-weight: 600;
-        background-color: white;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(229, 231, 232);
-        border-bottom-width: 0.666667px;
-    }
-    
-    .background {
-        padding: 25px;
-    }
-    .active{
-        color:grey;
-    }
-    /*FOOTER*/
-    
-    .practice-page {
-        background: linear-gradient(270deg, #ebedee 50%, #ebedee 0);
-    }
-    
-    .footer-section {
-        background-color: #091e5c;
-    }
-    
-    .fixed-container {
-        max-width: 1280px;
-        margin: auto;
-        box-sizing: content-box;
-    }
-    
-    .footer-container .primary {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-content: center;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    
-    @media only screen and (min-width: 758px) {
-        .primary {
-            flex-direction: row;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    
-    .footer-container .primary ul {
-        padding: 0;
-    }
-    
-    user agent stylesheet ul {
-        display: block;
-        list-style-type: disc;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        padding-inline-start: 40px;
-        unicode-bidi: isolate;
-    }
-    
-    .footer-container .primary .section-heading {
-        font-family: Hack Bold;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        color: #fff;
-        font-weight: 600;
-    }
-    
-    .footer-container .primary ul li {
-        display: block;
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 30px;
-        color: #dbdbdb;
-        cursor: pointer;
-    }
-    
-    .primary ul li a {
-        color: #dbdbdb;
-    }
-    
-    .footer-container .secondary {
-        text-align: center;
-        background-color: #05133c;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        line-height: 26px;
-    }
-    
-    .footer-container .secondary a {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .footer-container .secondary li {
-        display: inline-block;
-        font-weight: 500;
-        font-family: Proxima Nova;
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: #999;
-    }
-    
-    .footer-container .primary .social-icon-container {
-        flex-wrap: nowrap;
-        align-items: stretch;
-        align-content: stretch;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .footer-container .primary .social-icon-container i {
-        height: 20px;
-        width: 11px;
-        color: #848ead;
-        font-size: 25px;
-        margin-right: 30px;
-    }
-    
-    .logo1 {
-        font-size: 60px;
-        font-weight: 600;
-    }
-    
-    .logo1 a {
-        color: white;
-    }
-    
-    .background {
-        text-align: center;
-    }
-</style>
-<main>
-    <div id="div3">
-        <div id="div4">
-            <div class="brackbox">
-                <h3 class="bracketing">FALSE POSITION METHOD</h3>
-            </div>
-            <div class="sidebar">
-                <ul>
-                    
-                        <li>
-                            <a href="/bracketing/falsepositionbackground">
-                                <span class="link_name">Background</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/lecturenote">
-                                <span class="link_name">Lecture Note</span>
-                            </a>
-                        </li>
-                
-                    
-                        <li>
-                            <a href="/bracketing/false/example">
-                                <span class="active">Example</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/graph">
-                                <span class="link_name">Schematic Representation</span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a href="/bracketing/false/solve">
-                                <span class="link_name">Calculator</span>
-                            </a>
-                        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div id="div5">
-            <div class="brackbox">
-                <h3 class="bracketing">EXAMPLE</h3>
-            </div>
-            <div class="background">
-                <img src="{{url_for('static', filename='imagefalsepoexample1.jpg.png')}}" alt="falsepo-example1" /><br>
-                <img src="{{url_for('static', filename='imagefalsepoexample2.jpg.png')}}" alt="falsepo-example2"><br>
-                <img src="{{url_for('static', filename='imagefalsepoexample3.jpg.png')}}" alt="falsepo-example3"><br>
-                <img src="{{url_for('static', filename='imagefalsepoexample4.jpg.png')}}" alt="falsepo-example4"><br>
-                <img src="{{url_for('static', filename='imagefalsepoexample5.jpg.png')}}" alt="falsepo-example5">
-            </div>
-        </div>
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/example"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/bracketing/bisection/solve"
+              class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/bracketing/bisection/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="w-full md:w-3/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="container mx-auto">
+          <div class="brackbox">
+            <h3 class="font-bold text-2xl">EXAMPLE</h3>
+          </div>
+          <div class="background flex flex-wrap justify-center">
+            <img
+              src="{{url_for('static',filename='imagebisexample1.jpg.png')}}"
+              alt="bis-example1"
+              class="max-w-2xl m-4"
+            />
+            <img
+              src="{{url_for('static', filename='imagebisexample2.jpg.png')}}"
+              alt="bis-example2"
+              class="max-w-2xl m-4"
+            />
+            <img
+              src="{{url_for('static', filename='imagebisexample3.jpg.png')}}"
+              alt="bis-example3"
+              class="max-w-2xl m-4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 {% endblock content %}
