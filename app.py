@@ -89,6 +89,11 @@ def falsepositionexercise():
 
 
 
+
+
+
+
+
 ### Open Methods
 @app.route('/open/details')
 def OpenDetails():

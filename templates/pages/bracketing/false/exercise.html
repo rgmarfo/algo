@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} Bisection Example {% endblock title %}</h2>
+<h2>{% block title %} False Position Example {% endblock title %}</h2>
 {% endblock header %} {% block content %}
 <main class="bg-gray-100 py-8 mb-10" style="
     background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
@@ -7,23 +7,23 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-center">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">FALSE POSITION</h3>
+                <h3 class="text-lg font-bold mb-4">FALSE POSITION METHOD</h3>
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
-                        <a href="/bracketing/falsepositionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/false/lecturenote"
+              href="/bracketing/bisection/lecturenote"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Lecture Note</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/false/example"
+              href="/bracketing/bisection/example"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Example</a
             >
@@ -31,14 +31,14 @@
           
           <li>
             <a
-              href="/bracketing/false/solve"
+              href="/bracketing/bisection/solve"
               class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
               >Solution Finder</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/false/exercise"
+              href="/bracketing/bisection/exercise"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Exercise</a
             >
