@@ -86,6 +86,11 @@ def falsepositionsolve():
 
 
 
+
+
+
+
+
 ### Open Methods
 @app.route('/open/details')
 def OpenDetails():
