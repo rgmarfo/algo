@@ -83,6 +83,9 @@ def falsepositionexample():
 @app.route('/bracketing/false/solve')
 def falsepositionsolve():
     return render_template('pages/bracketing/false/solve.html')
+@app.route('/bracketing/false/exercise')
+def falsepositionexercise():
+    return render_template('pages/bracketing/false/exercise.html')
 
 
 
