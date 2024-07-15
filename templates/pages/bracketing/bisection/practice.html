@@ -1,0 +1,164 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %}Bisection Example{% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main
+    class="bg-gray-100 py-8 mb-10"
+    style="
+        background-image: url(&quot;https://www.transparenttextures.com/patterns/inflicted.png&quot;);
+    "
+>
+    <div class="container mx-auto flex flex-col md:flex-row justify-center">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a
+                            href="/bracketing/bisectionbackground"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Background</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/bracketing/bisection/lecturenote"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Lecture Note</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/bracketing/bisection/example"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Example</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/bracketing/bisection/solve"
+                            class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
+                            >Calculator</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/bracketing/bisection/exercise"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Exercise</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/bracketing/bisection/exercise"
+                            class="block text-gray-700 bg-gray-200 p-2 rounded"
+                            >Practice</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full md:w-3/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-xl font-bold mb-4">Practice Questions</h2>
+                <div id="results" class="mb-4"></div>
+                <form id="practice-form">
+                    {% for question in questions %}
+                    <div class="mb-6">
+                        <p class="font-semibold">{{ question.question }}</p>
+                        {% for choice in question.choices %}
+                        <label class="block py-4 bg-gray-100 my-2 px-2">
+                            <input
+                                type="radio"
+                                name="question{{ question.id }}"
+                                value="{{ choice }}"
+                                class="mr-2"
+                            />
+                            {{ choice }}
+                        </label>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <button
+                        id="submit-button"
+                        type="submit"
+                        class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+                    >
+                        Submit
+                    </button>
+                </form>
+                <button
+                    onclick="location.reload();"
+                    id="next-button"
+                    class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer hidden"
+                >
+                    Next Questions
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    document
+        .getElementById("practice-form")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let form = event.target;
+            let formData = new FormData(form);
+            let data = {};
+
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch("/submit_answers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    document
+                        .getElementById("submit-button")
+                        .classList.add("hidden");
+                    let resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = `<div class="bg-gray-50 rounded-lg p-2 shadow-sm">
+                                    <p class="text-lg font-semibold mb-2">Quiz Results</p>
+                                    <p class="text-lg font-bold mb-2">${data.score} / ${data.total}</p>
+                                    <p>You got ${data.score} out of ${data.total} correct!</p>
+                                </div>`;
+
+                    data.results.forEach((result) => {
+                        let questionElement = document
+                            .querySelector(
+                                `input[name="question${result.question_id}"]`,
+                            )
+                            .closest("div.mb-6");
+                        questionElement
+                            .querySelectorAll("input")
+                            .forEach((input) => {
+                                if (input.value === result.correct_answer) {
+                                    input.parentElement.classList.add(
+                                        "bg-green-100",
+                                    );
+                                } else if (input.value === result.user_answer) {
+                                    input.parentElement.classList.add(
+                                        result.is_correct
+                                            ? "bg-green-100"
+                                            : "bg-red-100",
+                                    );
+                                }
+                            });
+                    });
+
+                    document
+                        .getElementById("next-button")
+                        .classList.remove("hidden");
+                })
+                .catch((error) => console.error("Error:", error));
+        });
+</script>
+{% endblock content %}

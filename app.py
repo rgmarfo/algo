@@ -1,8 +1,17 @@
-from flask import Flask, render_template, request, jsonify
+import json
+import random
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from sympy import symbols, lambdify, parse_expr
 from bisection import bisection_method
 
 app = Flask(__name__)
+app.secret_key = 'projectalgo2024'
+
+
+
+with open('questions.json') as f:
+    questions = json.load(f)
+
 
 ### Page routes
 @app.route('/')
@@ -59,7 +68,13 @@ def bisectionsolve():
 @app.route('/bracketing/bisection/exercise')
 def bisectionexe():
     return render_template('pages/bracketing/bisection/exercise.html')
-
+    
+@app.route('/bracketing/bisection/practice')
+def practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(questions, num_questions)
+    return render_template('pages/bracketing/bisection/practice.html', questions=selected_questions)
 
 
 
@@ -93,7 +108,6 @@ def falsepositionexercise():
 
 
 
-
 ### Open Methods
 @app.route('/open/details')
 def OpenDetails():
@@ -102,9 +116,8 @@ def OpenDetails():
 
 
 
-#### Endpoint Routes
-from flask import jsonify
 
+### Logic endpoints
 @app.route('/calculate', methods=['POST'])
 def calculate():
     equation_str = request.form['equation']
@@ -154,6 +167,31 @@ def calculate():
     except ValueError as e:
         print(e)
         return jsonify({'error': str(e)})
+
+@app.route('/submit_answers', methods=['POST'])
+def submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
