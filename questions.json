@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "question": "What is the initial step in the Bisection Method?",
+    "choices": [
+      "Select two initial guesses",
+      "Calculate the derivative",
+      "Use Newton's formula",
+      "Find the midpoint"
+    ],
+    "correct": "Select two initial guesses"
+  },
+  {
+    "id": 2,
+    "question": "What do you do if f(a) and f(b) have the same sign?",
+    "choices": [
+      "The interval is valid",
+      "The interval is invalid",
+      "Both points are roots",
+      "None of the above"
+    ],
+    "correct": "The interval is invalid"
+  },
+  {
+    "id": 3,
+    "question": "How do you determine the new interval in the Bisection Method?",
+    "choices": [
+      "Choose the midpoint and one endpoint",
+      "Choose two random points",
+      "Use the endpoints of the current interval",
+      "None of the above"
+    ],
+    "correct": "Choose the midpoint and one endpoint"
+  },
+  {
+    "id": 4,
+    "question": "What is the formula for the midpoint in the Bisection Method?",
+    "choices": ["(a + b) / 2", "a * b", "a / b", "a - b"],
+    "correct": "(a + b) / 2"
+  },
+  {
+    "id": 5,
+    "question": "When do you stop the iterations in the Bisection Method?",
+    "choices": [
+      "When the midpoint is zero",
+      "After a fixed number of iterations",
+      "When the interval is sufficiently small",
+      "When the function value is constant"
+    ],
+    "correct": "When the interval is sufficiently small"
+  },
+  {
+    "id": 6,
+    "question": "Which type of problems is the Bisection Method used for?",
+    "choices": [
+      "Finding roots of equations",
+      "Solving integrals",
+      "Calculating derivatives",
+      "Solving linear equations"
+    ],
+    "correct": "Finding roots of equations"
+  },
+  {
+    "id": 7,
+    "question": "Why is the Bisection Method guaranteed to converge?",
+    "choices": [
+      "It always halves the interval",
+      "It uses derivatives",
+      "It approximates the root directly",
+      "It does not guarantee convergence"
+    ],
+    "correct": "It always halves the interval"
+  },
+  {
+    "id": 8,
+    "question": "What happens if the function value at the midpoint is zero?",
+    "choices": [
+      "The midpoint is a root",
+      "The interval is reduced",
+      "Iterations continue",
+      "None of the above"
+    ],
+    "correct": "The midpoint is a root"
+  },
+  {
+    "id": 9,
+    "question": "In the Bisection Method, what is the sign of f(a) * f(b)?",
+    "choices": ["Positive", "Negative", "Zero", "Undefined"],
+    "correct": "Negative"
+  },
+  {
+    "id": 10,
+    "question": "What is the primary advantage of the Bisection Method?",
+    "choices": [
+      "Simplicity and reliability",
+      "Fast convergence",
+      "Requires no initial guesses",
+      "Works for all functions"
+    ],
+    "correct": "Simplicity and reliability"
+  },
+  {
+    "id": 11,
+    "question": "Which of the following is a limitation of the Bisection Method?",
+    "choices": [
+      "Slow convergence",
+      "Complex implementation",
+      "Requires derivatives",
+      "Limited to linear equations"
+    ],
+    "correct": "Slow convergence"
+  },
+  {
+    "id": 12,
+    "question": "In which case is the Bisection Method most effective?",
+    "choices": [
+      "When the function is continuous",
+      "When the function is discontinuous",
+      "For solving matrices",
+      "For finding maxima and minima"
+    ],
+    "correct": "When the function is continuous"
+  },
+  {
+    "id": 13,
+    "question": "How do you ensure that the initial interval [a, b] contains a root?",
+    "choices": [
+      "Check that f(a) * f(b) < 0",
+      "Check that f(a) = f(b)",
+      "Ensure a and b are large",
+      "Check that f(a) > f(b)"
+    ],
+    "correct": "Check that f(a) * f(b) < 0"
+  },
+  {
+    "id": 14,
+    "question": "What is the result of the Bisection Method after one iteration?",
+    "choices": [
+      "A new midpoint",
+      "A smaller interval",
+      "A function value",
+      "None of the above"
+    ],
+    "correct": "A smaller interval"
+  },
+  {
+    "id": 15,
+    "question": "Which type of functions can the Bisection Method not be used on?",
+    "choices": [
+      "Discontinuous functions",
+      "Continuous functions",
+      "Linear functions",
+      "Quadratic functions"
+    ],
+    "correct": "Discontinuous functions"
+  },
+  {
+    "id": 16,
+    "question": "What should you do if the function changes sign at the midpoint?",
+    "choices": [
+      "Update the interval to [a, midpoint]",
+      "Update the interval to [midpoint, b]",
+      "Keep the same interval",
+      "Start over with new guesses"
+    ],
+    "correct": "Update the interval to [midpoint, b]"
+  },
+  {
+    "id": 17,
+    "question": "What is the purpose of the Bisection Method?",
+    "choices": [
+      "To find an approximation of a root",
+      "To solve differential equations",
+      "To integrate functions",
+      "To simplify polynomials"
+    ],
+    "correct": "To find an approximation of a root"
+  },
+  {
+    "id": 18,
+    "question": "How is the accuracy of the Bisection Method determined?",
+    "choices": [
+      "By the width of the interval",
+      "By the number of iterations",
+      "By the function value",
+      "By the initial guesses"
+    ],
+    "correct": "By the width of the interval"
+  },
+  {
+    "id": 19,
+    "question": "What is the computational cost of the Bisection Method?",
+    "choices": ["Low", "High", "Variable", "None"],
+    "correct": "Low"
+  },
+  {
+    "id": 20,
+    "question": "How many function evaluations are required per iteration in the Bisection Method?",
+    "choices": ["One", "Two", "Three", "Four"],
+    "correct": "Two"
+  },
+  {
+    "id": 21,
+    "question": "How is the new midpoint calculated?",
+    "choices": ["(a + b) / 2", "a * b", "a / b", "a - b"],
+    "correct": "(a + b) / 2"
+  },
+  {
+    "id": 22,
+    "question": "What is the role of the function f in the Bisection Method?",
+    "choices": [
+      "To evaluate points",
+      "To find derivatives",
+      "To calculate integrals",
+      "To approximate the root"
+    ],
+    "correct": "To evaluate points"
+  },
+  {
+    "id": 23,
+    "question": "When is the Bisection Method terminated?",
+    "choices": [
+      "When the interval is small enough",
+      "After a fixed number of iterations",
+      "When the midpoint is zero",
+      "When the function is continuous"
+    ],
+    "correct": "When the interval is small enough"
+  },
+  {
+    "id": 24,
+    "question": "How many initial guesses are required for the Bisection Method?",
+    "choices": ["Two", "One", "Three", "Four"],
+    "correct": "Two"
+  }
+]
