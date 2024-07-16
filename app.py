@@ -10,110 +10,314 @@ app.secret_key = 'projectalgo2024'
 
 
 with open('questions.json') as f:
-    questions = json.load(f)
+    bisection_questions = json.load(f)
+with open('questions.json') as f:
+    false_questions = json.load(f)
+with open('questions.json') as f:
+    newton_questions = json.load(f)
+with open('questions.json') as f:
+    fixed_questions = json.load(f)
+with open('questions.json') as f:
+    secant_questions = json.load(f)
 
 
-### Page routes
+
+
+### Main routes
 @app.route('/')
 def index():
     return render_template('pages/homepage.html')
+    
+@app.route('/feedback')
+def feedback():
+    return render_template('pages/feedback.html')
 
+@app.route('/speed')
+def speed():
+    return render_template('pages/speed.html')
 
-
-### Bracketing Method
-#@app.route('/bracketing')
-#def bracketing():
-#    return render_template('pages/bracketing/bracketing.html')
-
-#@app.route('/bracketing/details')
-#def bracketingDetails():
-#    return render_template('pages/bracketing/details.html')
-
-#@app.route('/bracketing/lecturenote')
-#def lecturenote():
-#    return render_template('pages/bracketing/lecturenote.html')
-
-#@app.route('/bracketing/graph')
-#def graph():
-#    return render_template('pages/bracketing/graph.html')
-
-#@app.route('/bracketing/example')
-#def example():
-#    return render_template('pages/bracketing/example.html')
-
-
+@app.route('/forum')
+def forum():
+    return render_template('pages/forum.html')
 
 
 ### Bisection Method
 @app.route('/bracketing/bisectionbackground')
-def bisectionbackground():
-    return render_template('pages/bracketing/bisection/bisectionbackground.html')
+def bisection_background():
+    return render_template('pages/bracketing/bisection/background.html')
 
 @app.route('/bracketing/bisection/lecturenote')
-def bisectionlecturenote():
+def bisection_lecture_note():
     return render_template('pages/bracketing/bisection/lecturenote.html')
 
 @app.route('/bracketing/bisection/graph')
-def bisectiongraph():
+def bisection_graph():
     return render_template('pages/bracketing/bisection/graph.html')
 
 @app.route('/bracketing/bisection/example')
-def bisectionexample():
+def bisection_example():
     return render_template('pages/bracketing/bisection/example.html')
 
 @app.route('/bracketing/bisection/solve')
-def bisectionsolve():
+def bisection_solve():
     return render_template('pages/bracketing/bisection/solve.html')
 
 @app.route('/bracketing/bisection/exercise')
-def bisectionexe():
+def bisection_exe():
     return render_template('pages/bracketing/bisection/exercise.html')
-    
+
 @app.route('/bracketing/bisection/practice')
-def practice():
+def bisection_practice():
     # Randomly select a subset of questions
     num_questions = 5  # Change this number based on how many questions you want to display
-    selected_questions = random.sample(questions, num_questions)
+    selected_questions = random.sample(bisection_questions, num_questions)
     return render_template('pages/bracketing/bisection/practice.html', questions=selected_questions)
+    
+@app.route('/bisection/submit_answers', methods=['POST'])
+def bisection_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = bisection_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
 
 
 ### False Position Method
 @app.route('/bracketing/falsepositionbackground')
-def falsepositonbackground():
-    return render_template('pages/bracketing/false/falsepositionbackground.html')
+def false_positon_background():
+    return render_template('pages/bracketing/false/background.html')
 
 @app.route('/bracketing/false/lecturenote')
-def falsepositionlecturenote():
+def false_position_lecturenote():
     return render_template('pages/bracketing/false/lecturenote.html')
 
 @app.route('/bracketing/false/graph')
-def falsepositiongraph():
+def false_position_graph():
     return render_template('pages/bracketing/false/graph.html')
 
 @app.route('/bracketing/false/example')
-def falsepositionexample():
+def false_position_example():
     return render_template('pages/bracketing/false/example.html')
 
 @app.route('/bracketing/false/solve')
-def falsepositionsolve():
+def false_position_solve():
     return render_template('pages/bracketing/false/solve.html')
+
 @app.route('/bracketing/false/exercise')
-def falsepositionexercise():
+def false_position_exercise():
     return render_template('pages/bracketing/false/exercise.html')
 
+@app.route('/bracketing/false/practice')
+def false_position_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(false_questions, num_questions)
+    return render_template('pages/bracketing/false/practice.html', questions=selected_questions)
+
+@app.route('/false/submit_answers', methods=['POST'])
+def false_positin_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = false_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
+
+### Newthon Methods
+@app.route('/open/newtonbackground')
+def newton_background():
+    return render_template('pages/open/newton/background.html')
+
+@app.route('/open/newton/lecturenote')
+def newton_lecture_note():
+    return render_template('pages/open/newton/lecturenote.html')
+
+@app.route('/open/newton/graph')
+def newton_graph():
+    return render_template('pages/open/newton/graph.html')
+
+@app.route('/open/newton/example')
+def newton_example():
+    return render_template('pages/open/newton/example.html')
+
+@app.route('/open/newton/solve')
+def newton_solve():
+    return render_template('pages/open/newton/solve.html')
+
+@app.route('/open/newton/exercise')
+def newton_exercise():
+    return render_template('pages/open/newton/exercise.html')
+
+@app.route('/open/newton/practice')
+def newton_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(newton_questions, num_questions)
+    return render_template('pages/open/newton/practice.html', questions=selected_questions)
+
+@app.route('/newton/submit_answers', methods=['POST'])
+def newton_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = newton_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
 
 
 
+### Secant Methods
+@app.route('/open/secantbackground')
+def secant_background():
+    return render_template('pages/open/secant/background.html')
 
+@app.route('/open/secant/lecturenote')
+def secant_lecture_note():
+    return render_template('pages/open/secant/lecturenote.html')
 
-### Open Methods
-@app.route('/open/details')
-def OpenDetails():
-    return render_template('pages/open/details.html')
+@app.route('/open/secant/graph')
+def secant_graph():
+    return render_template('pages/open/secant/graph.html')
 
+@app.route('/open/secant/example')
+def secant_example():
+    return render_template('pages/open/secant/example.html')
 
+@app.route('/open/secant/solve')
+def secant_solve():
+    return render_template('pages/open/secant/solve.html')
+
+@app.route('/open/secant/exercise')
+def secant_exercise():
+    return render_template('pages/open/secant/exercise.html')
+
+@app.route('/open/secant/practice')
+def secant_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(secant_questions, num_questions)
+    return render_template('pages/open/secant/practice.html', questions=selected_questions)
+    
+@app.route('/secant/submit_answers', methods=['POST'])
+def secant_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = secant_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+    
+    
+### Fixed Methods
+@app.route('/open/fixedbackground')
+def fixed_background():
+    return render_template('pages/open/fixed/background.html')
+
+@app.route('/open/fixed/lecturenote')
+def fixed_lecture_note():
+    return render_template('pages/open/fixed/lecturenote.html')
+
+@app.route('/open/fixed/graph')
+def fixed_graph():
+    return render_template('pages/open/fixed/graph.html')
+
+@app.route('/open/fixed/example')
+def fixed_example():
+    return render_template('pages/open/fixed/example.html')
+
+@app.route('/open/fixed/solve')
+def fixed_solve():
+    return render_template('pages/open/fixed/solve.html')
+
+@app.route('/open/fixed/exercise')
+def fixed_exercise():
+    return render_template('pages/open/fixed/exercise.html')
+
+@app.route('/open/fixed/practice')
+def fixed_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(fixed_questions, num_questions)
+    return render_template('pages/open/fixed/practice.html', questions=selected_questions)
+    
+@app.route('/fixed/submit_answers', methods=['POST'])
+def fixed_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = fixed_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
 
 
@@ -133,7 +337,7 @@ def calculate():
             x = symbols('x')
             f_expr = parse_expr(equation_str)
             f = lambdify(x, f_expr)
-            
+
             # Generate steps HTML
             steps_html += f"<div class='step'>\n"
             steps_html += f"<h4>Iteration {iteration+1}:</h4>\n"
@@ -149,9 +353,9 @@ def calculate():
             steps_html += "</div>\n"
             steps_html += '<br/>'
             steps_html += '<br/>'
-        
+
         steps_html += "</div>\n"
-        
+
         # Generate table for the first 10 iterations
         table_html = '<table><tr><th>Iteration</th><th>Root Estimate</th><th>Function Value at Root Estimate</th></tr>'
         for i, (iteration, root_estimate, func_value) in enumerate(data[:10]):
@@ -167,28 +371,6 @@ def calculate():
     except ValueError as e:
         print(e)
         return jsonify({'error': str(e)})
-
-@app.route('/submit_answers', methods=['POST'])
-def submit_answers():
-    user_answers = request.json
-    score = 0
-    results = []
-
-    # Validate answers
-    for key in user_answers:
-        q_index = int(key.replace('question', '')) - 1
-        correct_answer = questions[q_index]['correct']
-        is_correct = user_answers[key] == correct_answer
-        if is_correct:
-            score += 1
-        results.append({
-            'question_id': q_index + 1,
-            'user_answer': user_answers[key],
-            'correct_answer': correct_answer,
-            'is_correct': is_correct
-        })
-
-    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
 
 
