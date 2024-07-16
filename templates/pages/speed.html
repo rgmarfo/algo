@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h2 class="text-3xl font-bold text-center mt-4">{% block title %} Root Finder Speed Comparison {% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<main
+    class="bg-gray-100 min-h-screen py-8 flex items-center justify-center"
+    style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');"
+>
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="text-center text-2xl font-bold mb-8">Root Finder Speed Comparison</h3>
+        <form id="compare-form" class="space-y-8">
+            <div class="bg-gray-50 p-6 rounded shadow-md">
+                <div class="flex flex-col space-y-4">
+                    <label for="equation" class="font-semibold">Enter your equation:</label>
+                    <input type="text" id="equation" name="equation" class="p-3 border rounded w-full" placeholder="e.g., x^2 - 4">
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded shadow-md">
+                <div class="flex flex-col space-y-4">
+                    <label for="lower-bound" class="font-semibold">Enter lower bound:</label>
+                    <input type="number" id="lower-bound" name="lower-bound" class="p-3 border rounded w-full" placeholder="e.g., -2">
+                    <label for="upper-bound" class="font-semibold mt-4">Enter upper bound:</label>
+                    <input type="number" id="upper-bound" name="upper-bound" class="p-3 border rounded w-full" placeholder="e.g., 2">
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded shadow-md">
+                <div class="flex flex-col space-y-4">
+                    <label for="method1" class="font-semibold">Select Method 1:</label>
+                    <select id="method1" name="method1" class="p-3 border rounded w-full">
+                        <option value="method1">Method 1</option>
+                        <option value="method2">Method 2</option>
+                        <!-- Add more methods as options here -->
+                    </select>
+                    <label for="method2" class="font-semibold mt-4">Select Method 2:</label>
+                    <select id="method2" name="method2" class="p-3 border rounded w-full">
+                        <option value="method1">Method 1</option>
+                        <option value="method2">Method 2</option>
+                        <!-- Add more methods as options here -->
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class=" w-full bg-blue-500 text-white py-3 px-6 rounded hover:bg-blue-600 transition duration-200">Compare</button>
+            </div>
+        </form>
+        <div id="results" class="mt-10 p-6 bg-gray-50 border rounded shadow-md">
+            <h4 class="text-center text-xl font-bold mb-6">Results</h4>
+            <div id="result-method1" class="mb-6">
+                <p class="font-semibold">Method 1 Result:</p>
+                <p id="method1-result"></p>
+            </div>
+            <div id="result-method2" class="mb-6">
+                <p class="font-semibold">Method 2 Result:</p>
+                <p id="method2-result"></p>
+            </div>
+            <div id="time-comparison">
+                <p class="font-semibold">Time Comparison:</p>
+                <p id="time-result"></p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}
