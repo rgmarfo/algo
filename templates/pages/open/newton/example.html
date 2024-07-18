@@ -57,23 +57,40 @@
           <div class="brackbox">
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div>
-          <div class="background flex flex-wrap justify-center">
-            <img
-              src="{{url_for('static',filename='imagebisexample1.jpg.png')}}"
-              alt="bis-example1"
-              class="max-w-2xl m-4"
-            />
-            <img
-              src="{{url_for('static', filename='imagebisexample2.jpg.png')}}"
-              alt="bis-example2"
-              class="max-w-2xl m-4"
-            />
-            <img
-              src="{{url_for('static', filename='imagebisexample3.jpg.png')}}"
-              alt="bis-example3"
-              class="max-w-2xl m-4"
-            />
-          </div>
+          <div class="mx-auto">
+            <swiper-container class="mySwiper" navigation="true">
+              <swiper-slide>
+                <img
+                  src="{{url_for('static', filename='NewtonExercise1.jpg.png')}}"
+                  alt="Newton_Exercise1"
+                /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                  src="{{url_for('static', filename='NewtonExercise2.jpg.png')}}"
+                  alt="Newton_Exercise2"
+                /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='NewtonExercise3.jpg.png')}}"
+                alt="Newton_Exercise3"
+              /><br />
+              </swiper-slide>
+
+              <swiper-slide>
+                <img
+                src="{{url_for('static', filename='NewtonExercise4.jpg.png')}}"
+                alt="Newton_Exercise4"
+              /><br />
+              </swiper-slide>
+              <swiper-slide>
+                <img
+                 src="{{url_for('static',filename='NewtonExercise5.jpg.png')}}"
+                 alt="Newton_Exercise5"
+                /><br />
+              </swiper-slide>
+            </swiper-container>
         </div>
       </div>
     </div>

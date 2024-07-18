@@ -11,7 +11,7 @@
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
-                        <a href="/open/secantbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+                        <a href="/open/newtonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
             >
           </li>
           <li>
@@ -39,7 +39,7 @@
           <li>
             <a
               href="/open/newton/exercise"
-              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
               >Exercise</a
             >
           </li>
@@ -57,14 +57,30 @@
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
           <div class="brackbox">
-            <h3 class="font-bold text-2xl">EXERCISE</h3>
+            <h3 class="font-bold text-2xl">EXERCISE</h3><br>
           </div>
-          <div class="background flex flex-wrap justify-center">
-            <img
-              src="{{url_for('static', filename='imagebistrialexample.jpg.png')}}"
-              alt="bis-example2"
-              class="max-w-2xl m-4"
-            />
+
+          <div class="mx-auto">
+            <p>1. Use the Newton-Raphson method to find the root of the equation 
+              \( f(x) = x^3 - 2x - 5 \). Start with an initial guess \( x_0 = 2 \). 
+              Perform three iterations and provide the approximate root after each 
+              iteration.</p><br>
+              <p>2. Apply the Newton-Raphson method to find the root of the equation 
+                \( f(x) = e^x - 3x \). Use an initial guess of \( x_0 = 1 \). Perform 
+                four iterations and provide the results of each iteration.</p><br>
+                <p>3. Determine the root of the equation \( f(x) = \cos(x) - x \) using 
+                the Newton-Raphson method. Use \( x_0 = 0.5 \) as the initial guess. 
+                Continue the iterations until the approximate root converges to a 
+                satisfactory level of accuracy.</p><br>
+                <p>4. Find the root of the function \( f(x) = x^4 - x - 10 \) using 
+                  the Newton-Raphson method with an initial guess \( x_0 = 2 \). 
+                  Continue the iterations until the approximate root converges to a 
+                  satisfactory level of accuracy.</p><br>
+                <p>5. Use the Newton-Raphson method to find the root of the equation 
+                  \( f(x) = \sin(x) - 0.5 \). Start with \( x_0 = 0.5 \). Continue 
+                  the iterations until the approximate root converges to a satisfactory 
+                  level of accuracy.</p>
+                  
           </div>
         </div>
       </div>
