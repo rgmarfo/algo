@@ -1,42 +1,44 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} Newton {% endblock title %}</h2>
+<h2>{% block title %} False Position Example {% endblock title %}</h2>
 {% endblock header %} {% block content %}
-<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+<main class="bg-gray-100 py-8 mb-10" style="
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+  ">
     <div class="container mx-auto flex flex-col md:flex-row justify-center">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">Newton</h3>
+                <h3 class="text-lg font-bold mb-4">FALSE POSITION METHOD</h3>
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
-                        <a href="/open/newtonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+                        <a href="/open/secantbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/lecturenote"
+              href="/open/secant/lecturenote"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Lecture Note</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/example"
-              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              href="/open/secant/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Example</a
             >
           </li>
           
           <li>
             <a
-              href="/bracketing/bisection/solve"
+              href="/open/secant/solve"
               class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
               >Solution Finder</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/exercise"
+              href="/open/secant/exercise"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Exercise</a
             >
@@ -48,22 +50,12 @@
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
           <div class="brackbox">
-            <h3 class="font-bold text-2xl">EXAMPLE</h3>
+            <h3 class="font-bold text-2xl">EXERCISE</h3>
           </div>
           <div class="background flex flex-wrap justify-center">
             <img
-              src="{{url_for('static',filename='imagebisexample1.jpg.png')}}"
-              alt="bis-example1"
-              class="max-w-2xl m-4"
-            />
-            <img
-              src="{{url_for('static', filename='imagebisexample2.jpg.png')}}"
-              alt="bis-example2"
-              class="max-w-2xl m-4"
-            />
-            <img
-              src="{{url_for('static', filename='imagebisexample3.jpg.png')}}"
-              alt="bis-example3"
+              src="{{url_for('static', filename='imgfalsepoexercise.jpg.png')}}"
+              alt="false-exercise"
               class="max-w-2xl m-4"
             />
           </div>

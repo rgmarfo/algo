@@ -153,7 +153,7 @@ def false_positin_submit_answers():
 
 
 
-### Newthon Methods
+### Newton Methods
 @app.route('/open/newtonbackground')
 def newton_background():
     return render_template('pages/open/newton/background.html')
