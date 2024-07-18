@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block header %}
 <h2 class="text-2xl font-bold text-center mt-8">
-    {% block title %} Bisection Solver{% endblock title %}
+    {% block title %} Newton Solver{% endblock title %}
 </h2>
 {% endblock header %} {% block content %}
 
@@ -10,39 +10,46 @@
     <div class="container mx-auto flex flex-wrap justify-center mb-20">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">BISECTION METHOD</h3>
+                <h3 class="text-lg font-bold mb-4">NEWTON METHOD</h3>
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
-                        <a href="/bracketing/bisectionbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+                        <a href="/open/newtonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/lecturenote"
+              href="/open/newton/lecturenote"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Lecture Note</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/example"
+              href="/open/newton/example"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Example</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/solve"
+              href="/open/newton/solve"
               class="block text-gray-700 bg-gray-200 p-2 rounded"
               >Solution Finder</a
             >
           </li>
           <li>
             <a
-              href="/bracketing/bisection/exercise"
+              href="/open/newton/exercise"
               class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
               >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Practice</a
             >
           </li>
         </ul>
@@ -51,7 +58,7 @@
     <div class="w-full md:w-3/4 p-4">
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
-          <h2 class="text-2xl font-bold mb-6">Bisection Method Calculator</h2>
+          <h2 class="text-2xl font-bold mb-6">Newton Method Calculator</h2>
 
           <div class="mb-6">
             <h3 class="text-xl font-semibold mb-4">Legend</h3>
