@@ -60,24 +60,19 @@
               </div>
               <div>
                 <p class="text-xl font-semibold text-red-600 mb-4">
-                  False Position (or) Regula Falsi Method 
+                  Secant Method
                 </p>
-                The False Position Method (also known as the Regula Falsi Method) is a 
-                root-finding algorithm that combines the bisection method and linear 
-                interpolation. It is used to find the root of a function 
-                f(x)=0. This method is especially useful for continuous functions where 
-                a sign change is observed, indicating the presence of a root.
-                The False Position Method has its roots in ancient mathematics and was
-                known to ancient Egyptians. The method was later formalized in the 16th 
-                century and became a common technique for solving equations before the 
-                advent of more sophisticated methods. It provided a practical way to 
-                approximate solutions of equations when exact solutions were difficult to obtain.
-                The false-position method is a modification on the bisection method.
-                In mathematics, an ancient method of solving an equation in one variable
-                is the false position method or regula falsi
-                method. In simple words, the method is described as the trial and error
-                approach of using “false” or “test” values for the variable and then 
-                ltering the test value according to the result.
+                The secant method is a simple variant of the method of false position in which it is
+                no longer required that the function f has opposite signs at the end points of each
+                interval generated, not even the initial interval. In other words, one starts with two
+                arbitrary initial approximations \(x0 \neq x1\) and continues with <br>
+                \[x_{n+1} = x_n - \frac{x_n-x_{n-1}}{f(x_n) - f(x_{n-1})} f(x_n), n = 1,2,3,...\]
+                This precludes the formation of a fixed false position, as in the method of false
+                positions, and hence suggests potentially faster convergence. On the other hand, we
+                can no longer be sure that each interval \([x_{n-1}, xn]\) contains at least one root. It will
+                turn out that, if the method converges, it does so with an order of convergence larger
+                than 1 (but less than 2). However, it converges only “locally,” that is, only if the
+                initial approximations \(x0, x1\) are sufficiently close to a root.
               </div>
             </div>
           </div>
