@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block header %}
-<h2>{% block title %} Fixed Example {% endblock title %}</h2>
+<h2>{% block title %} Fixed Point Example {% endblock title %}</h2>
 {% endblock header %} {% block content %}
 <main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
     <div class="container mx-auto flex flex-col md:flex-row justify-center">
@@ -58,33 +58,59 @@
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div>
           <div class="mx-auto">
-            <swiper-container class="mySwiper" navigation="true">
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imgfalsepoexample1.jpg.png')}}"
-                  alt="false-example1"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imgfalsepoexample2.jpg.png')}}"
-                  alt="false-example2"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imgfalsepoexample3.jpg.png')}}"
-                alt="false-example3"
-              /><br />
-              </swiper-slide>
-
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imgfalsepoexample4.jpg.png')}}"
-                alt="false-example4"
-              /><br />
-              </swiper-slide>
-            </swiper-container>
+            <p>Solve the equation \( x^3 + x - 1 = 0 \) using the fixed-point method 
+              starting with an initial guess \( x_0 = 0.5\)</p><br>
+            <h3 class="font-bold text-2xl">SOLUTION</h3>
+            <h2 class="font-bold text-1xl">Step 1: Transform the Equation</h2>
+            <p>Rewrite the equation \( x^3 + x - 1 = 0 \) into the form \( x = g(x) \). 
+              One possible transformation is:</p>
+            <p>\( x = 1 - x^3 \)</p>
+            <p>So, \( g(x) = 1 - x^3 \).</p><br>
+            <h2 class="font-bold text-1xl">Step 2: Choose an Initial Guess</h2>
+            <p>Initial guess \( x_0 = 0.5 \).</p><br>
+            <h2 class="font-bold text-1xl">Step 3: Iterate Using the Fixed-Point Formula</h2>
+            <p>Using the formula \( x_{n+1} = g(x_n) \), we iterate to find successive approximations
+               to the fixed point.</p><br>
+            <ol>
+                <li>
+                    <b>First Iteration:</b><br>
+                    \( x_1 = g(x_0) = 1 - (0.5)^3 = 1 - 0.125 = 0.875 \)
+                </li>
+                <li>
+                    <b>Second Iteration:</b><br>
+                    \( x_2 = g(x_1) = 1 - (0.875)^3 = 1 - 0.669921875 = 0.330078125 \)
+                </li>
+                <li>
+                    <b>Third Iteration:</b><br>
+                    \( x_3 = g(x_2) = 1 - (0.330078125)^3 = 1 - 0.0359375772 = 0.9640624228 \)
+                </li>
+                <li>
+                    <b>Fourth Iteration:</b><br>
+                    \( x_4 = g(x_3) = 1 - (0.9640624228)^3 = 1 - 0.8957962642 = 0.1042037358 \)
+                </li>
+                <li>
+                    <b>Fifth Iteration:</b><br>
+                    \( x_5 = g(x_4) = 1 - (0.1042037358)^3 = 1 - 0.0011312478 = 0.9988687522 \)
+                </li><br>
+            </ol>
+        
+            <h2 class="font-bold text-1xl">Step 4: Check for Convergence</h2>
+            <p>We continue iterating until the difference between successive approximations is 
+              smaller than a chosen tolerance level, indicating convergence. For practical 
+              purposes, we will stop here, but in real applications, you might want to 
+              continue until the difference between \( x_n \) and \( x_{n+1} \) is sufficiently 
+              small.</p><br>
+            <h2 class="font-bold text-1xl">Conclusion</h2>
+            <p>After a few iterations, we see that the sequence \( x_n \) is converging. The 
+              approximations suggest that the fixed point (and hence the root of the original 
+              equation) is close to 1.</p><br>
+            <p>To confirm, we can continue iterating or use a more precise method to check:</p>
+            <p>\( x_6 = g(x_5) = 1 - (0.9988687522)^3 = 1 - 0.9966097745 = 0.0033902255 \)</p>
+            <p>As the iterations progress, \( x_n \) will continue to converge to the true fixed 
+              point (root) of the equation \( x = 1 - x^3 \).</p><br>
+            <p>This example demonstrates the application of the fixed-point method to find a root
+               of the given equation, illustrating how to transform the equation, choose an initial 
+               guess, iterate using the fixed-point formula, and check for convergence.</p>
           </div>
         </div>
       </div>
