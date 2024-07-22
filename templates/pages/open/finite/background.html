@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Finite Difference Method {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">FINITE DIFFERENCE METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/finitebackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/finite/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/finite/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/finite/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+         
+          <li>
+            <a
+              href="/open/finite/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/finite/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  FINITE DIFFERENCE METHOD
+                </p>
+                The Finite Difference Method (FDM) is a numerical technique used 
+                to solve differential equations by approximating derivatives with 
+                finite difference equations. It is widely used in various fields 
+                of science and engineering, including physics, chemistry, biology, 
+                finance, and engineering, to solve problems that involve differential 
+                equations. The origins of the Finite Difference Method can be traced 
+                back to the early 18th century. The development of FDM is closely 
+                linked to the progress in calculus and numerical analysis made by 
+                early mathematicians. Isaac Newton and Gottfried Wilhelm Leibniz, 
+                in the late 17th century, laid the foundation for the numerical 
+                approximation of derivatives through their development of calculus. 
+                Their work on differentiation and integration provided the essential 
+                tools for the approximation methods that would later form the basis of FDM. 
+                In the finite difference method, the derivatives in the differential equation are 
+                approximated using the finite difference formulas. We can divide the 
+                the interval of \([a,b]\) into \(n\) equal subintervals of length h
+                as shown in the following figure.
+                <img
+                src="{{url_for('static', filename='ImageFiniteDifference.jpg.png')}}"
+                alt="FiniteDifference-graph" class='mx-auto'
+              />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}

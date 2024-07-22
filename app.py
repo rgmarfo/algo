@@ -320,6 +320,59 @@ def fixed_submit_answers():
     return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
 
+### Finite Difference Methods
+@app.route('/open/finitebackground')
+def finite_background():
+    return render_template('pages/open/finite/background.html')
+
+@app.route('/open/finite/lecturenote')
+def finite_lecture_note():
+    return render_template('pages/open/finite/lecturenote.html')
+
+@app.route('/open/finite/graph')
+def finite_graph():
+    return render_template('pages/open/finite/graph.html')
+
+@app.route('/open/finite/example')
+def finite_example():
+    return render_template('pages/open/finite/example.html')
+
+@app.route('/open/finite/solve')
+def finite_solve():
+    return render_template('pages/open/finite/solve.html')
+
+@app.route('/open/finite/exercise')
+def finite_exercise():
+    return render_template('pages/open/finite/exercise.html')
+
+@app.route('/open/finite/practice')
+def finite_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(finite_questions, num_questions)
+    return render_template('pages/open/finite/practice.html', questions=selected_questions)
+    
+@app.route('/finite/submit_answers', methods=['POST'])
+def finite_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = finite_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+ 
 
 ### Logic endpoints
 @app.route('/calculate', methods=['POST'])
