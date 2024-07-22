@@ -91,30 +91,18 @@
 
             <div class="flex space-x-4 mb-4">
               <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Lower Limit:</label>
+                <label for="a" class="block font-bold mb-2">Initial Guess \((x_0\)) :</label>
                 <input
                   type="text"
                   id="a"
                   name="a"
                   class="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Enter lower bound (a)"
+                  placeholder="Enter initial guess"
                   required
                 />
               </div>
-              <div class="w-1/2">
-                <label for="b" class="block font-bold mb-2">Upper Limit:</label>
-                <input
-                  type="text"
-                  id="b"
-                  name="b"
-                  class="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Enter upper bound (b)"
-                  required
-                />
               </div>
-            </div>
-
-            <input
+              <input
               type="submit"
               class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
               value="Calculate"
