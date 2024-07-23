@@ -319,7 +319,7 @@ def fixed_submit_answers():
 
     return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
-
+ 
 ### Finite Difference Methods
 @app.route('/open/finitebackground')
 def finite_background():
@@ -371,6 +371,64 @@ def finite_submit_answers():
             'correct_answer': correct_answer,
             'is_correct': is_correct
         })
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
+### Trapezoidal Rule
+@app.route('/open/trapezoidalbackground')
+def trapezoidal_background():
+    return render_template('pages/open/trapezoidal/background.html')
+
+@app.route('/open/trapezoidal/lecturenote')
+def trapezoidal_lecturenote():
+    return render_template('pages/open/trapezoidal/lecturenote.html')
+
+@app.route('/open/trapezoidal/graph')
+def trapezoidal_graph():
+    return render_template('pages/open/trapezoidal/graph.html')
+
+@app.route('/open/trapezoidal/example')
+def trapezoidal_example():
+    return render_template('pages/open/trapezoidal/example.html')
+
+@app.route('/open/trapezoidal/solve')
+def trapezoidal_solve():
+    return render_template('pages/open/trapezoidal/solve.html')
+
+@app.route('/open/trapezoidal/exercise')
+def trapezoidal_exercise():
+    return render_template('pages/open/trapezoidal/exercise.html')
+
+@app.route('/open/trapezoidal/practice')
+def trapezoidal_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(trapezoidal_questions, num_questions)
+    return render_template('pages/open/trapezoidal/practice.html', questions=selected_questions)
+
+@app.route('/trapezoidal/submit_answers', methods=['POST'])
+def trapezoidal_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
 
  
 

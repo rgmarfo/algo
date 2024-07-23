@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Trapezoidal Rule {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">TRAPEZOIDAL RULE</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/trapezoidalbackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/trapezoidal/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+         
+          <li>
+            <a
+              href="/open/trapezoidal/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  TRAPEZOIDAL RULE
+                </p>
+                The Trapezoidal Rule is a numerical integration technique used 
+                to approximate the definite integral of a function. It works by 
+                dividing the area under the curve into trapezoids rather than 
+                rectangles, providing a better approximation than the rectangular 
+                (or midpoint) rule. The method is derived from the concept of 
+                averaging the left-hand and right-hand Riemann sums. Mathematically, 
+                for a function \(f(x)\) over the interval \([a,b]\) the integral is approximated as:
+                \[
+                \int_{a}^{b} f(x) \, dx \approx \frac{h}{2} \left[ f(a) + 2 \sum_{i=1}^{n-1} f(x_i) + f(b) \right]
+                \]
+                where
+                \[
+                h = \frac{b - a}{n} \quad \text{and} \quad x_i = a + ih.
+                \]
+                The Trapezoidal Rule is especially useful for functions that are 
+                approximately linear over small intervals and is more accurate with finer partitions
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}

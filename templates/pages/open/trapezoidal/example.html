@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Trapezoidal Example {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">TRAPEZOIDAL RULE</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/trapezoidalbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/example"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/trapezoidal/solve"
+              class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/trapezoidal/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="container mx-auto">
+          <div class="brackbox">
+            <h3 class="font-bold text-2xl">EXAMPLE</h3>
+          </div>
+          <div class="mx-auto">
+            Use the Trapezoidal Rule with \( n = 4 \) to approximate 
+            the integral \(\int_{0}^{2} x^2 \, dx\).<br><br>
+            <h3 class="font-bold text-2xl">SOLUTION</h3>
+            The Trapezoidal Rule formula is:
+            \[
+            \int_{a}^{b} f(x) \, dx \approx \frac{h}{2} \left[ f(a) + 2 \sum_{i=1}^{n-1} f(x_i) + f(b) \right]
+            \]
+            where
+            \[
+            h = \frac{b - a}{n}
+            \]
+            and
+            \[
+            x_i = a + ih \quad \text{for} \quad i = 1, 2, \ldots, n-1.
+            \]
+
+            Given:
+            \[
+            a = 0, \quad b = 2, \quad n = 4, \quad f(x) = x^2
+            \]
+
+            First, we calculate \( h \):
+            \[
+            h = \frac{2 - 0}{4} = \frac{2}{4} = 0.5
+            \]
+
+            Next, we calculate the points \( x_i \):
+            \[
+            x_0 = 0, \quad x_1 = 0.5, \quad x_2 = 1.0, \quad x_3 = 1.5, \quad x_4 = 2.0
+            \]
+
+            Now, we evaluate \( f(x) \) at these points:
+            \[
+            f(0) = 0^2 = 0
+            \]
+            \[
+            f(0.5) = (0.5)^2 = 0.25
+            \]
+            \[
+            f(1.0) = (1.0)^2 = 1.0
+            \]
+            \[
+            f(1.5) = (1.5)^2 = 2.25
+            \]
+            \[
+            f(2.0) = (2.0)^2 = 4.0
+            \]
+
+            Applying the Trapezoidal Rule formula:
+            \[
+            \int_{0}^{2} x^2 \, dx \approx \frac{h}{2} \left[ f(0) + 2 \sum_{i=1}^{3} f(x_i) + f(2) \right]
+            \]
+            \[
+            \int_{0}^{2} x^2 \, dx \approx \frac{0.5}{2} \left[ 0 + 2(0.25 + 1.0 + 2.25) + 4.0 \right]
+            \]
+            \[
+            \int_{0}^{2} x^2 \, dx \approx 0.25 \left[ 0 + 2(3.5) + 4.0 \right]
+            \]
+            \[
+            \int_{0}^{2} x^2 \, dx \approx 0.25 \left[ 0 + 7.0 + 4.0 \right]
+            \]
+            \[
+            \int_{0}^{2} x^2 \, dx \approx 0.25 \times 11.0
+            \]
+            \[
+            \int_{0}^{2} x^2 \, dx \approx 2.75
+            \]
+            Thus, using the Trapezoidal Rule with \( n = 4 \), the approximate value of the integral \(\int_{0}^{2} x^2 \, dx\) is \( 2.75 \).
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
