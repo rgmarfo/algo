@@ -19,6 +19,11 @@ with open('questions.json') as f:
     fixed_questions = json.load(f)
 with open('questions.json') as f:
     secant_questions = json.load(f)
+with open('questions.json') as f:
+    trapezoidal_questions = json.load(f)
+with open('questions.json') as f:
+    finite_questions = json.load(f)
+
 
 
 
@@ -99,11 +104,11 @@ def bisection_submit_answers():
 
 ### False Position Method
 @app.route('/bracketing/falsepositionbackground')
-def false_positon_background():
+def false_position_background():
     return render_template('pages/bracketing/false/background.html')
 
 @app.route('/bracketing/false/lecturenote')
-def false_position_lecturenote():
+def false_position_lecture_note():
     return render_template('pages/bracketing/false/lecturenote.html')
 
 @app.route('/bracketing/false/graph')
@@ -130,7 +135,7 @@ def false_position_practice():
     return render_template('pages/bracketing/false/practice.html', questions=selected_questions)
 
 @app.route('/false/submit_answers', methods=['POST'])
-def false_positin_submit_answers():
+def false_position_submit_answers():
     user_answers = request.json
     score = 0
     results = []
