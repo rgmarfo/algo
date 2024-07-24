@@ -1,295 +1,372 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
 {% endblock header %} {% block content %}
+<style>
+.tab-link.active {
+    border-color: #1a202c;
+    color: #1a202c;
+}
+
+.tab-link {
+    color: #718096;
+}
+
+.tab-link:hover {
+    border-color: #cbd5e0;
+}
+
+.tab-content.hidden {
+    display: none;
+}
+</style>
 <main
-  class="bg-white min-h-screen py-8 flex items-center justify-center"
-  style="
-    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
-  "
+    class="bg-white min-h-screen py-8 flex"
+    style="
+        background-image: url(&quot;https://www.transparenttextures.com/patterns/inflicted.png&quot;);
+    "
 >
-  <div class="container mx-auto px-4">
-    <!-- Non-Linear Systems Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-        Non-Linear Systems
-      </h3>
-      <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card 1: Bracketing Method -->
-        <!-- <div
-                    class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-xs mx-auto"
+    <div class="container mx-auto px-4">
+        <!-- Tabs Navigation -->
+
+        <!-- Tabs Navigation -->
+        <!-- Tabs Navigation -->
+        <div
+            class="border-b border-gray-200 dark:border-gray-700 mb-8 bg-white shadow-sm rounded-xl"
+        >
+            <ul
+                class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+            >
+                <li class="me-2">
+                    <a
+                        href="#non-linear"
+                        class="tab-link active inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 dark:hover:text-gray-300 group"
+                    >
+                        <svg
+                            class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
+                            /></svg
+                        >Non-Linear Systems
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a
+                        href="#numerical-calculus"
+                        class="tab-link inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 dark:hover:text-gray-300 group"
+                    >
+                        <svg
+                            class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 18 18"
+                        >
+                            <path
+                                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
+                            /></svg
+                        >Numerical Calculus
+                    </a>
+                </li>
+                <li class="me-2">
+                    <a
+                        href="#linear-systems"
+                        class="tab-link inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 dark:hover:text-gray-300 group"
+                    >
+                        <svg
+                            class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M5 11.424V1a1 1 0 1 0-2 0v10.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.228 3.228 0 0 0 0-6.152ZM19.25 14.5A3.243 3.243 0 0 0 17 11.424V1a1 1 0 0 0-2 0v10.424a3.227 3.227 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.243 3.243 0 0 0 2.25-3.076Zm-6-9A3.243 3.243 0 0 0 11 2.424V1a1 1 0 0 0-2 0v1.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0V8.576A3.243 3.243 0 0 0 13.25 5.5Z"
+                            /></svg
+                        >Linear Systems
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Non-Linear Systems Section -->
+        <section id="non-linear" class="tab-content">
+            <section class="mb-12 mt-12">
+                <div
+                    class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
                 >
-                    <img
-                        class="w-full h-48 object-cover rounded-t-lg"
-                        src="https://www.cfm.brown.edu/people/dobrush/am33/Mathematica/ch3/part33-3/bisection.png"
-                        alt="Bracketing Method"
-                    />
-                    <div class="p-4">
-                        <h2 class="text-lg font-semibold text-gray-800">
-                            Bracketing Method
-                        </h2>
-                        <p class="mt-2 text-gray-600">
-                            Explore various bracketing methods for finding
-                            roots, including the Bisection Method and False
-                            Position Method.
-                        </p>
+                    <!-- Card 1: Newton's Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMx_0bRRV7jOVaPGUnmu4KmzIGRRM8dc9JqQ&s"
+                            alt="Bisection Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Bisection Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Bisection Method is a root-finding method
+                                that repeatedly bisects an interval and then
+                                selects a subinterval in which a root must lie
+                                for further processing.
+                            </p>
+                            <a
+                                href="/bracketing/bisectionbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
                     </div>
-                </div> -->
 
-        <!-- Card 2: Bisection Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMx_0bRRV7jOVaPGUnmu4KmzIGRRM8dc9JqQ&s"
-            alt="Bisection Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Bisection Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Bisection Method is a root-finding method that repeatedly
-              bisects an interval and then selects a subinterval in which a root
-              must lie for further processing.
-            </p>
-            <a
-              href="/bracketing/bisectionbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+                    <!-- Card 3: False Position Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://media.geeksforgeeks.org/wp-content/uploads/falsepos.jpg"
+                            alt="False Position Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                False Position Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The False Position Method is a root-finding
+                                method that, like the Bisection Method, is a
+                                bracketing method but uses a linear
+                                interpolation to find the root.
+                            </p>
+                            <a
+                                href="/bracketing/falsepositionbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
 
-        <!-- Card 3: False Position Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/falsepos.jpg"
-            alt="False Position Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              False Position Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The False Position Method is a root-finding method that, like the
-              Bisection Method, is a bracketing method but uses a linear
-              interpolation to find the root.
-            </p>
-            <a
-              href="/bracketing/falsepositionbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+                    <!-- Card 4: Open Method -->
+                    <!-- <div
+                            class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-xs mx-auto"
+                        >
+                            <img
+                                class="w-full h-48 object-cover rounded-t-lg"
+                                src="https://image1.slideserve.com/3603538/open-methods-convergence-and-divergence-concepts-l.jpg"
+                                alt="Open Method"
+                            />
+                            <div class="p-4">
+                                <h2 class="text-lg font-semibold text-gray-800">
+                                    Open Method
+                                </h2>
+                                <p class="mt-2 text-gray-600">
+                                    Discover open methods for solving equations,
+                                    including Newton-Raphson Method, Secant Method, and
+                                    Fixed Point Method.
+                                </p>
+                            </div>
+                        </div> -->
 
-        <!-- Card 4: Open Method -->
-        <!-- <div
-                    class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-xs mx-auto"
+                    <!-- Card 5: Newton-Raphson Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://mmerevise.co.uk/app/uploads/2021/07/Graph-e1650551841361.png"
+                            alt="Newton-Raphson Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Newton-Raphson Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Newton-Raphson Method is an iterative
+                                root-finding method that produces successively
+                                better approximations to the roots of a
+                                real-valued function.
+                            </p>
+                            <a
+                                href="/open/newtonbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Secant Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb9KfkPhnAbERMQ7HjrSI68VUZ_zKB9W6IEw&s"
+                            alt="Secant Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Secant Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Secant Method is a root-finding algorithm
+                                that uses a sequence of roots of secant lines to
+                                better approximate a root of a function.
+                            </p>
+                            <a
+                                href="/open/secantbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Fixed Point Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4FC-moBjLvcny1TgD5Sk5VEJdh4Eim1UsRQ&s"
+                            alt="Fixed Point Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Fixed Point Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Fixed Point Method is a root-finding
+                                algorithm that solves equations by iterating to
+                                find a fixed point.
+                            </p>
+                            <a
+                                href="/open/fixedbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Numerical Calculus Section -->
+        <section id="numerical-calculus" class="tab-content hidden">
+            <section class="mb-12 mt-12">
+    
+                <div
+                    class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
                 >
-                    <img
-                        class="w-full h-48 object-cover rounded-t-lg"
-                        src="https://image1.slideserve.com/3603538/open-methods-convergence-and-divergence-concepts-l.jpg"
-                        alt="Open Method"
-                    />
-                    <div class="p-4">
-                        <h2 class="text-lg font-semibold text-gray-800">
-                            Open Method
-                        </h2>
-                        <p class="mt-2 text-gray-600">
-                            Discover open methods for solving equations,
-                            including Newton-Raphson Method, Secant Method, and
-                            Fixed Point Method.
-                        </p>
+                    <!-- Card 1: Finite Difference -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0pVgjrWpXXMk1QIRYyJJsh2ViYYueKyreA&s"
+                            alt="Finite Difference"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Finite Difference
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                Finite Difference is a method for approximating
+                                the derivatives of a function using a finite set
+                                of data points.
+                            </p>
+                            <a
+                                href="/open/finitebackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
                     </div>
-                </div> -->
 
-        <!-- Card 5: Newton-Raphson Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://mmerevise.co.uk/app/uploads/2021/07/Graph-e1650551841361.png"
-            alt="Newton-Raphson Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Newton-Raphson Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Newton-Raphson Method is an iterative root-finding method that
-              produces successively better approximations to the roots of a
-              real-valued function.
-            </p>
-            <a
-              href="/open/newtonbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+                    <!-- Card 2: Forward Difference Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Finite_difference_method.svg/307px-Finite_difference_method.svg.png"
+                            alt="Forward Difference Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Forward Difference Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Forward Difference Method is a numerical
+                                method used for approximating derivatives by
+                                computing the difference quotient.
+                            </p>
+                            <a
+                                href="/numerical-calculus/forward-difference"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
 
-        <!-- Card 6: Secant Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb9KfkPhnAbERMQ7HjrSI68VUZ_zKB9W6IEw&s"
-            alt="Secant Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">Secant Method</h2>
-            <p class="mt-2 text-gray-600">
-              The Secant Method is a root-finding algorithm that uses a sequence
-              of roots of secant lines to better approximate a root of a
-              function.
-            </p>
-            <a href="/open/secantbackground" class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+                    <!-- Card 3: Backward Difference Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://d3i71xaburhd42.cloudfront.net/cbe28118f4e69733306b8a039cae7a24d800268b/4-Figure2-1.png"
+                            alt="Backward Difference Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Backward Difference Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Backward Difference Method is a numerical
+                                method used for approximating derivatives by
+                                computing the difference quotient in the reverse
+                                direction.
+                            </p>
+                            <a
+                                href="/numerical-calculus/backward-difference"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
 
-        <!-- Card 7: Fixed Point Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4FC-moBjLvcny1TgD5Sk5VEJdh4Eim1UsRQ&s"
-            alt="Fixed Point Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Fixed Point Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Fixed Point Method is a root-finding algorithm that solves
-              equations by iterating to find a fixed point.
-            </p>
-            <a
-              href="/open/fixedbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Numerical Calculus Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-        Numerical Calculus
-      </h3>
-      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        <!-- Card 1: Finite Difference -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0pVgjrWpXXMk1QIRYyJJsh2ViYYueKyreA&s"
-            alt="Finite Difference"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Finite Difference
-            </h2>
-            <p class="mt-2 text-gray-600">
-              Finite Difference is a method for approximating the derivatives of
-              a function using a finite set of data points.
-            </p>
-            <a
-              href="/open/finitebackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
-
-        <!-- Card 2: Forward Difference Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Finite_difference_method.svg/307px-Finite_difference_method.svg.png"
-            alt="Forward Difference Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Forward Difference Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Forward Difference Method is a numerical method used for
-              approximating derivatives by computing the difference quotient.
-            </p>
-            <a
-              href="/numerical-calculus/forward-difference"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
-
-        <!-- Card 3: Backward Difference Method -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://d3i71xaburhd42.cloudfront.net/cbe28118f4e69733306b8a039cae7a24d800268b/4-Figure2-1.png"
-            alt="Backward Difference Method"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Backward Difference Method
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Backward Difference Method is a numerical method used for
-              approximating derivatives by computing the difference quotient in
-              the reverse direction.
-            </p>
-            <a
-              href="/numerical-calculus/backward-difference"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
-
-        <!-- Card 4: Trapezoidal Rule -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-        >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://www.bragitoff.com/wp-content/uploads/2015/08/TrapezoidRule1.png"
-            alt="Trapezoidal Rule"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Trapezoidal Rule
-            </h2>
-            <p class="mt-2 text-gray-600">
-              The Trapezoidal Rule is a numerical integration method that
-              approximates the integral of a function by approximating it as a
-              trapezoid.
-            </p>
-            <a
-              href="/open/trapezoidalbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+                    <!-- Card 4: Trapezoidal Rule -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://www.bragitoff.com/wp-content/uploads/2015/08/TrapezoidRule1.png"
+                            alt="Trapezoidal Rule"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Trapezoidal Rule
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Trapezoidal Rule is a numerical integration
+                                method that approximates the integral of a
+                                function by approximating it as a trapezoid.
+                            </p>
+                            <a
+                                href="/open/trapezoidalbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
 
         <!-- Card 5: Simpson's Rule -->
         <div
@@ -308,7 +385,7 @@
               approximations.
             </p>
             <a
-              href="/open/simpsonbackground"
+              href="/numerical-calculus/simpsons-rule"
               class="text-blue-500 hover:underline"
               >Learn More</a
             >
@@ -317,63 +394,100 @@
       </div>
     </section>
 
-    <!-- Linear Systems Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-gray-800 mb-4">Linear Systems</h3>
-      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
-        <!-- Card 1: Gaussian Elimination -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
-        >
-          <img
-            class="w-10% h-48 object-cover rounded-t-lg"
-            src="https://www.algebrapracticeproblems.com/wp-content/uploads/2021/02/gaussian-elimination-steps.png"
-            alt="Gaussian Elimination"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              Gaussian Elimination
-            </h2>
-            <p class="mt-2 text-gray-600">
-              Gaussian Elimination is a method used to solve systems of linear
-              equations by transforming the system's augmented matrix into
-              reduced row-echelon form.
-            </p>
-            <a
-              href="/linear-systems/gaussian-elimination"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
+        <!-- Linear Systems Section -->
+        <section id="linear-systems" class="tab-content hidden">
+            <section class="mb-12 mt-12">
+                <div
+                    class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
+                >
+                    <!-- Card 1: Gaussian Elimination -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
+                    >
+                        <img
+                            class="w-10% h-48 object-cover rounded-t-lg"
+                            src="https://www.algebrapracticeproblems.com/wp-content/uploads/2021/02/gaussian-elimination-steps.png"
+                            alt="Gaussian Elimination"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Gaussian Elimination
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                Gaussian Elimination is a method used to solve
+                                systems of linear equations by transforming the
+                                system's augmented matrix into reduced
+                                row-echelon form.
+                            </p>
+                            <a
+                                href="/linear-systems/gaussian-elimination"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
 
-        <!-- Card 2: LU Decomposition -->
-        <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
-        >
-          <img
-            class="w-500% h-48 object-cover rounded-t-lg"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20240619165536/L-U-Decomposition-660.webp"
-            alt="LU Decomposition"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">
-              LU Decomposition
-            </h2>
-            <p class="mt-2 text-gray-600">
-              LU Decomposition is a method that factors a matrix as the product
-              of a lower triangular matrix and an upper triangular matrix,
-              enabling efficient solution of systems of linear equations.
-            </p>
-            <a
-              href="/linear-systems/lu-decomposition"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+                    <!-- Card 2: LU Decomposition -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
+                    >
+                        <img
+                            class="w-500% h-48 object-cover rounded-t-lg"
+                            src="https://media.geeksforgeeks.org/wp-content/uploads/20240619165536/L-U-Decomposition-660.webp"
+                            alt="LU Decomposition"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                LU Decomposition
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                LU Decomposition is a method that factors a
+                                matrix as the product of a lower triangular
+                                matrix and an upper triangular matrix, enabling
+                                efficient solution of systems of linear
+                                equations.
+                            </p>
+                            <a
+                                href="/linear-systems/lu-decomposition"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function deactivateAllTabs() {
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        tabContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+
+            if (target) {
+                deactivateAllTabs();
+                this.classList.add('active');
+                target.classList.remove('hidden');
+            }
+        });
+    });
+});
+
+</script>
 {% endblock content %}
