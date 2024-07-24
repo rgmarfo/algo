@@ -1,0 +1,134 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Simpson's Example {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">SIMPSON'S RULE</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/simpsonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/example"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/simpson/solve"
+              class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="container mx-auto">
+          <div class="brackbox">
+            <h3 class="font-bold text-2xl">EXAMPLE</h3>
+          </div>
+          <div class="mx-auto">
+            Evaluate the integral 
+            \(
+            \int_0^2 (4x^3 + 3x^2 + 2x + 1) \, dx
+            \)
+            using Simpson's Rule with \( n = 4 \)<br><br> 
+            <h3 class="font-bold text-2xl">SOLUTION</h3><br>
+            Divide the interval:
+            The interval \([0, 2]\) is divided into 4 subintervals (\(n = 4\)). Therefore, each subinterval has a width of:
+            \[
+            h = \frac{b - a}{n} = \frac{2 - 0}{4} = 0.5
+            \]
+
+            Determine the points:
+
+            The points in the interval \([0, 2]\) are:
+            \[
+            x_0 = 0, \quad x_1 = 0.5, \quad x_2 = 1, \quad x_3 = 1.5, \quad x_4 = 2
+            \]
+
+            Evaluate the function at these points:
+
+            \[
+            f(x) = 4x^3 + 3x^2 + 2x + 1
+            \]
+            \[
+            f(0) = 4(0)^3 + 3(0)^2 + 2(0) + 1 = 1
+            \]
+            \[
+            f(0.5) = 4(0.5)^3 + 3(0.5)^2 + 2(0.5) + 1 = 0.5 + 0.375 + 1 + 1 = 2.375
+            \]
+            \[
+            f(1) = 4(1)^3 + 3(1)^2 + 2(1) + 1 = 4 + 3 + 2 + 1 = 10
+            \]
+            \[
+            f(1.5) = 4(1.5)^3 + 3(1.5)^2 + 2(1.5) + 1 = 13.5 + 6.75 + 3 + 1 = 24.25
+            \]
+            \[
+            f(2) = 4(2)^3 + 3(2)^2 + 2(2) + 1 = 32 + 12 + 4 + 1 = 49
+            \]
+
+            Apply Simpson's Rule formula:
+
+            Simpson's Rule formula is:
+            \[
+            \int_a^b f(x) \, dx \approx \frac{h}{3} \left[ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + f(x_4) \right]
+            \]
+            Plugging in the values:
+            \[
+            \int_0^2 (4x^3 + 3x^2 + 2x + 1) \, dx \approx \frac{0.5}{3} \left[ 1 + 4(2.375) + 2(10) + 4(24.25) + 49 \right]
+            \]
+            \[
+            = \frac{0.5}{3} \left[ 1 + 9.5 + 20 + 97 + 49 \right]
+            \]
+            \[
+            = \frac{0.5}{3} \left[ 176.5 \right]
+            \]
+            \[
+            = \frac{0.5 \times 176.5}{3}
+            \]
+            \[
+            = \frac{88.25}{3}
+            \]
+            \[
+            \approx 29.4167
+            \]
+
+            Thus, the approximate value of the integral using Simpson's Rule with \(n = 4\) is \(29.4167\).
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
