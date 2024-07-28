@@ -62,10 +62,92 @@
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
           <div class="brackbox">
-            <h3 class="font-bold text-2xl">LECTURE NOTE</h3>
+            <h3 class="font-bold text-2xl">LECTURE NOTE</h3><br>
           </div>
           <div class="mx-auto">
+            <h1 class="font-bold text-2xl">Finite Difference Method</h1>
+            <p>The Finite Difference Method (FDM) is a numerical technique
+               used to approximate solutions to differential equations.
+               By replacing derivatives with finite differences, FDM 
+               transforms differential equations into algebraic equations 
+               that can be solved using standard numerical methods.</p><br>
+        
+            <h2 class="font-bold text-2xl">Types of Finite Differences</h2><br>
+            <h1 class="font-bold text-1xl">Forward Difference:</h1>
+            <p>Approximates the derivative at a point using the function value at that point and the next point.</p>
+            <p>Formula for the first derivative:
+               \( f'(x) \approx \frac{f(x + h) - f(x)}{h} \)</p>
+            <p>Formula for the second derivative: 
+              \( f''(x) \approx \frac{f(x + 2h) - 2f(x + h) + f(x)}{h^2} \)</p><br>
+        
+            <h1 class="font-bold text-1xl">Backward Difference:</h1>
+            <p>Approximates the derivative at a point using the function value at that point and the previous point.</p>
+            <p>Formula for the first derivative: \( f'(x) \approx \frac{f(x) - f(x - h)}{h} \)</p>
+            <p>Formula for the second derivative: \( f''(x) \approx \frac{f(x) - 2f(x - h) + f(x - 2h)}{h^2} \)</p><br>
+        
+            <h1 class="font-bold text-1xl">Central Difference:</h1>
+            <p>Approximates the derivative at a point using the function values at the points on both sides of the point.</p>
+            <p>Formula for the first derivative: \( f'(x) \approx \frac{f(x + h) - f(x - h)}{2h} \)</p>
+            <p>Formula for the second derivative: \( f''(x) \approx \frac{f(x + h) - 2f(x) + f(x - h)}{h^2} \)</p><br>
+        
+            <h2 class="font-bold text-2xl">Basic Steps of the Finite Difference Method</h2><br>
+            <h1 class="font-bold text-1xl">Discretize the Domain:</h1>
+            <p>Divide the interval \([a, b]\) into \(N\) equal parts with grid points \(x_i = a + i \Delta x\), where \(\Delta x = \frac{b - a}{N}\).</p>
+        
+            <h1 class="font-bold text-1xl">Replace Derivatives with Finite Differences:</h1>
+            <p>For example, replace \( u''(x) \) in the differential equation with the central difference approximation.</p>
+        
+            <h1 class="font-bold text-1xl">Formulate the System of Algebraic Equations:</h1>
+            <p>Substitute the finite difference approximations into the differential equation.</p>
+        
+            <h1 class="font-bold text-1xl">Apply Boundary Conditions:</h1>
+            <p>Incorporate the given boundary conditions into the system.</p>
+        
+            <h1 class="font-bold text-1xl">Solve the System:</h1>
+            <p>Use numerical methods to solve the resulting algebraic equations for the values of the function at the grid points.</p><br>
+        
+            <h2 class="font-bold text-2xl">Solving a Simple 1D Poisson Equation</h2>
+            <p>Consider the 1D Poisson equation \( u''(x) = f(x) \) on the interval \([0, 1]\) with boundary conditions \( u(0) = 0 \) and \( u(1) = 0\).</p><br>
+        
+            <h1 class="font-bold text-1xl">Discretize the Domain:</h1>
+            <p>Divide \([0, 1]\) into \(N\) subintervals with grid points \(x_i = i \Delta x\), where \(\Delta x = \frac{1}{N}\).</p>
+        
+            <h1 class="font-bold text-1xl">Finite Difference Approximation:</h1>
+            <p>Replace \( u''(x_i) \) with \( \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} \).</p>
+        
+            <h1 class="font-bold text-1xl">Formulate the Equations:</h1>
+            <p>At each interior grid point \( x_i \):
+                \[
+                \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} = f(x_i)
+                \]
+            </p>
+            <p>This forms a system of linear equations.</p>
+        
+            <h1 class="font-bold text-1xl">Apply Boundary Conditions:</h1>
+            <p>\( u_0 = 0 \) and \( u_N = 0 \).</p>
+        
+            <h1 class="font-bold text-1xl">Solve the System:</h1>
+            <p>Solve the system of linear equations for \( u_1, u_2, \ldots, u_{N-1} \).</p><br>
+        
+            <h2 class="font-bold text-2xl">Advantages Of The Finite Difference Method</h2>
+                <p>1. Easy to implement and understand.</p>
+                <p>2. Can handle various types of differential equations and boundary conditions.</p>
+                <p>3. Converts differential equations directly into algebraic equations.</p><br>
+        
+            <h2 class="font-bold text-2xl">Disadvantages Of The Finite Difference Method</h2>
+                <p>1. Less accurate for complex geometries or highly varying solutions.</p>
+                <p>2. May require careful selection of grid spacing and time steps for stability.</p>
+                <p>3. Large systems of equations can be computationally expensive to solve.</p><br>
 
+        
+              <h2 class="font-bold text-2xl">Applications Of The Finite Difference Method</h2>
+                <p>1. Heat Transfer: Solving the heat equation to determine temperature distribution.</p>
+                <p>2. Fluid Dynamics: Modeling flow and pressure in fluids.</p>
+                <p>3. Electromagnetics: Solving Maxwell's equations for electric and magnetic fields.</p>
+                <p>4. Structural Analysis: Analyzing stress and deformation in structures.</p><br>
+        
+            <h2 class="font-bold text-2xl">Conclusion</h2>
+            <p>The Finite Difference Method is a versatile and widely used technique for numerically solving differential equations. It provides a straightforward approach to approximate solutions, making it a valuable tool in various scientific and engineering applications. However, it requires careful consideration of discretization, stability, and computational resources to ensure accurate and efficient solutions.</p>
           </div>
         </div>
       </div>
