@@ -490,6 +490,57 @@ def simpson_submit_answers():
 
     return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
 
+### Forward  Difference Methods
+@app.route('/numerical calculus/forwardbackground')
+def forward_background():
+    return render_template('pages/numerical calculus/forward difference/background.html')
+
+@app.route('/numerical calculus/forward difference/lecturenote')
+def forward_lecture_note():
+    return render_template('pages/numerical calculus/forward difference/lecturenote.html')
+
+@app.route('/numerical calculus/forward difference/graph')
+def forward_graph():
+    return render_template('pages/numerical calculus/forward difference/graph.html')
+
+@app.route('/numerical calculus/forward difference/example')
+def forward_example():
+    return render_template('pages/numerical calculus/forward difference/example.html')
+
+@app.route('/numerical calculus/forward difference/solve')
+def forward_solve():
+    return render_template('pages/numerical calculus/forward difference/solve.html')
+
+@app.route('/numerical calculus/forward difference/exercise')
+def forward_exercise():
+    return render_template('pages/numerical calculus/forward difference/exercise.html')
+
+### Backward  Difference Methods
+@app.route('/numerical calculus/backwardbackground')
+def backward_background():
+    return render_template('pages/numerical calculus/backward difference/background.html')
+
+@app.route('/numerical calculus/backward difference/lecturenote')
+def backward_lecture_note():
+    return render_template('pages/numerical calculus/backward difference/lecturenote.html')
+
+@app.route('/numerical calculus/backward difference/graph')
+def backward_graph():
+    return render_template('pages/numerical calculus/backward difference/graph.html')
+
+@app.route('/numerical calculus/backward difference/example')
+def backward_example():
+    return render_template('pages/numerical calculus/backward difference/example.html')
+
+@app.route('/numerical calculus/backward difference/solve')
+def backward_solve():
+    return render_template('pages/numerical calculus/backward difference/solve.html')
+
+@app.route('/numerical calculus/backward difference/exercise')
+def backward_exercise():
+    return render_template('pages/numerical calculus/backward difference/exercise.html')
+
+
  
 
 ### Logic endpoints

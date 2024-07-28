@@ -1,0 +1,183 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %}Backward Difference Method{% endblock title %}</h2>
+<style>
+    #results-modal.hidden {
+        display: none;
+    }
+
+    #results-modal {
+        max-width: 33%;
+    }
+</style>
+{% endblock header %} {% block content %}
+<main
+    class="bg-gray-100 py-8 mb-10"
+    style="
+        background-image: url(&quot;https://www.transparenttextures.com/patterns/inflicted.png&quot;);
+    "
+>
+    <div class="container mx-auto flex flex-col md:flex-row justify-center">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">BACKWARD DIFF</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a
+                            href="/numerical calculus/backwardbackground"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Background</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/numerical calculus/backward difference/lecturenote"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Lecture Note</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/numerical calculus/backward difference/example"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Example</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/numerical calculus/backward difference/solve"
+                            class="block hover:bg-gray-200 text-gray-700 p-2 rounded"
+                            >Solution Finder</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/numerical calculus/backward difference/exercise"
+                            class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+                            >Exercise</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/numerical calculus/backward difference/practice"
+                            class="block text-gray-700 bg-gray-200 p-2 rounded"
+                            >Practice</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full md:w-3/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-xl font-bold mb-4">Practice Questions</h2>
+                <div
+                    id="flash-message"
+                    class="hidden bg-red-100 text-red-700 p-2 rounded mb-4"
+                >
+                    Please answer at least one question before submitting.
+                </div>
+                <form id="practice-form">
+                    {% for question in questions %}
+                    <div class="mb-6">
+                        <span class="inline">{{ loop.index }}</span>.
+                        <p class="font-semibold inline">
+                            {{ question.question }}
+                        </p>
+                        {% for choice in question.choices %}
+                        <label class="block py-4 bg-gray-100 my-2 px-2">
+                            <input
+                                type="radio"
+                                name="question{{ question.id }}"
+                                value="{{ choice }}"
+                                class="mr-2"
+                            />
+                            {{ choice }}
+                        </label>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <button
+                        id="submit-button"
+                        type="submit"
+                        class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+                    >
+                        Submit
+                    </button>
+                </form>
+                <button
+                    onclick="location.reload();"
+                    id="next-button"
+                    class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer hidden"
+                >
+                    Next Questions
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="results-modal" class="hidden fixed z-50 top-0 right-0 m-4 bg-white border border-gray-300 rounded-lg shadow-3xl w-1/3 p-4">
+        <span class="absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-800" onclick="closeModal()">✕</span>
+        <h2 class="text-xl font-bold mb-2">Quiz Results</h2>
+        <div id="modal-content"></div>
+        <button onclick="closeModal();" class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer w-full">Close</button>
+    </div>
+</main>
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+
+    function closeModal() {
+        document.getElementById('results-modal').classList.add('hidden');
+    }
+
+    document.getElementById("practice-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        scrollToTop();
+        let form = event.target;
+        let formData = new FormData(form);
+        let data = {};
+
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Check if the form data is empty
+        if (Object.keys(data).length === 0) {
+            document.getElementById("flash-message").classList.remove("hidden");
+            return; // Exit the function if no questions have been answered
+        } else {
+            document.getElementById("flash-message").classList.add("hidden");
+        }
+
+        fetch("/submit_answers", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("submit-button").classList.add("hidden");
+                let modalContent = document.getElementById("modal-content");
+                modalContent.innerHTML = `<p class="text-lg font-bold mb-2">${data.score} / 5</p>
+                                          <p class="mb-4">You got ${data.score} out of 5 correct!</p>`;
+
+                data.results.forEach((result, index) => {
+                    modalContent.innerHTML += `<div class="mb-4">
+                                                <p class="font-semibold">Question ${index + 1}: ${result.question}</p>
+                                                <p>Your answer: ${result.user_answer}</p>
+                                                <p>Correct answer: ${result.correct_answer}</p>
+                                                <hr class="mt-2"/>
+                                               </div>`;
+                });
+
+                document.getElementById("results-modal").classList.remove("hidden");
+            })
+            .catch((error) => console.error("Error:", error));
+    });
+</script>
+{% endblock content %}
