@@ -57,32 +57,33 @@
           <div class="brackbox">
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div><br><br>
-          <div class="background flex flex-wrap justify-center">
-            <p> Use step sizes (a) \( h = 0.1 \) and \( k = 0.0005 \) and (b) \( h = 0.1 \) and \( k = 0.01 \) to approximate the solution to the heat equation:</p>
-
-<p>\( \frac{\partial u}{\partial t} (x, t) - \frac{\partial^2 u}{\partial x^2} (x, t) = 0, \quad 0 < x < 1, \quad 0 <br> \leq t,  \) </p>
-
-  <p>with boundary conditions:</p>
-
-
-
-\[ u(0, t) = u(1, t) = 0, \quad 0 < t, \]
-
-<p>and initial conditions:</p>
-
-\[ u(x, 0) = \sin(\pi x), \quad 0 \leq x \leq 1. \]
-
-<p>Compare the results at \( t = 0.5 \) to the exact solution:</p>
-
-\[ u(x, t) = e^{-\pi^2 t} \sin(\pi x). \]
-
-<p>Solution:</p>
-
-<p>(a) Forward-Difference method with \( h = 0.1 \), \( k = 0.0005 \) and \( \lambda = \left(\frac{1^2 \cdot 0.0005}{(0.1)^2}\right) = 0.05 \) gives the results in the third column of Table 12.3. As can be seen from the fourth column, these results are quite accurate.</p>
-
-<p>(b) Forward-Difference method with \( h = 0.1 \), \( k = 0.01 \) and \( \lambda = \left(\frac{1^2 \cdot 0.01}{(0.1)^2}\right) = 1 \) gives the results in the fifth column of Table 12.3. As can be seen from the sixth column, these results are less accurate.</p>
-
-
+          <div >
+            Use step sizes (a) \( h = 0.1 \) and \( k = 0.0005 \) and (b) \( h = 0.1 \) and \( k = 0.01 \) to approximate the solution to the heat equation
+            \[
+            \frac{\partial u}{\partial t} (x, t) - \frac{\partial^2 u}{\partial x^2} (x, t) = 0, \quad 0 < x < 1, \quad 0 \leq t,
+            \]
+            with boundary conditions
+            \[
+            u(0, t) = u(1, t) = 0, \quad 0 < t,
+            \]
+            and initial conditions
+            \[
+            u(x, 0) = \sin(\pi x), \quad 0 \leq x \leq 1.
+            \]
+            Compare the results at \( t = 0.5 \) to the exact solution
+            \[
+            u(x, t) = e^{-\pi^2 t} \sin(\pi x).
+            \]
+            
+            <p class="font-bold text-2xl">Solution</p>
+            
+            (a) Forward-Difference method with \( h = 0.1 \), \( k = 0.0005 \) and \( \lambda = \frac{k}{h^2} = \frac{0.0005}{(0.1)^2} = 0.05 \) gives the results in the third column of Table 12.3. As can be seen from the fourth column, these results are quite accurate.
+            
+            (b) Forward-Difference method with \( h = 0.1 \), \( k = 0.01 \) and \( \lambda = \frac{k}{h^2} = \frac{0.01}{(0.1)^2} = 1 \) gives the results in the fifth column of Table 12.3. As can be seen from the sixth column, these results are worthless.
+            <img
+              src="{{url_for('static', filename='imagebisectiongraph.jpg.png')}}"
+              alt="bis-graph" class='mx-auto'
+            />
           </div>
         </div>
       </div>
