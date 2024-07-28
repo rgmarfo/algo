@@ -435,6 +435,61 @@ def trapezoidal_submit_answers():
 
 
 
+
+### Simpson's Method
+@app.route('/open/simpsonbackground')
+def simpson_background():
+    return render_template('pages/open/simpson/background.html')
+
+@app.route('/open/simpson/lecturenote')
+def simpson_lecture_note():
+    return render_template('pages/open/simpson/lecturenote.html')
+
+@app.route('/open/simpson/graph')
+def simpson_graph():
+    return render_template('pages/open/simpson/graph.html')
+
+@app.route('/open/simpson/example')
+def simpson_example():
+    return render_template('pages/open/simpson/example.html')
+
+@app.route('/open/simpson/solve')
+def simpson_solve():
+    return render_template('pages/open/simpson/solve.html')
+
+@app.route('/open/simpson/exercise')
+def simpson_exe():
+    return render_template('pages/open/simpson/exercise.html')
+
+@app.route('/open/simpson/practice')
+def simpson_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(simpson_questions, num_questions)
+    return render_template('pages/open/simpson/practice.html', questions=selected_questions)
+    
+@app.route('/simpson/submit_answers', methods=['POST'])
+def simpson_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = simpson_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
  
 
 ### Logic endpoints

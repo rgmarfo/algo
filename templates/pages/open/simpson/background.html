@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Simpson's Rule {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">SIMPSON'S RULE</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/simpsonbackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/simpson/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+         
+          <li>
+            <a
+              href="/open/simpson/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/simpson/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  SIMPSON'S RULE
+                </p>
+                Simpson's Rule is a numerical method used to approximate 
+                the definite integral of a function. It is named after the 
+                mathematician Thomas Simpson. The rule works by approximating 
+                the integrand with a quadratic polynomial. Simpson's Rule 
+                provides a better approximation compared to the trapezoidal 
+                rule by using parabolic segments instead of linear ones. It 
+                applies to functions that are reasonably smooth over the 
+                interval of integration. The interval is divided into an 
+                even number of subintervals, and the function is evaluated 
+                at equally spaced points. The formula combines the values of 
+                the function at these points with specific weights. Simpson's 
+                Rule is particularly effective when the integrand is 
+                well-approximated by parabolas, providing an exact result for 
+                polynomials of degree three or lower. This method is widely 
+                used in engineering and science for its accuracy and simplicity 
+                in implementation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}
