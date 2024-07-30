@@ -10,7 +10,7 @@
   <div class="container mx-auto flex flex-col md:flex-row justify-center">
     <div class="w-full md:w-1/4 p-4">
       <div class="bg-white rounded-lg shadow-lg p-4">
-        <h3 class="text-lg font-bold mb-4">BACKWARD DIFF</h3>
+        <h3 class="text-lg font-bold mb-4">BACKWARD METHOD</h3>
         <hr class="mb-4" />
         <ul class="space-y-4">
           <li>
@@ -64,9 +64,142 @@
           <div class="brackbox">
             <h3 class="font-bold text-2xl">LECTURE NOTE</h3>
           </div>
-
           <div class="mx-auto">
-              
+            The backward difference method is a numerical technique used 
+            to approximate the solutions of differential equations. It is 
+            an implicit method, meaning it involves solving an equation that 
+            includes the unknown value at the new time step. This method is 
+            particularly useful for stiff differential equations due to its stability properties.
+            The backward difference method approximates the derivative of a function \( y \) at a point \( t_n \) using the difference between the function values at \( t_n \) and \( t_{n-1} \):
+            \[
+            \frac{dy}{dt} \approx \frac{y_n - y_{n-1}}{\Delta t}
+            \]
+            where \( \Delta t \) is the step size.
+        </p>
+
+        <h3 class="font-bold text-1xl">Implicit Nature</h3>
+        <p>
+            Unlike explicit methods, where the next value \( y_{n+1} \) is computed directly from known values, the backward difference method requires solving an equation involving \( y_{n+1} \).
+        </p><br>
+
+        <h3 class="font-bold text-2xl">Application to Ordinary Differential Equations (ODEs)</h3>
+
+        <p>
+            Consider the first-order ODE:
+            \[
+            \frac{dy}{dt} = f(t, y)
+            \]
+        </p>
+
+        <p>
+            Using the backward difference approximation, the equation becomes:
+            \[
+            \frac{y_{n+1} - y_n}{\Delta t} = f(t_{n+1}, y_{n+1})
+            \]
+        </p>
+
+        <p>
+            Rearranging, we get:
+            \[
+            y_{n+1} = y_n + \Delta t \cdot f(t_{n+1}, y_{n+1})
+            \]
+        </p>
+
+        <h3 class="font-bold text-2xl">Steps to Apply the Backward Difference Method</h3>
+
+        <ul>
+            <li><strong>Discretize the Time Domain</strong>: Divide the interval \([t_0, t_f]\) into \(N\) equal subintervals of size \(\Delta t\).</li>
+            <li><strong>Initial Condition</strong>: Start with the initial condition \( y_0 \).</li>
+            <li><strong>Iterative Solution</strong>: For each time step \(n\):
+                <ul>
+                    <li>Formulate the implicit equation for \( y_{n+1} \).</li>
+                    <li>Solve the equation to find \( y_{n+1} \). This typically requires using numerical solvers or iterative methods like Newton-Raphson, as \( y_{n+1} \) appears on both sides of the equation.</li><br>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 class="font-bold text-2xl">Advantages of the Backward Difference Method</h3>
+
+        <ul>
+            <li><strong>Stability</strong>: The method is A-stable, meaning it can handle stiff equations effectively without the instability problems that can plague explicit methods.</li>
+            <li><strong>Implicit Nature</strong>: While it requires solving an equation at each step, this implicit nature contributes to its stability and robustness for certain types of problems.</li><br>
+        </ul>
+
+        <h3 class="font-bold text-2xl">Disadvantages of the Backward Difference Method</h3>
+
+        <ul>
+            <li><strong>Complexity</strong>: The need to solve an equation at each step can be computationally intensive and may require sophisticated numerical techniques.</li>
+            <li><strong>Implementation</strong>: The method is more challenging to implement compared to explicit methods, which can be straightforward.</li><br>
+        </ul>
+
+        <h3 class="font-bold text-2xl">Example</h3>
+          Solve a First-Order ODE
+
+        <p>
+            
+            \[
+            \frac{dy}{dt} = y - t
+            \]
+            with initial condition \( y(0) = 1 \), over the interval \([0, 0.2]\) with a step size \( \Delta t = 0.1 \).
+        </p>
+
+        <h3>Formulate the Equation</h3>
+        <p>
+            \[
+            y_{n+1} = y_n + \Delta t \cdot (y_{n+1} - t_{n+1})
+            \]
+        </p>
+
+        <h3>Rearrange</h3>
+        <p>
+            \[
+            y_{n+1} (1 - \Delta t) = y_n - \Delta t \cdot t_{n+1}
+            \]
+            \[
+            y_{n+1} = \frac{y_n - \Delta t \cdot t_{n+1}}{1 - \Delta t}
+            \]
+        </p>
+
+        <h3>Calculate Step-by-Step</h3>
+        <ul>
+            <li>Initial condition: \( y_0 = 1 \)</li>
+            <li>First step (\( t_1 = 0.1 \)):
+                \[
+                y_1 = \frac{y_0 - 0.1 \cdot 0.1}{1 - 0.1} = \frac{1 - 0.01}{0.9} = \frac{0.99}{0.9} \approx 1.1
+                \]
+            </li>
+            <li>Second step (\( t_2 = 0.2 \)):
+                \[
+                y_2 = \frac{y_1 - 0.1 \cdot 0.2}{1 - 0.1} = \frac{1.1 - 0.02}{0.9} = \frac{1.08}{0.9} \approx 1.2
+                \]
+            </li>
+        </ul>
+
+        <h2>Application to Partial Differential Equations (PDEs)</h2>
+
+        <p>
+            The backward difference method can also be applied to solve PDEs like the heat equation. For the heat equation:
+            \[
+            \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+            \]
+        </p>
+
+        <p>
+            Using the backward difference in time and central difference in space:
+            \[
+            \frac{u_i^{n+1} - u_i^n}{\Delta t} = \alpha \frac{u_{i+1}^{n+1} - 2u_i^{n+1} + u_{i-1}^{n+1}}{(\Delta x)^2}
+            \]
+        </p>
+
+        <p>
+            Rearranging gives a system of linear equations that can be solved for \( u_i^{n+1} \) at each time step.<br>
+        </p>
+
+        <h3 class="font-bold text-1xl">Conclusion</h3>
+
+        <p>
+            The backward difference method is a powerful tool in numerical analysis, especially for solving stiff ODEs and PDEs. Its implicit nature provides stability advantages, although it comes with increased computational complexity. Understanding its formulation and implementation is crucial for leveraging its benefits in practical applications.
+        </p>
           </div>
         </div>
       </div>

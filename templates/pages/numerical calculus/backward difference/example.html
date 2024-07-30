@@ -5,7 +5,7 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-center">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">BACKWARD DIFF</h3>
+                <h3 class="text-lg font-bold mb-4">BACKWARD METHOD</h3>
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
@@ -58,7 +58,58 @@
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div>
           <div class="mx-auto">
+            Use the backward difference method to approximate the solution of the ordinary differential equation
+            \(
+            \frac{dy}{dx} = y - x
+            \)
+            given the initial condition \( y(0) = 1 \), for \( x = 0 \) to \( x = 0.2 \) with a step size \( h = 0.1 \).<br><br>
+
+            <h3 class="font-bold text-2xl">SOLUTION</h3>
+            The backward difference method for the ordinary differential equation
+            \[
+            \frac{dy}{dx} = y - x
+            \]
+            can be written as:
+            \[
+            \frac{y_{n+1} - y_n}{h} = y_{n+1} - x_{n+1}
+            \]
             
+            Rearranging the equation:
+            \[
+            y_{n+1} - h y_{n+1} = y_n + h x_{n+1}
+            \]
+            \[
+            y_{n+1} (1 - h) = y_n + h x_{n+1}
+            \]
+            \[
+            y_{n+1} = \frac{y_n + h x_{n+1}}{1 - h}
+            \]
+            
+            Given \( h = 0.1 \), the formula becomes:
+            \[
+            y_{n+1} = \frac{y_n + 0.1 x_{n+1}}{0.9}
+            \]
+            
+            <h3 class="font-bold text-1xl">Step-by-Step Calculation</h3>
+            
+            <h3 class="font-bold text-1xl">Initial Condition:</h3>
+            \[ y_0 = 1 \]
+            
+            <h3 class="font-bold text-1xl">First Step (from \( x = 0 \) to \( x = 0.1 \)):</h3>
+            \[ x_1 = x_0 + h = 0 + 0.1 = 0.1 \]
+            \[ y_1 = \frac{y_0 + 0.1 x_1}{0.9} = \frac{1 + 0.1 \times 0.1}{0.9} = \frac{1 + 0.01}{0.9} = \frac{1.01}{0.9} \approx 1.1222 \]
+            
+            <h3 class="font-bold text-1xl">Second Step (from \( x = 0.1 \) to \( x = 0.2 \)):</h3>
+            \[ x_2 = x_1 + h = 0.1 + 0.1 = 0.2 \]
+            \[ y_2 = \frac{y_1 + 0.1 x_2}{0.9} = \frac{1.1222 + 0.1 \times 0.2}{0.9} = \frac{1.1222 + 0.02}{0.9} = \frac{1.1422}{0.9} \approx 1.2691 \]
+            
+            <h3 class="font-bold text-1xl">Conclusion</h3>
+            After two steps, the approximate solution at \( x = 0.2 \) is:
+            \[ y(0.2) \approx 1.2691 \]
+            
+            This is the solution using the backward difference method for the given differential equation with the specified initial condition and step size.
+            
+
           </div>
         </div>
       </div>
