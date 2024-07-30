@@ -1,6 +1,10 @@
-{% extends 'base.html' %} {% block header %}
+{% extends 'base.html' %} 
+
+{% block header %}
 <h2>{% block title %} Home {% endblock title %}</h2>
-{% endblock header %} {% block content %}
+{% endblock header %} 
+
+{% block content %}
 <style>
 .tab-link.active {
     border-color: #1a202c;
@@ -18,7 +22,20 @@
 .tab-content.hidden {
     display: none;
 }
+
+.tab-content {
+    transition: opacity 0.3s ease;
+}
+
+.tab-content.hidden {
+    opacity: 0;
+}
+
+.tab-content:not(.hidden) {
+    opacity: 1;
+}
 </style>
+
 <main
     class="bg-white min-h-screen py-8 flex"
     style="
@@ -90,7 +107,7 @@
             </ul>
         </div>
 
-        <!-- Non-Linear Systems Section -->
+       <!-- Non-Linear Systems Section -->
         <section id="non-linear" class="tab-content">
             <section class="mb-12 mt-12">
                 <div
@@ -231,158 +248,158 @@
                 </div>
             </section>
         </section>
+<!-- Numerical Calculus Section -->
+<section id="numerical-calculus" class="tab-content hidden">
+    <section class="mb-12 mt-12">
 
-        <!-- Numerical Calculus Section -->
-        <section id="numerical-calculus" class="tab-content hidden">
-            <section class="mb-12 mt-12">
-    
-                <div
-                    class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                >
-                    <!-- Card 1: Finite Difference -->
-                    <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-                    >
-                        <img
-                            class="w-full h-48 object-cover rounded-t-lg"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0pVgjrWpXXMk1QIRYyJJsh2ViYYueKyreA&s"
-                            alt="Finite Difference"
-                        />
-                        <div class="p-4">
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                Finite Difference
-                            </h2>
-                            <p class="mt-2 text-gray-600">
-                                Finite Difference is a method for approximating
-                                the derivatives of a function using a finite set
-                                of data points.
-                            </p>
-                            <a
-                                href="/open/finitebackground"
-                                class="text-blue-500 hover:underline"
-                                >Learn More</a
-                            >
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Forward Difference Method -->
-                    <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-                    >
-                        <img
-                            class="w-full h-48 object-cover rounded-t-lg"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Finite_difference_method.svg/307px-Finite_difference_method.svg.png"
-                            alt="Forward Difference Method"
-                        />
-                        <div class="p-4">
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                Forward Difference Method
-                            </h2>
-                            <p class="mt-2 text-gray-600">
-                                The Forward Difference Method is a numerical
-                                method used for approximating derivatives by
-                                computing the difference quotient.
-                            </p>
-                            <a
-                                href="/numerical calculus/forwardbackground"
-                                class="text-blue-500 hover:underline"
-                                >Learn More</a
-                            >
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Backward Difference Method -->
-                    <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-                    >
-                        <img
-                            class="w-full h-48 object-cover rounded-t-lg"
-                            src="https://d3i71xaburhd42.cloudfront.net/cbe28118f4e69733306b8a039cae7a24d800268b/4-Figure2-1.png"
-                            alt="Backward Difference Method"
-                        />
-                        <div class="p-4">
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                Backward Difference Method
-                            </h2>
-                            <p class="mt-2 text-gray-600">
-                                The Backward Difference Method is a numerical
-                                method used for approximating derivatives by
-                                computing the difference quotient in the reverse
-                                direction.
-                            </p>
-                            <a
-                                href="/numerical calculus/backwardbackground"
-                                class="text-blue-500 hover:underline"
-                                >Learn More</a
-                            >
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Trapezoidal Rule -->
-                    <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
-                    >
-                        <img
-                            class="w-full h-48 object-cover rounded-t-lg"
-                            src="https://www.bragitoff.com/wp-content/uploads/2015/08/TrapezoidRule1.png"
-                            alt="Trapezoidal Rule"
-                        />
-                        <div class="p-4">
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                Trapezoidal Rule
-                            </h2>
-                            <p class="mt-2 text-gray-600">
-                                The Trapezoidal Rule is a numerical integration
-                                method that approximates the integral of a
-                                function by approximating it as a trapezoid.
-                            </p>
-                            <a
-                                href="/open/trapezoidalbackground"
-                                class="text-blue-500 hover:underline"
-                                >Learn More</a
-                            >
-                        </div>
-                    </div>
-
-        <!-- Card 5: Simpson's Rule -->
         <div
-          class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+            class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
-          <img
-            class="w-full h-48 object-cover rounded-t-lg"
-            src="https://learninglab.rmit.edu.au/sites/default/files/maths-nm-simpson-intervals.png"
-            alt="Simpson's Rule"
-          />
-          <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800">Simpson's Rule</h2>
-            <p class="mt-2 text-gray-600">
-              Simpson's Rule is a numerical method for numerical integration,
-              approximating the integral of a function by using quadratic
-              approximations.
-            </p>
-            <a
-              href="/open/simpsonbackground"
-              class="text-blue-500 hover:underline"
-              >Learn More</a
+            <!-- Card 1: Finite Difference -->
+            <div
+                class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
             >
-          </div>
-        </div>
-      </div>
-    </section>
+                <img
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0pVgjrWpXXMk1QIRYyJJsh2ViYYueKyreA&s"
+                    alt="Finite Difference"
+                />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800">
+                        Finite Difference
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        Finite Difference is a method for approximating
+                        the derivatives of a function using a finite set
+                        of data points.
+                    </p>
+                    <a
+                        href="/open/finitebackground"
+                        class="text-blue-500 hover:underline"
+                        >Learn More</a
+                    >
+                </div>
+            </div>
+
+            <!-- Card 2: Forward Difference Method -->
+            <div
+                class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+            >
+                <img
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Finite_difference_method.svg/307px-Finite_difference_method.svg.png"
+                    alt="Forward Difference Method"
+                />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800">
+                        Forward Difference Method
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        The Forward Difference Method is a numerical
+                        method used for approximating derivatives by
+                        computing the difference quotient.
+                    </p>
+                    <a
+                        href="/numerical calculus/forwardbackground"
+                        class="text-blue-500 hover:underline"
+                        >Learn More</a
+                    >
+                </div>
+            </div>
+
+            <!-- Card 3: Backward Difference Method -->
+            <div
+                class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+            >
+                <img
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    src="https://d3i71xaburhd42.cloudfront.net/cbe28118f4e69733306b8a039cae7a24d800268b/4-Figure2-1.png"
+                    alt="Backward Difference Method"
+                />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800">
+                        Backward Difference Method
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        The Backward Difference Method is a numerical
+                        method used for approximating derivatives by
+                        computing the difference quotient in the reverse
+                        direction.
+                    </p>
+                    <a
+                        href="/numerical calculus/backwardbackground"
+                        class="text-blue-500 hover:underline"
+                        >Learn More</a
+                    >
+                </div>
+            </div>
+
+            <!-- Card 4: Trapezoidal Rule -->
+            <div
+                class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+            >
+                <img
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    src="https://www.bragitoff.com/wp-content/uploads/2015/08/TrapezoidRule1.png"
+                    alt="Trapezoidal Rule"
+                />
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800">
+                        Trapezoidal Rule
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        The Trapezoidal Rule is a numerical integration
+                        method that approximates the integral of a
+                        function by approximating it as a trapezoid.
+                    </p>
+                    <a
+                        href="/open/trapezoidalbackground"
+                        class="text-blue-500 hover:underline"
+                        >Learn More</a
+                    >
+                </div>
+            </div>
+
+<!-- Card 5: Simpson's Rule -->
+<div
+  class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+>
+  <img
+    class="w-full h-48 object-cover rounded-t-lg"
+    src="https://learninglab.rmit.edu.au/sites/default/files/maths-nm-simpson-intervals.png"
+    alt="Simpson's Rule"
+  />
+  <div class="p-4">
+    <h2 class="text-lg font-semibold text-gray-800">Simpson's Rule</h2>
+    <p class="mt-2 text-gray-600">
+      Simpson's Rule is a numerical method for numerical integration,
+      approximating the integral of a function by using quadratic
+      approximations.
+    </p>
+    <a
+      href="/open/simpsonbackground"
+      class="text-blue-500 hover:underline"
+      >Learn More</a
+    >
+  </div>
+</div>
+</div>
+</section>
+</section>
 
         <!-- Linear Systems Section -->
         <section id="linear-systems" class="tab-content hidden">
             <section class="mb-12 mt-12">
                 <div
-                    class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-1"
+                    class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     <!-- Card 1: Gaussian Elimination -->
                     <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
                     >
                         <img
-                            class="w-10% h-48 object-cover rounded-t-lg"
-                            src="https://www.algebrapracticeproblems.com/wp-content/uploads/2021/02/gaussian-elimination-steps.png"
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://media.geeksforgeeks.org/wp-content/uploads/gaussian-elimination.png"
                             alt="Gaussian Elimination"
                         />
                         <div class="p-4">
@@ -390,13 +407,13 @@
                                 Gaussian Elimination
                             </h2>
                             <p class="mt-2 text-gray-600">
-                                Gaussian Elimination is a method used to solve
-                                systems of linear equations by transforming the
-                                system's augmented matrix into reduced
-                                row-echelon form.
+                                Gaussian Elimination is a method for solving systems
+                                of linear equations. It consists of performing
+                                operations to transform the system's augmented matrix
+                                into row echelon form.
                             </p>
                             <a
-                                href="/linear-systems/gaussian-elimination"
+                                href="/linear/gaussianeliminationbackground"
                                 class="text-blue-500 hover:underline"
                                 >Learn More</a
                             >
@@ -405,11 +422,11 @@
 
                     <!-- Card 2: LU Decomposition -->
                     <div
-                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full mx-auto"
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
                     >
                         <img
-                            class="w-500% h-48 object-cover rounded-t-lg"
-                            src="https://media.geeksforgeeks.org/wp-content/uploads/20240619165536/L-U-Decomposition-660.webp"
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://media.geeksforgeeks.org/wp-content/uploads/lu-decomposition.png"
                             alt="LU Decomposition"
                         />
                         <div class="p-4">
@@ -417,14 +434,38 @@
                                 LU Decomposition
                             </h2>
                             <p class="mt-2 text-gray-600">
-                                LU Decomposition is a method that factors a
-                                matrix as the product of a lower triangular
-                                matrix and an upper triangular matrix, enabling
-                                efficient solution of systems of linear
-                                equations.
+                                LU Decomposition is a method for solving systems of
+                                linear equations by decomposing a matrix into a lower
+                                triangular matrix and an upper triangular matrix.
                             </p>
                             <a
-                                href="/linear-systems/lu-decomposition"
+                                href="/linear/ludecompositionbackground"
+                                class="text-blue-500 hover:underline"
+                                >Learn More</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Jacobi Method -->
+                    <div
+                        class="bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 max-w-lg mx-auto"
+                    >
+                        <img
+                            class="w-full h-48 object-cover rounded-t-lg"
+                            src="https://media.geeksforgeeks.org/wp-content/uploads/jacobi-method.png"
+                            alt="Jacobi Method"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Jacobi Method
+                            </h2>
+                            <p class="mt-2 text-gray-600">
+                                The Jacobi Method is an iterative algorithm used to
+                                solve a diagonally dominant system of linear equations
+                                by iterating over the matrix.
+                            </p>
+                            <a
+                                href="/linear/jacobimethodbackground"
                                 class="text-blue-500 hover:underline"
                                 >Learn More</a
                             >
@@ -464,6 +505,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
 </script>
 {% endblock content %}
