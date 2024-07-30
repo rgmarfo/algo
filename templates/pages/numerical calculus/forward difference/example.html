@@ -56,34 +56,91 @@
         <div class="container mx-auto">
           <div class="brackbox">
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
-          </div><br><br>
-          <div >
-            Use step sizes (a) \( h = 0.1 \) and \( k = 0.0005 \) and (b) \( h = 0.1 \) and \( k = 0.01 \) to approximate the solution to the heat equation
-            \[
-            \frac{\partial u}{\partial t} (x, t) - \frac{\partial^2 u}{\partial x^2} (x, t) = 0, \quad 0 < x < 1, \quad 0 \leq t,
-            \]
-            with boundary conditions
-            \[
-            u(0, t) = u(1, t) = 0, \quad 0 < t,
-            \]
-            and initial conditions
-            \[
-            u(x, 0) = \sin(\pi x), \quad 0 \leq x \leq 1.
-            \]
-            Compare the results at \( t = 0.5 \) to the exact solution
-            \[
-            u(x, t) = e^{-\pi^2 t} \sin(\pi x).
-            \]
-            
-            <p class="font-bold text-2xl">Solution</p>
-            
-            (a) Forward-Difference method with \( h = 0.1 \), \( k = 0.0005 \) and \( \lambda = \frac{k}{h^2} = \frac{0.0005}{(0.1)^2} = 0.05 \) gives the results in the third column of Table 12.3. As can be seen from the fourth column, these results are quite accurate.
-            
-            (b) Forward-Difference method with \( h = 0.1 \), \( k = 0.01 \) and \( \lambda = \frac{k}{h^2} = \frac{0.01}{(0.1)^2} = 1 \) gives the results in the fifth column of Table 12.3. As can be seen from the sixth column, these results are worthless.
-            <img
-              src="{{url_for('static', filename='imagebisectiongraph.jpg.png')}}"
-              alt="bis-graph" class='mx-auto'
-            />
+          </div><br>
+          <div>
+            <p>
+              Use the forward difference method to approximate the solution of the ordinary differential equation
+          </p>
+          <p>
+              \(
+              \frac{dy}{dt} = y - t
+              \) with the initial condition \( y(0) = 1 \), for \( t = 0 \) to \( t = 0.2 \) with a step size \( h = 0.1 \).
+          </p><br>
+            <p class="font-bold text-2xl">SOLUTION</p><br>
+            <ol>
+              <li><strong>Forward Difference Method Formula:</strong></li>
+              <p>
+                  The forward difference method for approximating the solution of an ODE is:
+              </p>
+              <p>
+                  \[
+                  \frac{y_{n+1} - y_n}{h} = f(t_n, y_n)
+                  \]
+              </p>
+              <p>
+                  Rearranging to solve for \( y_{n+1} \):
+              </p>
+              <p>
+                  \[
+                  y_{n+1} = y_n + h \cdot f(t_n, y_n)
+                  \]
+              </p>
+          
+              <li><strong>Given:</strong></li>
+              <p>
+                      <li>\(\frac{dy}{dt} = y - t\)</li>
+                      <li>Initial condition: \( y(0) = 1 \)</li>
+                      <li>Step size \( h = 0.1 \)</li>
+                      <li>We need to find \( y(t) \) at \( t = 0.2 \).</li>
+                  </end{itemize}
+              </p>
+          
+              <li><strong>First Step (from \( t = 0 \) to \( t = 0.1 \)):</strong></li>
+              <p>
+                  At \( t_0 = 0 \), \( y_0 = 1 \).
+              </p>
+              <p>
+                  Calculate \( y_1 \) using the forward difference method:
+              </p>
+              <p>
+                  \[
+                  f(t_0, y_0) = y_0 - t_0 = 1 - 0 = 1
+                  \]
+              </p>
+              <p>
+                  \[
+                  y_1 = y_0 + h \cdot f(t_0, y_0) = 1 + 0.1 \cdot 1 = 1 + 0.1 = 1.1
+                  \]
+              </p>
+          
+              <li><strong>Second Step (from \( t = 0.1 \) to \( t = 0.2 \)):</strong></li>
+              <p>
+                  At \( t_1 = 0.1 \), \( y_1 = 1.1 \).
+              </p>
+              <p>
+                  Calculate \( y_2 \) using the forward difference method:
+              </p>
+              <p>
+                  \[
+                  f(t_1, y_1) = y_1 - t_1 = 1.1 - 0.1 = 1.0
+                  \]
+              </p>
+              <p>
+                  \[
+                  y_2 = y_1 + h \cdot f(t_1, y_1) = 1.1 + 0.1 \cdot 1.0 = 1.1 + 0.1 = 1.2
+                  \]
+              </p>
+          
+              <li><strong>Conclusion:</strong></li>
+              <p>
+                  After two steps, the approximate solution at \( t = 0.2 \) is:
+              </p>
+              <p>
+                  \[
+                  y(0.2) \approx 1.2
+                  \]
+              </p>
+          </ol>
           </div>
         </div>
       </div>

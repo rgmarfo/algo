@@ -62,61 +62,95 @@
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
           <div class="brackbox">
-            <h3 class="font-bold text-2xl">LECTURE NOTE (BY ONASSIS)</h3>
+            <h3 class="font-bold text-2xl">LECTURE NOTE </h3><br>
           </div>
-
           <div class="mx-auto">
-            <swiper-container class="mySwiper" navigation="true">
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imagebismethod1.jpg.png')}}"
-                  alt="bis-img1"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imagebispseudo2.jpg.png')}}"
-                  alt="bis-pseudocode1"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imagebispseudo3.jpg.png')}}"
-                alt="bis-pseudocode2"
-              /><br />
-              </swiper-slide>
+            <p>
+                The <strong>forward difference method</strong> is a numerical technique used to approximate the derivative of a function. It is commonly applied in solving ordinary differential equations (ODEs) and partial differential equations (PDEs). The method is noted for its simplicity and efficiency, making it a popular choice in various numerical applications.
+            </p><br>
 
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imagebisinterval4.jpg.png')}}"
-                alt="bis-pseudocode3"
-              /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                 src="{{url_for('static',filename='imagebis5.jpg.png')}}"
-                 alt="bis5"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                 src="{{url_for('static', filename='imagebis6.jpg.png')}}"
-                 alt="bis6"
-               /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imagebis7.jpg.png')}}"
-                alt="bis7"
-              /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imagebis8.jpg.png')}}"
-                alt="bis8"
-              />
-              </swiper-slide>
-            </swiper-container>
+            <h3 class="font-bold text-1xl">Forward Difference Approximation</h3>
+            <p>
+                To approximate the first derivative of a function \( y(t) \) at a point \( t_n \), the forward difference method uses the values of the function at \( t_n \) and \( t_{n+1} \). The forward difference approximation for the first derivative is given by:
+            </p>
+            <p>
+                \[
+                \frac{dy}{dt} \approx \frac{y_{n+1} - y_n}{\Delta t}
+                \]
+            </p>
+            <p>
+                where \( \Delta t \) is the step size, the difference between \( t_{n+1} \) and \( t_n \). This formula assumes that \( y(t) \) behaves approximately linearly over the interval \([t_n, t_{n+1}]\).
+            </p><br>
+
+            <h3 class="font-bold text-2xl">Application in Numerical Methods<h3 class="font-bold text-2xl">
+
+              <h3 class="font-bold text-1xl">1. Ordinary Differential Equations (ODEs)</h3>
+            <p>
+                When solving ODEs using the forward difference method, consider an ODE of the form:
+            </p>
+            <p>
+                \[
+                \frac{dy}{dt} = f(t, y)
+                \]
+            </p>
+            <p>
+                Applying the forward difference method, we get:
+            </p>
+            <p>
+                \[
+                \frac{y_{n+1} - y_n}{\Delta t} = f(t_n, y_n)
+                \]
+            </p>
+            <p>
+                Rearranging this equation gives:
+            </p>
+            <p>
+                \[
+                y_{n+1} = y_n + \Delta t \cdot f(t_n, y_n)
+                \]
+            </p>
+            <p>
+                This allows us to compute \( y_{n+1} \) from known values \( y_n \) and \( t_n \).
+            </p><br>
+
+            <h3 class="font-bold text-1xl">2. Partial Differential Equations (PDEs)</h3>
+            <p>
+                The forward difference method can also be used in solving PDEs. For example, in the case of the heat equation, the forward difference method in time and central difference in space can be used. The heat equation is:
+            </p>
+            <p>
+                \[
+                \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+                \]
+            </p>
+            <p>
+                Using the forward difference method in time, we get:
+            </p>
+            <p>
+                \[
+                \frac{u_i^{n+1} - u_i^n}{\Delta t} = \alpha \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{(\Delta x)^2}
+                \]
+            </p>
+            <p>
+                This results in a system of equations that can be solved to find \( u_i^{n+1} \) at each time step.
+            </p><br>
+
+            <h3 class="font-bold text-2xl">Advantages of the Forward Difference Method</h3>
+            <ul>
+                <li><strong>Simplicity:</strong> The method is easy to understand and implement.</li>
+                <li><strong>Computational Efficiency:</strong> It requires minimal computational resources, making it suitable for many applications.</li>
+            </ul><br>
+
+            <h3 class="font-bold text-2xl">Disadvantages of the Forward Difference Method</h3>
+            <ul>
+                <li><strong>Stability Issues:</strong> The method can be less stable, especially for stiff equations. It may lead to numerical instability if the step size is not appropriately chosen.</li>
+                <li><strong>Truncation Error:</strong> The approximation introduces truncation errors, which can accumulate over many steps, affecting accuracy.</li>
+            </ul><br>
+
+            <h3 class="font-bold text-1xl">Conclusion</h3>
+            <p>
+                The forward difference method is a foundational technique in numerical analysis, useful for approximating derivatives and solving differential equations. While it is straightforward and computationally efficient, careful consideration of stability and accuracy is necessary for reliable results.
+            </p>
+
           </div>
         </div>
       </div>

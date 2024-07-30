@@ -38,7 +38,7 @@
           <li>
             <a
               href="/numerical calculus/forward difference/exercise"
-              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
               >Exercise</a
             >
           </li>
@@ -59,52 +59,43 @@
             <h3 class="font-bold text-2xl">EXERCISE</h3>
           </div>
           <div><br>
-            
-    <ol>
-      <li> 1.   Use the Bisection method to find \( p_3 \) for \( f(x) = \sqrt{x} - \cos x \) on \([0, 1]\).</li><br>
-
-      <li> 2.   Let \( f(x) = 3(x + 1)\left(x - \frac{1}{2}\right)(x - 1) \). Use the Bisection method on the following intervals to find \( p_3 \).
-          <ul>
-              <li>(a) \([-2, 1.5]\)</li>
-              <li>(b) \([-1.25, 2.5]\)</li>
-          </ul>
-      </li>
-
-      <li>3.  Use the Bisection method to find solutions accurate to within \( 10^{-2} \) for \( x^3 - 7x^2 + 14x - 6 = 0 \) on each interval.
-          <ul>
-              <li>(a) \([0, 1]\)</li>
-              <li>(b) \([1, 3.2]\)</li>
-              <li>(c) \([3.2, 4]\)</li>
-          </ul>
-      </li>
-
-      <li><h3>4.  </h3>Use the Bisection method to find solutions accurate to within \( 10^{-2} \) for \( x^4 - 2x^3 - 4x^2 + 4x + 4 = 0 \) on each interval.
-          <ul>
-              <li>(a) \([-2, -1]\)</li>
-              <li>(b) \([0, 2]\)</li>
-              <li>(c) \([2, 3]\)</li>
-              <li>(d) \([-1, 0]\)</li>
-          </ul>
-      </li>
-
-      <li><h3>5</h3>Use the Bisection method to find solutions accurate to within \( 10^{-5} \) for the following problems.
-          <ul>
-              <li>(a) \( x - 2^{-x} = 0 \) for \( 0 \leq x \leq 1 \)</li>
-              <li>(b) \( e^x - x^2 + 3x - 2 = 0 \) for \( 0 \leq x \leq 1 \)</li>
-              <li>(c) \( 2x \cos(2x) - (x + 1)^2 = 0 \) for \( -3 \leq x \leq -2 \) and \( -1 \leq x \leq 0 \)</li>
-              <li>(d) \( x \cos x - 2x^2 + 3x - 1 = 0 \) for \( 0.2 \leq x \leq 0.3 \) and \( 1.2 \leq x \leq 1.3 \)</li>
-          </ul>
-      </li>
-
-      <li><h3>6</h3>Use the Bisection method to find solutions accurate to within \( 10^{-5} \) for the following problems.
-          <ul>
-              <li>(a) \( 3x - e^x = 0 \) for \( 1 \leq x \leq 2 \)</li>
-              <li>(b) \( 2x + 3 \cos x - e^x = 0 \) for \( 0 \leq x \leq 1 \)</li>
-              <li>(c) \( x^2 - 4x + 4 - \ln x = 0 \) for \( 1 \leq x \leq 2 \) and \( 2 \leq x \leq 4 \)</li>
-              <li>(d) \( x + 1 - 2 \sin (\pi x) = 0 \) for \( 0 \leq x \leq 0.5 \) and \( 0.5 \leq x \leq 1 \)</li>
-          </ul>
-      </li>
-  </ol>
+            <p>1. 
+              Use the forward difference method to approximate the first derivative of the 
+              function \( f(t) = t^2 + 3t \) at \( t = 1 \) with a step size \( h = 0.2 \).
+          </p><br>
+          <p>2. 
+            Apply the forward difference method to approximate the solution of the ordinary 
+            differential equation \(
+            \frac{dy}{dt} = 2t - y
+            \) with the initial condition \( y(0) = 3 \), for \( t = 0 \) to \( t = 0.4 \) 
+            with a step size \( h = 0.2 \). Find \( y(t) \) at \( t = 0.4 \).
+          </p><br>
+          <p>3. 
+            Use the forward difference method to approximate the solution of the heat equation
+            \(
+            \frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}
+            \) with initial condition \( u(x, 0) = \sin(\pi x) \) and boundary conditions 
+            \( u(0, t) = 0 \) and \( u(1, t) = 0 \). Use a spatial step size \( \Delta x = 0.1 \) 
+            and a time step size \( \Delta t = 0.01 \). Compute \( u(x, t) \) at \( x = 0.1 \) 
+            and \( t = 0.01 \).
+        </p><br>
+        <p>4. 
+          Apply the forward difference method to approximate the solution of the logistic growth model
+          \(
+            \frac{dy}{dt} = 0.5 y \left(1 - \frac{y}{10}\right)
+          \) with the initial condition \( y(0) = 2 \). Approximate \( y(t) \) for \( t = 0 \) to \( t = 0.5 \) with a step size \( h = 0.1 \).
+      </p><br>
+            <p>5. 
+              Apply the forward difference method to approximate the solution of the heat equation
+          </p>
+          <p>
+              \(
+              \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+              \) where \( \alpha = 0.01 \). Given the initial condition \( u(x, 0) = \sin(\pi x) \) 
+              and boundary conditions \( u(0, t) = 0 \) and \( u(1, t) = 0 \), use a spatial step size 
+              \( \Delta x = 0.1 \) and a time step size \( \Delta t = 0.01 \). Compute \( u(x, t) \) at 
+              \( x = 0.1 \) and \( t = 0.01 \).
+          </p><br>
           </div>
         </div>
       </div>
