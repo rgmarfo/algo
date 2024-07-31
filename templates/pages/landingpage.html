@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block header %}
 <h2>{% block title %} Welcome to NumLab {% endblock title %}</h2>
@@ -12,6 +12,22 @@
     padding: 100px 0;
     text-align: center;
     color: white;
+    position: relative;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adding a dark overlay */
+    z-index: 1;
+}
+.hero h1, .hero p, .hero a {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
 }
 .hero h1 {
     font-size: 3em;
@@ -57,7 +73,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1 class='text-blue-500'>Welcome to NumLab</h1>
-        <p class='text-blue-500'>Your solution for numerical analysis problems</p>
+        <p class='text-blue-500'>NumLab simplifies numerical analysis with an intuitive 
+            interface, advanced algorithms, and comprehensive documentation. Our platform 
+            is designed for students, educators, and professionals seeking efficient 
+            solutions to numerical problems. Join NumLab to revolutionize your approach 
+            to numerical analysis.</p>
         <a href="/homepage" class='text-blue-500'>Learn More</a>
     </section>
 
