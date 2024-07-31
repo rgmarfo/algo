@@ -1,0 +1,108 @@
+{% extends 'base.html' %} 
+
+{% block header %}
+<h2>{% block title %} Welcome to NumLab {% endblock title %}</h2>
+{% endblock header %} 
+
+{% block content %}
+<style>
+.hero {
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+    background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+}
+.hero h1 {
+    font-size: 3em;
+}
+.hero p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+.features {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+.feature {
+    text-align: center;
+    padding: 20px;
+}
+.testimonials {
+    padding: 50px 0;
+    background-color: #e9e9e9;
+}
+.testimonial {
+    text-align: center;
+    margin: 20px;
+}
+.call-to-action {
+    padding: 50px 0;
+    background-color: #1a202c;
+    color: white;
+    text-align: center;
+}
+.call-to-action a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3182ce;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+</style>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class='text-blue-500'>Welcome to NumLab</h1>
+        <p class='text-blue-500'>Your solution for numerical analysis problems</p>
+        <a href="/homepage" class='text-blue-500'>Learn More</a>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features container mx-auto px-4">
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="feature bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Interactive Interface</h2>
+                <p class="mt-2 text-gray-600">Easy-to-use interface for solving complex numerical problems.</p>
+            </div>
+            <div class="feature bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Advanced Algorithms</h2>
+                <p class="mt-2 text-gray-600">Utilizes the latest numerical analysis algorithms for accurate results.</p>
+            </div>
+            <div class="feature bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-lg font-semibold text-gray-800">Comprehensive Documentation</h2>
+                <p class="mt-2 text-gray-600">Detailed documentation to help you understand and use NumLab effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials container mx-auto px-4">
+        <h2 class="text-center text-2xl font-semibold mb-6">What Users Say</h2>
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="testimonial bg-white rounded-lg shadow-lg p-4">
+                <p class="text-gray-600">"NumLab has revolutionized how I approach numerical problems. The interface is intuitive and the results are spot on!"</p>
+                <p class="mt-2 text-gray-800 font-semibold">- Jane Doe, Engineer</p>
+            </div>
+            <div class="testimonial bg-white rounded-lg shadow-lg p-4">
+                <p class="text-gray-600">"A must-have tool for anyone in the field of numerical analysis. Highly recommended!"</p>
+                <p class="mt-2 text-gray-800 font-semibold">- John Smith, Researcher</p>
+            </div>
+            <div class="testimonial bg-white rounded-lg shadow-lg p-4">
+                <p class="text-gray-600">"NumLab's documentation and support have been incredibly helpful in getting me up to speed quickly."</p>
+                <p class="mt-2 text-gray-800 font-semibold">- Sarah Lee, Student</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="call-to-action">
+        <h2 class="text-2xl font-semibold">Ready to Get Started?</h2>
+        <p class="mt-2">Join thousands of users who trust NumLab for their numerical analysis needs.</p>
+        <a href="#">Sign Up Now</a>
+    </section>
+</main>
+{% endblock content %}

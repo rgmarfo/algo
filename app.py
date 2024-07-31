@@ -27,9 +27,14 @@ with open('questions.json') as f:
 
 
 
+### landing page routes
+@app.route('/')
+def landing():
+    return render_template('pages/landingpage.html')
+
 
 ### Main routes
-@app.route('/')
+@app.route('/homepage')
 def index():
     return render_template('pages/homepage.html')
     
