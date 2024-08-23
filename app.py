@@ -570,6 +570,31 @@ def gaussian_solve():
 def gaussian_exercise():
     return render_template('pages/linear systems/gaussian/exercise.html')
 
+### Linear systems(Jacobian Method)
+@app.route('/linear systems/jacobibackground')
+def jacobi_background():
+    return render_template('pages/linear systems/jacobi/background.html')
+
+@app.route('/linear systems/jacobi/lecturenote')
+def jacobi_lecture_note():
+    return render_template('pages/linear systems/jacobi/lecturenote.html')
+
+@app.route('/linear systems/jacobi/graph')
+def jacobi_graph():
+    return render_template('pages/linear systems/jacobi/graph.html')
+
+@app.route('/linear systems/backward difference/example')
+def jacobi_example():
+    return render_template('pages/linear systems/jacobi/example.html')
+
+@app.route('/linear systems/jacobi/solve')
+def jacobi_solve():
+    return render_template('pages/linear systems/jacobi/solve.html')
+
+@app.route('/linear systems/jacobi/exercise')
+def jacobi_exercise():
+    return render_template('pages/linear systems/jacobi/exercise.html')
+ 
  
 
 ### Logic endpoints
