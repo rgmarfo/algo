@@ -1,0 +1,193 @@
+{% extends 'base.html' %} {% block header %}
+<h2 class="text-2xl font-bold text-center mt-8">
+    {% block title %} Newton Solver{% endblock title %}
+</h2>
+{% endblock header %} {% block content %}
+
+<main class="bg-gray-100 py-8" style="
+    background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
+  ">
+    <div class="container mx-auto flex flex-wrap justify-center mb-20">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">NEWTON METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/newtonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/solve"
+              class="block text-gray-700 bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="container mx-auto">
+          <h2 class="text-2xl font-bold mb-6">Newton Method Calculator</h2>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-4">Legend</h3>
+            <ul class="list-disc pl-5 space-y-2">
+              <li><span class="font-semibold text-lg">exp(x)</span> - Exponential Function</li><br>
+              <li class=' px-2 py-3 flex gap-4'>
+                <div class='border bg-gray-200 w-1/2 px-3 py-5 text-lg font-bold'><p class='text-xl text-red-500'> Instead Of This:</p>\(f(x) = 3x - e^x\)</div><div class='border bg-green-200 w-1/2 px-3 py-5 text-lg font-bold'> <p class='text-xl text-red-500'>Input Accepts:</p>\( f(x)=3x-exp(x)\)</div>
+              </li>
+              <li>
+                <span class="font-semibold">**</span> - Caret (raise the
+                preceding value to the power of the following value)
+              </li><br>
+              <li class=' px-2 py-3 flex gap-4'>
+                <div class='border bg-gray-200 w-1/2 md:w-50 px-3 py-5 text-lg font-bold'><p class='text-xl text-red-500'> Instead Of This:</p>\(f(x) = x^3 - x^2 + x - 1\)</div><div class='border bg-green-200 w-1/2  px-3 py-5 text-lg font-bold'> <p class='text-xl text-red-500'>Input Accepts:</p>\(f(x) = x^{**}3 - x^{**}2 + x - 1\)</div>
+              </li>
+            </ul>
+            
+          </div>
+
+          <form id="bisection-form">
+            <label for="equation" class="block font-bold mb-2">Equation:</label>
+            <input
+              type="text"
+              id="equation"
+              class="w-full p-2 border border-gray-300 rounded mb-4"
+              name="equation"
+              placeholder="Enter equation f(x)"
+              required
+            />
+
+            <div class="flex space-x-4 mb-4">
+              <div class="w-1/2">
+                <label for="a" class="block font-bold mb-2">Initial Guess \((x_0\)) :</label>
+                <input
+                  type="text"
+                  id="a"
+                  name="a"
+                  class="w-full p-2 border border-gray-300 rounded"
+                  placeholder="Enter initial guess"
+                  required
+                />
+              </div>
+              </div>
+              <input
+              type="submit"
+              class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+              value="Calculate"
+            />
+          </form>
+
+          <div
+            class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+            id="loading-overlay"
+            style="display: none"
+          >
+            <div class="text-white text-2xl">Loading...</div>
+          </div>
+
+          <div id="result-section" class="mt-8"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  $(document).ready(function () {
+    $("#bisection-form").submit(function (event) {
+      event.preventDefault();
+      var formData = $(this).serialize();
+
+      // Show overlay loading indicator
+      $("#loading-overlay").show();
+
+      $.ajax({
+        type: "POST",
+        url: "/calculate",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          // Hide overlay loading indicator
+          $("#loading-overlay").hide();
+          if (!response.error) {
+            // Root is defined, display the result
+            var root = response.root;
+            var stepsHtml = response.steps_html;
+            var tableHtml = response.table_html;
+            var updatedIntervals = response.updated_intervals;
+
+            $("#result-section").html(
+              "<h3 class='text-lg font-bold'>The root of the equation: " +
+                root +
+                "</h3><br/>" +
+                stepsHtml +
+                "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
+                tableHtml
+            );
+
+            // Apply Tailwind classes to the dynamically generated table
+            $("table").addClass("min-w-full bg-white border-collapse");
+            $("th").addClass(
+              "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
+            );
+            $("td").addClass("py-2 px-4 border");
+
+            // Apply Tailwind classes to the stepsHtml section if needed
+            $("#stepsHtml").addClass("mt-4");
+          } else {
+            // Root is undefined, display the error message
+            $("#result-section").html(
+              '<p class="text-red-500">Error: ' +
+                response.error +
+                ": Invalid intervals" +
+                "</p>"
+            );
+          }
+        },
+        error: function (xhr, status, error) {
+          // Hide overlay loading indicator
+          $("#loading-overlay").hide();
+
+          // Show error message in result section
+          $("#result-section").html(
+            '<p class="text-red-500">Error: ' + error + "</p>"
+          );
+        },
+      });
+    });
+  });
+</script>
+
+{% endblock content %}

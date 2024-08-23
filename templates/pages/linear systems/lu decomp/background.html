@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Newton Method {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">NEWTON METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/newtonbackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/newton/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/newton/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  Newton technique
+                </p>
+                <p class="mb-4">
+                  The Newton-Raphson method is named after Sir Isaac Newton
+                  and Joseph Raphson. Newton first developed the method in 
+                  the 17th century, and Raphson later published a simplified 
+                  version of Newton's method in 1690. It is an iterative 
+                  technique for finding successively better approximations 
+                  to the roots (or zeroes) of a real-valued function. This 
+                  method is particularly powerful and efficient for solving 
+                  nonlinear equations, and it has a wide range of applications 
+                  in mathematics, engineering, and applied sciences. 
+                  The goal of the Newton-Raphson method is to find a solution 
+                  \( x \) such that \( f(x) = 0 \). The method starts with an 
+                  initial guess \( x_0 \) and generates a sequence of improving 
+                  approximations to the root. The idea is to use the tangent line 
+                  at a point on the function to estimate the next point closer to 
+                  the root.
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}

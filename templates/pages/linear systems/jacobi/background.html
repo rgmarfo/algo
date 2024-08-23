@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %} Fixed Point Method {% endblock title %}</h2>
+{% endblock header %} {% block content %}
+<main class="bg-gray-100 py-8" style="background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
+        <div class="w-full md:w-1/4 p-4">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-bold mb-4">FIXED POINT METHOD</h3>
+                <hr class="mb-4" />
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/open/fixedbackground" class="block text-gray-700 bg-gray-200 p-2 rounded">Background</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/fixed/lecturenote"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded text-bold"
+              >Lecture Note</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/fixed/example"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Example</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/open/fixed/solve"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Solution Finder</a
+            >
+          </li>
+         
+          <li>
+            <a
+              href="/open/fixed/exercise"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Exercise</a
+            >
+          </li>
+          <li>
+            <a
+              href="/open/fixed/practice"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Practice</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-3/4 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="container mx-auto">
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold">BACKGROUND</h3>
+              </div>
+              <div>
+                <p class="text-xl font-semibold text-red-600 mb-4">
+                  FIXED POINT METHOD
+                </p>
+                The fixed-point method as a numerical technique doesn't have 
+                a specific single originator unlike methods 
+                named after specific individuals like Newton-Raphson or Euler. 
+                Instead, the concept of finding fixed points of functions through 
+                iterative methods has been developed and refined over time by 
+                various mathematicians and scholars.
+                The method itself draws on fundamental concepts in mathematics, 
+                particularly in analysis and numerical analysis, where the idea 
+                of fixed points is central. Mathematicians and researchers over 
+                centuries have contributed to the understanding and application 
+                of fixed-point problems and iterative methods, laying the 
+                groundwork for its use in modern numerical techniques.
+                While no single individual is credited with introducing the 
+                fixed-point method in its entirety, its principles have been 
+                integrated into broader mathematical theory and computational 
+                methods through the contributions of many scholars across 
+                different periods of mathematical history.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}

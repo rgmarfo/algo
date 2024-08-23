@@ -545,6 +545,30 @@ def backward_solve():
 def backward_exercise():
     return render_template('pages/numerical calculus/backward difference/exercise.html')
 
+### Linear systems(Gaussian Elimination)
+@app.route('/linear systems/gaussianbackground')
+def gaussian_background():
+    return render_template('pages/linear systems/gaussian/background.html')
+
+@app.route('/linear systems/gaussian/lecturenote')
+def gaussian_lecture_note():
+    return render_template('pages/linear systems/gaussian/lecturenote.html')
+
+@app.route('/linear systems/gaussian/graph')
+def gaussian_graph():
+    return render_template('pages/linear systems/gaussian/graph.html')
+
+@app.route('/linear systems/backward difference/example')
+def gaussian_example():
+    return render_template('pages/linear systems/gaussian/example.html')
+
+@app.route('/linear systems/gaussian/solve')
+def gaussian_solve():
+    return render_template('pages/linear systems/gaussian/solve.html')
+
+@app.route('/linear systems/gaussian/exercise')
+def gaussian_exercise():
+    return render_template('pages/linear systems/gaussian/exercise.html')
 
  
 
