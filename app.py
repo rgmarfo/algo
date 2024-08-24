@@ -621,7 +621,7 @@ def lu_exercise():
     return render_template('pages/linear systems/lu decomp/exercise.html')
  
 
-### Logic endpoints
+### Logic endpoints for bisection
 @app.route('/calculate', methods=['POST'])
 def calculate():
     equation_str = request.form['equation']
