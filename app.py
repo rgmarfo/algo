@@ -558,7 +558,7 @@ def gaussian_lecture_note():
 def gaussian_graph():
     return render_template('pages/linear systems/gaussian/graph.html')
 
-@app.route('/linear systems/backward difference/example')
+@app.route('/linear systems/gaussian/example')
 def gaussian_example():
     return render_template('pages/linear systems/gaussian/example.html')
 

@@ -65,89 +65,165 @@
             <h3 class="font-bold text-2xl">LECTURE NOTE</h3><br>
           </div>
           <div class="mx-auto">
-            <h1 class="font-bold text-2xl">Finite Difference Method</h1>
-            <p>The Finite Difference Method (FDM) is a numerical technique
-               used to approximate solutions to differential equations.
-               By replacing derivatives with finite differences, FDM 
-               transforms differential equations into algebraic equations 
-               that can be solved using standard numerical methods.</p><br>
-        
-            <h2 class="font-bold text-2xl">Types of Finite Differences</h2><br>
-            <h1 class="font-bold text-1xl">Forward Difference:</h1>
-            <p>Approximates the derivative at a point using the function value at that point and the next point.</p>
-            <p>Formula for the first derivative:
-               \( f'(x) \approx \frac{f(x + h) - f(x)}{h} \)</p>
-            <p>Formula for the second derivative: 
-              \( f''(x) \approx \frac{f(x + 2h) - 2f(x + h) + f(x)}{h^2} \)</p><br>
-        
-            <h1 class="font-bold text-1xl">Backward Difference:</h1>
-            <p>Approximates the derivative at a point using the function value at that point and the previous point.</p>
-            <p>Formula for the first derivative: \( f'(x) \approx \frac{f(x) - f(x - h)}{h} \)</p>
-            <p>Formula for the second derivative: \( f''(x) \approx \frac{f(x) - 2f(x - h) + f(x - 2h)}{h^2} \)</p><br>
-        
-            <h1 class="font-bold text-1xl">Central Difference:</h1>
-            <p>Approximates the derivative at a point using the function values at the points on both sides of the point.</p>
-            <p>Formula for the first derivative: \( f'(x) \approx \frac{f(x + h) - f(x - h)}{2h} \)</p>
-            <p>Formula for the second derivative: \( f''(x) \approx \frac{f(x + h) - 2f(x) + f(x - h)}{h^2} \)</p><br>
-        
-            <h2 class="font-bold text-2xl">Basic Steps of the Finite Difference Method</h2><br>
-            <h1 class="font-bold text-1xl">Discretize the Domain:</h1>
-            <p>Divide the interval \([a, b]\) into \(N\) equal parts with grid points \(x_i = a + i \Delta x\), where \(\Delta x = \frac{b - a}{N}\).</p>
-        
-            <h1 class="font-bold text-1xl">Replace Derivatives with Finite Differences:</h1>
-            <p>For example, replace \( u''(x) \) in the differential equation with the central difference approximation.</p>
-        
-            <h1 class="font-bold text-1xl">Formulate the System of Algebraic Equations:</h1>
-            <p>Substitute the finite difference approximations into the differential equation.</p>
-        
-            <h1 class="font-bold text-1xl">Apply Boundary Conditions:</h1>
-            <p>Incorporate the given boundary conditions into the system.</p>
-        
-            <h1 class="font-bold text-1xl">Solve the System:</h1>
-            <p>Use numerical methods to solve the resulting algebraic equations for the values of the function at the grid points.</p><br>
-        
-            <h2 class="font-bold text-2xl">Solving a Simple 1D Poisson Equation</h2>
-            <p>Consider the 1D Poisson equation \( u''(x) = f(x) \) on the interval \([0, 1]\) with boundary conditions \( u(0) = 0 \) and \( u(1) = 0\).</p><br>
-        
-            <h1 class="font-bold text-1xl">Discretize the Domain:</h1>
-            <p>Divide \([0, 1]\) into \(N\) subintervals with grid points \(x_i = i \Delta x\), where \(\Delta x = \frac{1}{N}\).</p>
-        
-            <h1 class="font-bold text-1xl">Finite Difference Approximation:</h1>
-            <p>Replace \( u''(x_i) \) with \( \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} \).</p>
-        
-            <h1 class="font-bold text-1xl">Formulate the Equations:</h1>
-            <p>At each interior grid point \( x_i \):
+            <h1 class="font-bold text-2xl">Gaussian Elimination Method</h1>
+            <p>
+                Gaussian elimination is a systematic method used to solve systems of linear equations. Named after the German mathematician Carl Friedrich Gauss, this method simplifies the system into an upper triangular matrix, making it easier to solve using back-substitution. It's a fundamental technique in linear algebra and is widely used in various scientific and engineering disciplines.
+            </p><br>
+
+            <h1  class="font-bold text-2xl">Objective</h1>
+            <p>
+                The primary goal of Gaussian elimination is to solve a system of linear equations of the form:
+            </p>
+            <p>
+                \( A \mathbf{x} = \mathbf{b} \)
+            </p>
+            <ul>
+                <li><strong>A</strong> is an \( n \times n \) matrix of coefficients.</li>
+                <li><strong>\(\mathbf{x}\)</strong> is a column vector of unknowns.</li>
+                <li><strong>\(\mathbf{b}\)</strong> is a column vector of constants.</li>
+            </ul><br>
+
+            <h2 class="font-bold text-2xl">Steps of Gaussian Elimination</h2>
+
+            <h3  class="font-bold text-1xl">1. Augmented Matrix Formation</h3>
+            <p>
+                Combine the coefficient matrix \( A \) and the constant vector \( \mathbf{b} \) to form an augmented matrix \( [A|\mathbf{b}] \).
+            </p><br>
+
+            <h4  class="font-bold text-1xl">Example:</h4>
+            <p>Consider the following system of equations:</p>
+            <p>
+                \( 2x_1 + 3x_2 - x_3 = 5 \)<br>
+                \( 4x_1 + 4x_2 - 3x_3 = 3 \)<br>
+                \( -2x_1 + 3x_2 + 2x_3 = -1 \)
+            </p>
+            <p>The augmented matrix is:</p>
+            <p>
                 \[
-                \frac{u_{i+1} - 2u_i + u_{i-1}}{\Delta x^2} = f(x_i)
+                \left[
+                \begin{array}{ccc|c}
+                2 & 3 & -1 & 5 \\
+                4 & 4 & -3 & 3 \\
+                -2 & 3 & 2 & -1
+                \end{array}
+                \right]
                 \]
             </p>
-            <p>This forms a system of linear equations.</p>
-        
-            <h1 class="font-bold text-1xl">Apply Boundary Conditions:</h1>
-            <p>\( u_0 = 0 \) and \( u_N = 0 \).</p>
-        
-            <h1 class="font-bold text-1xl">Solve the System:</h1>
-            <p>Solve the system of linear equations for \( u_1, u_2, \ldots, u_{N-1} \).</p><br>
-        
-            <h2 class="font-bold text-2xl">Advantages Of The Finite Difference Method</h2>
-                <p>1. Easy to implement and understand.</p>
-                <p>2. Can handle various types of differential equations and boundary conditions.</p>
-                <p>3. Converts differential equations directly into algebraic equations.</p><br>
-        
-            <h2 class="font-bold text-2xl">Disadvantages Of The Finite Difference Method</h2>
-                <p>1. Less accurate for complex geometries or highly varying solutions.</p>
-                <p>2. May require careful selection of grid spacing and time steps for stability.</p>
-                <p>3. Large systems of equations can be computationally expensive to solve.</p><br>
 
-        
-              <h2 class="font-bold text-2xl">Applications Of The Finite Difference Method</h2>
-                <p>1. Heat Transfer: Solving the heat equation to determine temperature distribution.</p>
-                <p>2. Fluid Dynamics: Modeling flow and pressure in fluids.</p>
-                <p>3. Electromagnetics: Solving Maxwell's equations for electric and magnetic fields.</p>
-                <p>4. Structural Analysis: Analyzing stress and deformation in structures.</p><br>
-        
+            <h3  class="font-bold text-1xl">2. Forward Elimination</h3>
+            <p>The goal is to convert the matrix into an upper triangular form where all elements below the main diagonal are zeros.</p><br>
+
+            <ul>
+                <li><strong>Step 1:</strong> Make the first column below the pivot element (first row, first column) zero by performing row operations.</li>
+                <li><strong>Step 2:</strong> Move to the next row and repeat the process for each pivot element until the matrix is in upper triangular form.</li>
+            </ul><br>
+
+            <h4 class="font-bold text-1xl">Example:</h4>
+            <p>The first pivot element is 2 in the first row. Subtract 2 times the first row from the second row:</p>
+            <p>\( R_2 \rightarrow R_2 - 2R_1 \)</p>
+            <p>Resulting matrix:</p>
+            <p>
+                \[
+                \left[
+                \begin{array}{ccc|c}
+                2 & 3 & -1 & 5 \\
+                0 & -2 & -1 & -7 \\
+                -2 & 3 & 2 & -1
+                \end{array}
+                \right]
+                \]
+            </p>
+            <p>Add the first row to the third row:</p>
+            <p>\( R_3 \rightarrow R_3 + R_1 \)</p>
+            <p>Resulting matrix:</p>
+            <p>
+                \[
+                \left[
+                \begin{array}{ccc|c}
+                2 & 3 & -1 & 5 \\
+                0 & -2 & -1 & -7 \\
+                0 & 6 & 1 & 4
+                \end{array}
+                \right]
+                \]
+            </p>
+            <p>For the next pivot element, make the elements below it zero. Multiply the second row by -3 and add to the third row:</p>
+            <p>\( R_3 \rightarrow R_3 + 3R_2 \)</p>
+            <p>Resulting matrix:</p>
+            <p>
+                \[
+                \left[
+                \begin{array}{ccc|c}
+                2 & 3 & -1 & 5 \\
+                0 & -2 & -1 & -7 \\
+                0 & 0 & -2 & -17
+                \end{array}
+                \right]
+                \]
+            </p>
+
+            <h3 class="font-bold text-1xl">3. Back Substitution</h3>
+            <p>Once the matrix is in upper triangular form, solve for the unknowns starting from the last equation and moving upward.</p><br>
+
+            <h4 class="font-bold text-1xl">Example:</h4>
+            <ul>
+                <li>From the third row: \( -2x_3 = -17 \implies x_3 = \frac{17}{2} \)</li>
+                <li>Substitute \( x_3 \) into the second row: \( -2x_2 - \frac{17}{2} = -7 \implies x_2 = \frac{3}{2} \)</li>
+                <li>Substitute \( x_2 \) and \( x_3 \) into the first row: \( 2x_1 + 3\left(\frac{3}{2}\right) - \frac{17}{2} = 5 \implies x_1 = 2 \)</li>
+            </ul>
+            <p>Therefore, the solution is:</p>
+            <p>
+                \[
+                \mathbf{x} = \left[
+                \begin{array}{c}
+                2 \\
+                \frac{3}{2} \\
+                \frac{17}{2}
+                \end{array}
+                \right]
+                \]
+            </p><br>
+            <h2 class="font-bold text-2xl">Row Operations in Gaussian Elimination</h2>
+            <p>Three types of row operations are allowed during the process:</p>
+            <ul>
+                <li><strong>Row Interchange:</strong> Swapping two rows.</li>
+                <li><strong>Row Scaling:</strong> Multiplying a row by a non-zero scalar.</li>
+                <li><strong>Row Addition:</strong> Adding or subtracting the multiple of one row to another.</li>
+            </ul>
+            <p>These operations do not change the solution of the system but help in simplifying the matrix.</p><br>
+
+            <h2 class="font-bold text-2xl">Special Cases</h2>
+            <ul>
+                <li><strong>No Solution (Inconsistent System):</strong> If a row is reduced to a form where all coefficients are zero, but the constant term is non-zero (e.g., \( [0 \, 0 \, 0 | c] \), where \( c \neq 0 \)), the system has no solution.</li>
+                <li><strong>Infinitely Many Solutions (Dependent System):</strong> If the system has fewer non-zero rows than variables after the elimination process, it has infinitely many solutions. This typically occurs when one or more rows reduce to zeros.</li>
+            </ul><br>
+
+            <h2 class="font-bold text-2xl">Computational Complexity</h2>
+            <p>The Gaussian elimination method has a computational complexity of \( O(n^3) \) for an \( n \times n \) matrix. This makes it efficient for small to moderately large systems but can become computationally expensive for very large systems.</p><br>
+
+            <h2 class="font-bold text-2xl">Applications</h2>
+            <ul>
+                <li><strong>Solving Linear Systems:</strong> Gaussian elimination is widely used in solving linear systems in various fields, including engineering, physics, and economics.</li>
+                <li><strong>Matrix Inversion:</strong> The method can also be used to find the inverse of a matrix.</li>
+                <li><strong>Determinant Calculation:</strong> Gaussian elimination can simplify the calculation of the determinant of a matrix by transforming it into an upper triangular form.</li>
+            </ul><br>
+
+            <h2 class="font-bold text-2xl">Advantages</h2>
+            <ul>
+                <li><strong>Simplicity:</strong> The method is straightforward and easy to implement.</li>
+                <li><strong>General Applicability:</strong> It can be applied to any system of linear equations, whether underdetermined, overdetermined, or square.</li>
+            </ul><br>
+
+            <h2 class="font-bold text-2xl">Disadvantages</h2>
+            <ul>
+                <li><strong>Numerical Stability:</strong> The method can be numerically unstable if partial pivoting is not used, especially for systems with very large or very small coefficients.</li>
+                <li><strong>Inefficiency for Large Systems:</strong> For extremely large systems, Gaussian elimination can be computationally intensive.</li>
+            </ul><br>
+
             <h2 class="font-bold text-2xl">Conclusion</h2>
-            <p>The Finite Difference Method is a versatile and widely used technique for numerically solving differential equations. It provides a straightforward approach to approximate solutions, making it a valuable tool in various scientific and engineering applications. However, it requires careful consideration of discretization, stability, and computational resources to ensure accurate and efficient solutions.</p>
+            <p>
+                Gaussian elimination is a fundamental method in linear algebra for solving systems of linear equations. Its straightforward approach and wide applicability make it a crucial tool in various scientific and engineering disciplines. Understanding the method and its limitations is essential for effectively applying it to solve real-world problems.
+            </p>
           </div>
         </div>
       </div>

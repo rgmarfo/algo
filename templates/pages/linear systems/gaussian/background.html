@@ -5,7 +5,7 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-center mb-36">
         <div class="w-full md:w-1/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">FINITE DIFFERENCE </h3>
+                <h3 class="text-lg font-bold mb-4">GAUSSIAN ELIMINATION</h3>
                 <hr class="mb-4" />
                 <ul class="space-y-4">
                     <li>
@@ -62,27 +62,28 @@
                 <p class="text-xl font-semibold text-red-600 mb-4">
                  GAUSSIAN ELIMINATION METHOD
                 </p>
-                The Finite Difference Method (FDM) is a numerical technique used 
-                to solve differential equations by approximating derivatives with 
-                finite difference equations. It is widely used in various fields 
-                of science and engineering, including physics, chemistry, biology, 
-                finance, and engineering, to solve problems that involve differential 
-                equations. The origins of the Finite Difference Method can be traced 
-                back to the early 18th century. The development of FDM is closely 
-                linked to the progress in calculus and numerical analysis made by 
-                early mathematicians. Isaac Newton and Gottfried Wilhelm Leibniz, 
-                in the late 17th century, laid the foundation for the numerical 
-                approximation of derivatives through their development of calculus. 
-                Their work on differentiation and integration provided the essential 
-                tools for the approximation methods that would later form the basis of FDM. 
-                In the finite difference method, the derivatives in the differential equation are 
-                approximated using the finite difference formulas. We can divide the 
-                the interval of \([a,b]\) into \(n\) equal subintervals of length h
-                as shown in the following figure.
-                <img
-                src="{{url_for('static', filename='ImageFiniteDifference.jpg.png')}}"
-                alt="FiniteDifference-graph" class='mx-auto'
-              />
+                Gaussian elimination is a fundamental algorithm in linear 
+                algebra used to solve systems of linear equations, find 
+                matrix inverses, and determine matrix rank. Named after 
+                Carl Friedrich Gauss, this method systematically transforms 
+                a matrix into an upper triangular form, from which solutions 
+                to the equations can be easily obtained. The process involves 
+                three main steps: forward elimination, where the matrix is 
+                reduced to upper triangular form; back substitution, 
+                where the solutions are found by solving the equations 
+                from the last row upwards; and pivoting, where rows are 
+                swapped to improve numerical stability. Gaussian elimination 
+                is not only efficient for small to moderately sized systems 
+                but also forms the basis for more complex numerical methods 
+                used in computational mathematics. The method is widely 
+                applicable in engineering, physics, computer science, and 
+                economics, where systems of linear equations frequently arise. 
+                Despite its effectiveness, Gaussian elimination can be 
+                computationally expensive for very large systems, making 
+                alternative methods like LU decomposition or iterative 
+                approaches more suitable in such cases. Nevertheless, 
+                it remains a cornerstone of linear algebra, integral to 
+                both theoretical studies and practical applications.               
               </div>
             </div>
           </div>
