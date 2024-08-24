@@ -58,15 +58,101 @@
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div>
           <div class="mx-auto">
-            <p>Solve the following system of linear equations using the Gaussian elimination method:</p>
-    <pre>
-    2x + 3y - z = 5
-    4x + 4y - 3z = 3
-    -2x + 3y + 2z = -1
-    </pre><br>
+            <p>Solve the following system of equations:</p>
+              <pre>
+          2x<sub>1</sub> + 3x<sub>2</sub> - x<sub>3</sub> = 5
+          4x<sub>1</sub> + 4x<sub>2</sub> - 3x<sub>3</sub> = 3
+          -2x<sub>1</sub> + 3x<sub>2</sub> + 2x<sub>3</sub> = -1
+              </pre><br>
             <h3 class="font-bold text-2xl">SOLUTION</h3>
-            
-        
+              <h2 class="font-bold text-1xl">Step 1: Form the Augmented Matrix</h2>
+              \[
+              [A|b] =
+              \left[
+              \begin{array}{ccc|c}
+              2 & 3 & -1 & 5 \\
+              4 & 4 & -3 & 3 \\
+              -2 & 3 & 2 & -1
+              \end{array}
+              \right]
+              \]
+
+              <h2 class="font-bold text-1xl">Step 2: Forward Elimination</h2>
+
+              <h3 class="font-bold text-1xl">Row Operation 1</h3>
+              <p>Subtract 2 times the first row from the second row:</p>
+              \[
+              R_2 \rightarrow R_2 - 2R_1
+              \]
+              <p>Resulting matrix:</p>
+              \[
+              \left[
+              \begin{array}{ccc|c}
+              2 & 3 & -1 & 5 \\
+              0 & -2 & -1 & -7 \\
+              -2 & 3 & 2 & -1
+              \end{array}
+              \right]
+              \]
+
+              <h3 class="font-bold text-1xl">Row Operation 2</h3>
+              <p>Add the first row to the third row:</p>
+              \[
+              R_3 \rightarrow R_3 + R_1
+              \]
+              <p>Resulting matrix:</p>
+              \[
+              \left[
+              \begin{array}{ccc|c}
+              2 & 3 & -1 & 5 \\
+              0 & -2 & -1 & -7 \\
+              0 & 6 & 1 & 4
+              \end{array}
+              \right]
+              \]
+
+              <h3 class="font-bold text-1xl">Row Operation 3</h3>
+              <p>Multiply the second row by -3 and add to the third row:</p>
+              \[
+              R_3 \rightarrow R_3 + 3R_2
+              \]
+              <p>Resulting matrix:</p>
+              \[
+              \left[
+              \begin{array}{ccc|c}
+              2 & 3 & -1 & 5 \\
+              0 & -2 & -1 & -7 \\
+              0 & 0 & -2 & -17
+              \end{array}
+              \right]
+              \]
+
+              <h2 class="font-bold text-1xl">Step 3: Back Substitution</h2>
+              <p>Now solve for the variables starting from the last row and working upward.</p>
+
+              <h3>From the Third Row</h3>
+              \[
+              -2x_3 = -17 \quad \Rightarrow \quad x_3 = \frac{17}{2}
+              \]
+
+              <h3>Substitute \( x_3 \) into the Second Row</h3>
+              \[
+              -2x_2 - \frac{17}{2} = -7 \quad \Rightarrow \quad x_2 = \frac{3}{2}
+              \]
+
+              <h3>Substitute \( x_2 \) and \( x_3 \) into the First Row</h3>
+              \[
+              2x_1 + 3 \left(\frac{3}{2}\right) - \frac{17}{2} = 5 \quad \Rightarrow \quad x_1 = 2
+              \]
+
+              <p>The solution to the system of equations is:</p>
+              \[
+              \begin{aligned}
+              x_1 &= 2 \\
+              x_2 &= \frac{3}{2} \\
+              x_3 &= \frac{17}{2}
+              \end{aligned}
+              \]
           </div>
         </div>
       </div>
