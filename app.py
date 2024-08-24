@@ -595,6 +595,30 @@ def jacobi_solve():
 def jacobi_exercise():
     return render_template('pages/linear systems/jacobi/exercise.html')
  
+### Linear systems(LU Decomposition Method)
+@app.route('/linear systems/ludecompbackground')
+def lu_background():
+    return render_template('pages/linear systems/lu decomp/background.html')
+
+@app.route('/linear systems/lu decomp/lecturenote')
+def lu_lecture_note():
+    return render_template('pages/linear systems/lu decomp/lecturenote.html')
+
+@app.route('/linear systems/lu decomp/graph')
+def lu_graph():
+    return render_template('pages/linear systems/lu decomp/graph.html')
+
+@app.route('/linear systems/lu decomp/example')
+def lu_example():
+    return render_template('pages/linear systems/lu decomp/example.html')
+
+@app.route('/linear systems/lu decomp/solve')
+def lu_solve():
+    return render_template('pages/linear systems/lu decomp/solve.html')
+
+@app.route('/linear systems/lu decomp/exercise')
+def lu_exercise():
+    return render_template('pages/linear systems/lu decomp/exercise.html')
  
 
 ### Logic endpoints
