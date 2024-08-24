@@ -8,23 +8,32 @@ app = Flask(__name__)
 app.secret_key = 'projectalgo2024'
 
 
-
 with open('questions.json') as f:
     bisection_questions = json.load(f)
-with open('questions.json') as f:
-    false_questions = json.load(f)
-with open('questions.json') as f:
-    newton_questions = json.load(f)
-with open('questions.json') as f:
-    fixed_questions = json.load(f)
-with open('questions.json') as f:
-    secant_questions = json.load(f)
+
+
+with open('fq.json') as fq:
+    false_questions = json.load(fq)
+
+
+with open('nq.json') as nq:
+    newton_questions = json.load(nq)
+
+
+with open('fxq.json') as fxq:
+    fixed_questions = json.load(fxq)
+
+
+with open('sq.json') as sq:
+    secant_questions = json.load(sq)
+
+
 with open('questions.json') as f:
     trapezoidal_questions = json.load(f)
+
+
 with open('questions.json') as f:
     finite_questions = json.load(f)
-
-
 
 
 ### landing page routes
@@ -896,7 +905,6 @@ def calculate_fixed_point():
         print(e)
         return jsonify({'error': str(e)})
     
-
 
 
 if __name__ == '__main__':
