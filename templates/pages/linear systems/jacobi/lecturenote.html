@@ -62,91 +62,60 @@
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="container mx-auto">
           <div class="brackbox">
-            <h3 class="font-bold text-2xl">LECTURE NOTE (BY ONASSIS)</h3>
+            <h3 class="font-bold text-2xl">LECTURE NOTE</h3><br>
           </div>
-
-          <div class="mx-auto">
-            <swiper-container class="mySwiper" navigation="true">
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='fixedPointLectureNote1.jpg.png')}}"
-                  alt="FixedPoint-img1"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='fixedPointLectureNote2.jpg.png')}}"
-                  alt="FixedPoint-img2"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote3.jpg.png')}}"
-                alt="FixedPoint-img3"
-              /><br />
-              </swiper-slide>
-
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote4.jpg.png')}}"
-                alt="FixedPoint-img4"
-              /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                 src="{{url_for('static',filename='fixedPointLectureNote5.jpg.png')}}"
-                 alt="FixedPoint-img5"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                 src="{{url_for('static', filename='fixedPointLectureNote6.jpg.png')}}"
-                 alt="FixedPoint-img6"
-               /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote7.jpg.png')}}"
-                alt="FixedPoint-img7"
-              /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote8.jpg.png')}}"
-                alt="FixedPoint-img8"
-              />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote9.jpg.png')}}"
-                alt="FixedPoint-img9"
-              />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote10.jpg.png')}}"
-                alt="FixedPoint-img10"
-              />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote11.jpg.png')}}"
-                alt="FixedPoint-img11"
-              />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote12.jpg.png')}}"
-                alt="FixedPoint-img12"
-              />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='fixedPointLectureNote13.jpg.png')}}"
-                alt="FixedPoint-img13"
-              />
-              </swiper-slide>
-            </swiper-container>
+          <p>The Jacobi method iteratively refines an initial guess to the solution of the system. The matrix \( A \) is decomposed into three components:</p>
+          <p>\[
+          A = D + L + U
+          \]</p>
+          <p>where:</p>
+          <ul>
+              <li>\( D \) is the diagonal matrix containing the diagonal elements of \( A \),</li>
+              <li>\( L \) is the lower triangular matrix with elements below the diagonal (without the diagonal),</li>
+              <li>\( U \) is the upper triangular matrix with elements above the diagonal (without the diagonal).</li>
+          </ul>
+          <p>The system \( Ax = b \) can then be rewritten as:</p>
+          <p>\[
+          Dx = b - (L + U)x
+          \]</p>
+          <p>The Jacobi method isolates the diagonal component to iterate towards the solution:</p>
+          <p>\[
+          x^{(k+1)} = D^{-1}\left(b - (L + U)x^{(k)}\right)
+          \]</p>
+          <p>or more explicitly, for each element \( i \):</p>
+          <p>\[
+          x_i^{(k+1)} = \frac{1}{a_{ii}} \left(b_i - \sum_{j \neq i} a_{ij} x_j^{(k)} \right)
+          \]</p>
+          <p>where \( x_i^{(k+1)} \) is the value of the \( i \)-th variable in the next iteration, and \( x_j^{(k)} \) are the values of the other variables from the current iteration.</p><br>
+      
+          <h2 class="font-bold text-2xl">Iterative Process</h2>
+          <ol>
+              <li><strong>Initial Guess:</strong> Start with an initial guess \( x^{(0)} \).</li>
+              <li><strong>Update Step:</strong> For each \( i \), compute the next approximation \( x_i^{(k+1)} \) using the current values \( x_j^{(k)} \).</li>
+              <li><strong>Convergence Check:</strong> After each iteration, check whether the difference between the new and old approximations is below a pre-defined tolerance level. If not, proceed to the next iteration.</li>
+              <li><strong>Repeat</strong> until the solution converges, i.e., when \( \| x^{(k+1)} - x^{(k)} \| \) is sufficiently small.</li>
+          </ol><br>
+      
+          <h2 class="font-bold text-2xl">Convergence Criteria</h2>
+          <p>The convergence of the Jacobi method is guaranteed if the matrix \( A \) is either diagonally dominant or symmetric and positive definite. A matrix \( A \) is said to be diagonally dominant if for each row \( i \):</p>
+          <p>\[
+          |a_{ii}| > \sum_{j \neq i} |a_{ij}|
+          \]</p>
+          <p>If \( A \) is not diagonally dominant, the method may not converge, or it may converge very slowly.</p><br>
+      
+          
+          <p><strong class="font-bold text-2xl">ADVANTAGES</strong></p>
+          <ul>
+              <li>1. Simple to implement and understand.</li>
+              <li>2. Suitable for parallel computation since each component of \( x^{(k+1)} \) can be updated independently.</li>
+              <li>3. Useful for large, sparse matrices where direct methods are inefficient.</li><br>
+          </ul>
+          <p><strong class="font-bold text-2xl">DISADVANTAGES</strong></p>
+          <ul>
+              <li>1. Convergence can be slow, especially if the system is not well-conditioned.</li>
+              <li>2. Requires more iterations compared to more sophisticated methods like the Gauss-Seidel or Successive Over-Relaxation (SOR) methods.</li>
+              <li>3. Only applicable to certain types of matrices (e.g., diagonally dominant).</li>
+          </ul><br>
           </div>
         </div>
       </div>

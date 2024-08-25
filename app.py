@@ -583,7 +583,7 @@ def jacobi_lecture_note():
 def jacobi_graph():
     return render_template('pages/linear systems/jacobi/graph.html')
 
-@app.route('/linear systems/backward difference/example')
+@app.route('/linear systems/jacobi/example')
 def jacobi_example():
     return render_template('pages/linear systems/jacobi/example.html')
 
