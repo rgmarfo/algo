@@ -1,0 +1,146 @@
+[
+    {
+      "id": 1,
+      "question": "What is the primary goal of the Newton-Raphson Method?",
+      "choices": [
+        "To find an approximation of a root",
+        "To integrate functions",
+        "To solve differential equations",
+        "To simplify polynomials"
+      ],
+      "correct": "To find an approximation of a root"
+    },
+    {
+      "id": 2,
+      "question": "What is required to apply the Newton-Raphson Method?",
+      "choices": [
+        "A derivative of the function",
+        "A second derivative of the function",
+        "An integral of the function",
+        "A midpoint of the interval"
+      ],
+      "correct": "A derivative of the function"
+    },
+    {
+      "id": 3,
+      "question": "What is the formula for the next approximation in the Newton-Raphson Method?",
+      "choices": [
+        "x = x - f(x) / f'(x)",
+        "x = x - (f(x) * (b - a)) / (f(b) - f(a))",
+        "x = (a + b) / 2",
+        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
+      ],
+      "correct": "x = x - f(x) / f'(x)"
+    },
+    {
+      "id": 4,
+      "question": "When should you stop the iterations in the Newton-Raphson Method?",
+      "choices": [
+        "When the function value at the approximation is zero",
+        "When the derivative is zero",
+        "When the approximation does not change significantly",
+        "When the interval is sufficiently small"
+      ],
+      "correct": "When the approximation does not change significantly"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is a limitation of the Newton-Raphson Method?",
+      "choices": [
+        "It requires the derivative of the function",
+        "It always converges to the root",
+        "It does not require an initial guess",
+        "It is applicable to all types of functions"
+      ],
+      "correct": "It requires the derivative of the function"
+    },
+    {
+      "id": 6,
+      "question": "What happens if the derivative is zero in the Newton-Raphson Method?",
+      "choices": [
+        "The method fails to proceed",
+        "The method converges faster",
+        "The method converges to a different root",
+        "The method continues with no change"
+      ],
+      "correct": "The method fails to proceed"
+    },
+    {
+      "id": 7,
+      "question": "How is the accuracy of the Newton-Raphson Method generally determined?",
+      "choices": [
+        "By the change in approximation values",
+        "By the function value at the approximation",
+        "By the number of iterations",
+        "By the interval size"
+      ],
+      "correct": "By the change in approximation values"
+    },
+    {
+      "id": 8,
+      "question": "What should be done if the Newton-Raphson Method does not converge?",
+      "choices": [
+        "Try a different initial guess",
+        "Change the function",
+        "Increase the number of iterations",
+        "Switch to a different method"
+      ],
+      "correct": "Try a different initial guess"
+    },
+    {
+      "id": 9,
+      "question": "Which types of functions can the Newton-Raphson Method be used on?",
+      "choices": [
+        "Smooth and differentiable functions",
+        "Discontinuous functions",
+        "Functions with complex roots",
+        "Linear functions"
+      ],
+      "correct": "Smooth and differentiable functions"
+    },
+    {
+      "id": 10,
+      "question": "What is the main advantage of the Newton-Raphson Method?",
+      "choices": [
+        "Fast convergence near the root",
+        "Simplicity of implementation",
+        "No need for derivatives",
+        "Works for all functions"
+      ],
+      "correct": "Fast convergence near the root"
+    },
+    {
+      "id": 11,
+      "question": "How many initial guesses are required for the Newton-Raphson Method?",
+      "choices": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "correct": "One"
+    },
+    {
+      "id": 12,
+      "question": "What is the main reason the Newton-Raphson Method might fail?",
+      "choices": [
+        "Poor initial guess",
+        "Incorrect function formula",
+        "Lack of convergence criteria",
+        "Use of numerical methods"
+      ],
+      "correct": "Poor initial guess"
+    },
+    {
+      "id": 13,
+      "question": "What is the role of the derivative in the Newton-Raphson Method?",
+      "choices": [
+        "To determine the slope and update the approximation",
+        "To calculate the function value",
+        "To find the integral of the function",
+        "To evaluate the midpoint of the interval"
+      ],
+      "correct": "To determine the slope and update the approximation"
+    }
+  ]
+  

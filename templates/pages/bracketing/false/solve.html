@@ -91,22 +91,22 @@
 
             <div class="flex space-x-4 mb-4">
               <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Lower Limit:</label>
+                <label for="x0" class="block font-bold mb-2">Lower Limit:</label>
                 <input
                   type="text"
-                  id="a"
-                  name="a"
+                  id="x0"
+                  name="x0"
                   class="w-full p-2 border border-gray-300 rounded"
                   placeholder="Enter lower bound (a)"
                   required
                 />
               </div>
               <div class="w-1/2">
-                <label for="b" class="block font-bold mb-2">Upper Limit:</label>
+                <label for="x1" class="block font-bold mb-2">Upper Limit:</label>
                 <input
                   type="text"
-                  id="b"
-                  name="b"
+                  id="x1"
+                  name="x1"
                   class="w-full p-2 border border-gray-300 rounded"
                   placeholder="Enter upper bound (b)"
                   required
@@ -147,7 +147,7 @@
 
       $.ajax({
         type: "POST",
-        url: "/calculate",
+        url: "/calculate_false_position",
         data: formData,
         success: function (response) {
           console.log(response);

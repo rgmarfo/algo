@@ -1,0 +1,145 @@
+[
+    {
+      "id": 1,
+      "question": "What is the initial step in the False Position Method?",
+      "choices": [
+        "Select two initial guesses",
+        "Calculate the derivative",
+        "Use Newton's formula",
+        "Find the intersection of the function with the x-axis"
+      ],
+      "correct": "Select two initial guesses"
+    },
+    {
+      "id": 2,
+      "question": "What do you do if f(a) and f(b) have the same sign in the False Position Method?",
+      "choices": [
+        "The interval is valid",
+        "The interval is invalid",
+        "Both points are roots",
+        "None of the above"
+      ],
+      "correct": "The interval is invalid"
+    },
+    {
+      "id": 3,
+      "question": "How is the new approximation calculated in the False Position Method?",
+      "choices": [
+        "Using the midpoint of the interval",
+        "Using the intersection of the function with the x-axis",
+        "Using the derivative of the function",
+        "None of the above"
+      ],
+      "correct": "Using the intersection of the function with the x-axis"
+    },
+    {
+      "id": 4,
+      "question": "What is the formula for the new approximation in the False Position Method?",
+      "choices": [
+        "x = a - (f(a) * (b - a)) / (f(b) - f(a))",
+        "x = (a + b) / 2",
+        "x = a * b",
+        "x = a + b"
+      ],
+      "correct": "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
+    },
+    {
+      "id": 5,
+      "question": "When do you stop the iterations in the False Position Method?",
+      "choices": [
+        "When the function value at the approximation is zero",
+        "After a fixed number of iterations",
+        "When the interval is sufficiently small",
+        "When the function value is constant"
+      ],
+      "correct": "When the interval is sufficiently small"
+    },
+    {
+      "id": 6,
+      "question": "Which type of problems is the False Position Method used for?",
+      "choices": [
+        "Finding roots of equations",
+        "Solving integrals",
+        "Calculating derivatives",
+        "Solving linear equations"
+      ],
+      "correct": "Finding roots of equations"
+    },
+    {
+      "id": 7,
+      "question": "Why does the False Position Method converge faster than the Bisection Method?",
+      "choices": [
+        "It uses a more accurate approximation for the next guess",
+        "It always halves the interval",
+        "It approximates the root directly",
+        "It does not guarantee convergence"
+      ],
+      "correct": "It uses a more accurate approximation for the next guess"
+    },
+    {
+      "id": 8,
+      "question": "What happens if the function value at the new approximation is zero?",
+      "choices": [
+        "The approximation is a root",
+        "The interval is reduced",
+        "Iterations continue",
+        "None of the above"
+      ],
+      "correct": "The approximation is a root"
+    },
+    {
+      "id": 9,
+      "question": "In the False Position Method, what is the sign of f(a) * f(x)?",
+      "choices": [
+        "Positive",
+        "Negative",
+        "Zero",
+        "Undefined"
+      ],
+      "correct": "Negative"
+    },
+    {
+      "id": 10,
+      "question": "What is the primary advantage of the False Position Method?",
+      "choices": [
+        "Faster convergence compared to the Bisection Method",
+        "Simplicity and reliability",
+        "Requires no initial guesses",
+        "Works for all functions"
+      ],
+      "correct": "Faster convergence compared to the Bisection Method"
+    },
+    {
+      "id": 11,
+      "question": "Which of the following is a limitation of the False Position Method?",
+      "choices": [
+        "It can get stuck if the function is not well-behaved",
+        "Complex implementation",
+        "Requires derivatives",
+        "Limited to linear equations"
+      ],
+      "correct": "It can get stuck if the function is not well-behaved"
+    },
+    {
+      "id": 12,
+      "question": "In which case is the False Position Method most effective?",
+      "choices": [
+        "When the function is continuous",
+        "When the function is discontinuous",
+        "For solving matrices",
+        "For finding maxima and minima"
+      ],
+      "correct": "When the function is continuous"
+    },
+    {
+      "id": 13,
+      "question": "How do you ensure that the initial interval [a, b] contains a root in the False Position Method?",
+      "choices": [
+        "Check that f(a) * f(b) < 0",
+        "Check that f(a) = f(b)",
+        "Ensure a and b are large",
+        "Check that f(a) > f(b)"
+      ],
+      "correct": "Check that f(a) * f(b) < 0"
+    }
+  ]

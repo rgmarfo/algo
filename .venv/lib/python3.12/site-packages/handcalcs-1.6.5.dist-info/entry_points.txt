@@ -1,0 +1,5 @@
+[nbconvert.exporters]
+HTML_NoInput=handcalcs.exporters:HTMLHideInputExporter
+LaTeX_NoInput=handcalcs.exporters:LatexHideInputExporter
+PDF_NoInput=handcalcs.exporters:PDFHideInputExporter
+
