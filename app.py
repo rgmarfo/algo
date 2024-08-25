@@ -905,6 +905,38 @@ def calculate_fixed_point():
         print(e)
         return jsonify({'error': str(e)})
     
+    
+
+def finite_difference(f, x, h=1e-5):
+    """Approximate the derivative of f at point x using the forward difference method."""
+    return (f(x + h) - f(x)) / h
+
+@app.route('/calculate_finite_difference', methods=['POST'])
+def calculate_finite_difference():
+    equation_str = request.form['equation']
+    x = float(request.form['x0'])
+
+    try:
+        # Parse the equation string
+        x_symbol = symbols('x')
+        f_expr = parse_expr(equation_str)
+        f = lambdify(x_symbol, f_expr)
+
+        # Compute finite difference
+        derivative_approx = finite_difference(f, x)
+
+        # Generate the response HTML
+        response_html = f"<p>Approximate derivative of f(x) = {equation_str} at x = {x}:</p>\n"
+        response_html += f"<p>f'({x}) ≈ {derivative_approx}</p>\n"
+        response_html += f"<p>Step size h = 1e-5</p>\n"
+
+        return jsonify({
+            'root': derivative_approx,
+            'table_html': response_html,
+        })
+    except Exception as e:
+        print(e)
+        return jsonify({'error': str(e)})
 
 
 if __name__ == '__main__':
