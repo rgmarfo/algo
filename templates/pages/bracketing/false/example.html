@@ -58,33 +58,60 @@
             <h3 class="font-bold text-2xl">EXAMPLE</h3>
           </div>
           <div class="mx-auto">
-            <swiper-container class="mySwiper" navigation="true">
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imgfalsepoexample1.jpg.png')}}"
-                  alt="false-example1"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                  src="{{url_for('static', filename='imgfalsepoexample2.jpg.png')}}"
-                  alt="false-example2"
-                /><br />
-              </swiper-slide>
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imgfalsepoexample3.jpg.png')}}"
-                alt="false-example3"
-              /><br />
-              </swiper-slide>
+              <p>
+                  Find the root of the equation <strong>f(x) = x<sup>3</sup> - 2x<sup>2</sup> + 3x - 5 = 0</strong> using the False Position method. 
+                  Start with the initial interval <strong>[1, 2]</strong> and perform three iterations.
+              </p><br>
 
-              <swiper-slide>
-                <img
-                src="{{url_for('static', filename='imgfalsepoexample4.jpg.png')}}"
-                alt="false-example4"
-              /><br />
-              </swiper-slide>
-            </swiper-container>
+              <h2 class="font-bold text-2xl">SOLUTION</h2>
+
+              <h3>Equation:</h3>
+              <p><strong>f(x) = x<sup>3</sup> - 2x<sup>2</sup> + 3x - 5</strong></p><br>
+
+              <h3>Initial Interval:</h3>
+              <p><strong>[1, 2]</strong></p><br>
+              <ul>
+                  <li>f(1) = 1<sup>3</sup> - 2(1)<sup>2</sup> + 3(1) - 5 = -3</li>
+                  <li>f(2) = 2<sup>3</sup> - 2(2)<sup>2</sup> + 3(2) - 5 = 1</li><br>
+              </ul>
+              <p>Since <strong>f(1)</strong> and <strong>f(2)</strong> have opposite signs, there is at least one root in the interval [1, 2].</p><br>
+
+              <h3 class="font-bold text-1xl">Iteration 1:</h3>
+              <ul>
+                  <li>Calculate the point <strong>c<sub>1</sub></strong> 
+                      <p>
+                          c<sub>1</sub> = 1.75
+                      </p>
+                  </li>
+                  <li>Evaluate f(c<sub>1</sub>):
+                      <p>f(1.75) = -0.515625</p>
+                  </li>
+                  <li>Since f(1) and f(1.75) have opposite signs, update the interval to [1.75, 2].</li><br>
+              </ul>
+
+              <h3 class="font-bold text-1xl">Iteration 2:</h3>
+              <ul>
+                  <li>Calculate the point <strong>c<sub>2</sub></strong> 
+                      <p>c<sub>2</sub> ≈ 1.834</p>
+                  </li>
+                  <li>Evaluate f(c<sub>2</sub>):
+                      <p>f(1.834) ≈ -0.093</p>
+                  </li>
+                  <li>Since f(1.75) and f(1.834) have opposite signs, update the interval to [1.834, 2].</li><br>
+              </ul>
+
+              <h3 class="font-bold text-1xl">Iteration 3:</h3>
+              <ul>
+                  <li>Calculate the point <strong>c<sub>3</sub></strong> 
+                      <p>c<sub>3</sub> ≈ 1.847</p>
+                  </li>
+                  <li>Evaluate f(c<sub>3</sub>):
+                      <p>f(1.847) ≈ -0.011</p><br>
+                  </li>
+              </ul>
+
+              <h3 class="font-bold text-1xl">Conclusion:</h3>
+              <p>After three iterations, the approximate root of the equation <strong>f(x) = x<sup>3</sup> - 2x<sup>2</sup> + 3x - 5 = 0</strong> is <strong>c<sub>3</sub> ≈ 1.847</strong>.</p>
           </div>
         </div>
       </div>
