@@ -939,5 +939,61 @@ def calculate_finite_difference():
         return jsonify({'error': str(e)})
 
 
+
+def simpsons_rule(f, a, b, n=10):
+    """Approximate the integral of f from a to b using Simpson's Rule with n intervals."""
+    if n % 2 != 0:
+        raise ValueError("The number of intervals n must be even.")
+    
+    h = (b - a) / n
+    integral = f(a) + f(b)
+    
+    for i in range(1, n, 2):
+        integral += 4 * f(a + i * h)
+    
+    for i in range(2, n, 2):
+        integral += 2 * f(a + i * h)
+    
+    integral *= h / 3
+    return integral
+
+@app.route('/calculate_simpsons_rule', methods=['POST'])
+def calculate_simpsons_rule():
+    equation_str = request.form['equation']
+    a = float(request.form['a'])
+    b = float(request.form['b'])
+    n = int(request.form.get('n', 10))  # Number of intervals (must be even)
+
+    try:
+        # Parse the equation string
+        x = symbols('x')
+        f_expr = parse_expr(equation_str)
+        f = lambdify(x, f_expr)
+
+        # Ensure the number of intervals is even
+        if n % 2 != 0:
+            raise ValueError("The number of intervals n must be even.")
+
+        # Compute the integral using Simpson's Rule
+        integral_value = simpsons_rule(f, a, b, n)
+
+        # Generate the response HTML
+        response_html = f"<p>Approximate integral of f(x) = {equation_str} from a = {a} to b = {b} using Simpson's Rule:</p>\n"
+        response_html += f"<p>Integral ≈ {integral_value}</p>\n"
+        response_html += f"<p>Number of intervals n = {n}</p>\n"
+
+        return jsonify({
+            'integral': integral_value,
+            'response_html': response_html,
+        })
+    except ValueError as e:
+        print(e)
+        return jsonify({'error': str(e)})
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An unexpected error occurred.'})
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
