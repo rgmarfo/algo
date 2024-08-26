@@ -1,4 +1,4 @@
-import json
+import json, re
 import random
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from sympy import symbols, lambdify, parse_expr, diff
@@ -989,6 +989,74 @@ def calculate_simpsons_rule():
         print(e)
         return jsonify({'error': 'An unexpected error occurred.'})
 
+
+
+def extract_limits(equation_str):
+    """Extract the limits a and b from the equation string."""
+    # Assuming the format of the equation string is something like 'f(x) = x^2 from 0 to 1'
+    match = re.search(r'from\s*(-?\d+\.?\d*)\s*to\s*(-?\d+\.?\d*)', equation_str)
+    if match:
+        a = float(match.group(1))
+        b = float(match.group(2))
+        return a, b
+    else:
+        raise ValueError("The equation must include 'from a to b'.")
+
+def trapezoidal_rule(f, a, b, n=10):
+    """Approximate the integral of f from a to b using the Trapezoidal Rule with n intervals."""
+    h = (b - a) / n
+    integral = (f(a) + f(b)) / 2
+    steps = [(a, f(a))]  # Store the first point
+
+    for i in range(1, n):
+        x_i = a + i * h
+        fx_i = f(x_i)
+        integral += fx_i
+        steps.append((x_i, fx_i))  # Store each step
+
+    integral *= h
+    steps.append((b, f(b)))  # Store the last point
+    return integral, steps
+
+@app.route('/calculate_trapezoidal_rule', methods=['POST'])
+def calculate_trapezoidal_rule():
+    equation_str = request.form['equation']
+    n = int(request.form.get('a', 10))  # Number of intervals
+
+    try:
+        # Extract the limits a and b from the equation string
+        a, b = extract_limits(equation_str)
+
+        # Parse the equation string to isolate the function
+        equation_str = equation_str.split("from")[0].strip().replace("f(x) =", "")
+        x = symbols('x')
+        f_expr = parse_expr(equation_str)
+        f = lambdify(x, f_expr)
+
+        # Compute the integral using the Trapezoidal Rule
+        integral_value, steps = trapezoidal_rule(f, a, b, n)
+
+        # Generate the response HTML
+        response_html = f"<p>Approximate integral of f(x) = {equation_str} from a = {a} to b = {b} using the Trapezoidal Rule:</p>\n"
+        response_html += f"<p>Integral ≈ {integral_value}</p>\n"
+        response_html += f"<p>Number of intervals n = {n}</p>\n"
+        
+        response_html += "<h3>Steps:</h3>\n<ul>\n"
+        for x_i, fx_i in steps:
+            response_html += f"<li>x = {x_i}, f(x) = {fx_i}</li>\n"
+        response_html += "</ul>\n"
+
+        return jsonify({
+            'integral': integral_value,
+            'steps': steps,
+            'response_html': response_html,
+        })
+    except ValueError as e:
+        print(e)
+        return jsonify({'error': str(e)})
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An unexpected error occurred.'})
 
 
 if __name__ == '__main__':
