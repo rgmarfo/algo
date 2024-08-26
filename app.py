@@ -3,6 +3,7 @@ import random
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from sympy import symbols, lambdify, parse_expr, diff
 from bisection import bisection_method
+import numpy as np
 
 app = Flask(__name__)
 app.secret_key = 'projectalgo2024'
@@ -1032,7 +1033,6 @@ def simpsons_rule(f, a, b, n=10):
     integral *= h / 3
     steps.append((b, f(b)))  # Store the last point
     return integral, steps
-
 @app.route('/calculate_simpsons_rule', methods=['POST'])
 def calculate_simpsons_rule():
     equation_str = request.form['equation']
@@ -1072,6 +1072,67 @@ def calculate_simpsons_rule():
     except Exception as e:
         print(e)
         return jsonify({'error': 'An unexpected error occurred.'})
+
+
+def gaussian_elimination(A, b):
+    """Solve the system of linear equations Ax = b using Gaussian elimination."""
+    A = np.array(A, dtype=float)
+    b = np.array(b, dtype=float)
+    n = len(A)
+    
+    # Forward elimination
+    for i in range(n):
+        # Find the maximum element in the column
+        max_row = np.argmax(np.abs(A[i:, i])) + i
+        if i != max_row:
+            # Swap rows
+            A[[i, max_row]] = A[[max_row, i]]
+            b[[i, max_row]] = b[[max_row, i]]
+        
+        # Eliminate entries below the pivot
+        for j in range(i + 1, n):
+            ratio = A[j, i] / A[i, i]
+            A[j, i:] -= ratio * A[i, i:]
+            b[j] -= ratio * b[i]
+    
+    # Back substitution
+    x = np.zeros(n)
+    for i in reversed(range(n)):
+        x[i] = (b[i] - np.dot(A[i, i + 1:], x[i + 1:])) / A[i, i]
+    
+    return x
+@app.route('/calculate_gaussian', methods=['POST'])
+def gaussian_endpoint():
+    data = request.json
+    A = data['A']
+    b = data['b']
+    x = gaussian_elimination(A, b)
+    return jsonify({'solution': x.tolist()})
+
+
+def lu_decomposition(A):
+    """Perform LU decomposition of matrix A."""
+    A = np.array(A, dtype=float)
+    n = A.shape[0]
+    L = np.eye(n)
+    U = A.copy()
+    
+    for i in range(n):
+        for j in range(i, n):
+            L[j, i] = U[j, i] / U[i, i]
+            U[j, i:] -= L[j, i] * U[i, i:]
+    
+    for i in range(n):
+        U[i, i:] /= U[i, i]
+        L[i, i] = 1
+    
+    return L, U
+@app.route('/calculate_lu', methods=['POST'])
+def lu_endpoint():
+    data = request.json
+    A = data['A']
+    L, U = lu_decomposition(A)
+    return jsonify({'L': L.tolist(), 'U': U.tolist()})
 
 
 if __name__ == '__main__':
