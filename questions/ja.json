@@ -1,0 +1,124 @@
+[
+    {
+      "id": 1,
+      "question": "What is the primary goal of the Secant Method?",
+      "choices": [
+        "To find an approximation of a root",
+        "To integrate functions",
+        "To solve differential equations",
+        "To simplify polynomials"
+      ],
+      "correct": "To find an approximation of a root"
+    },
+    {
+      "id": 2,
+      "question": "What is the formula for the next approximation in the Secant Method?",
+      "choices": [
+        "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))",
+        "x = x - f(x) / f'(x)",
+        "x = (a + b) / 2",
+        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
+      ],
+      "correct": "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))"
+    },
+    {
+      "id": 3,
+      "question": "When should you stop the iterations in the Secant Method?",
+      "choices": [
+        "When the approximation does not change significantly",
+        "When the function value at the approximation is zero",
+        "When the interval is sufficiently small",
+        "When the derivative is zero"
+      ],
+      "correct": "When the approximation does not change significantly"
+    },
+    {
+      "id": 4,
+      "question": "What is the main advantage of the Secant Method over the Newton-Raphson Method?",
+      "choices": [
+        "Does not require the calculation of derivatives",
+        "Requires fewer initial guesses",
+        "Converges faster",
+        "Works for all functions"
+      ],
+      "correct": "Does not require the calculation of derivatives"
+    },
+    {
+      "id": 5,
+      "question": "What happens if the function values at the two initial points are equal in the Secant Method?",
+      "choices": [
+        "The method fails as it will result in division by zero",
+        "The method converges immediately",
+        "The method requires additional iterations",
+        "The method will use an arbitrary value to proceed"
+      ],
+      "correct": "The method fails as it will result in division by zero"
+    },
+    {
+      "id": 6,
+      "question": "Which types of functions can the Secant Method be used on?",
+      "choices": [
+        "Continuous functions where derivatives are not easily available",
+        "Discontinuous functions",
+        "Linear functions",
+        "Functions with complex roots"
+      ],
+      "correct": "Continuous functions where derivatives are not easily available"
+    },
+    {
+      "id": 7,
+      "question": "What is a common issue when using the Secant Method?",
+      "choices": [
+        "It can fail to converge if the initial guesses are not chosen wisely",
+        "It requires exact derivatives",
+        "It is very slow to converge",
+        "It is limited to linear equations"
+      ],
+      "correct": "It can fail to converge if the initial guesses are not chosen wisely"
+    },
+    {
+      "id": 8,
+      "question": "How is the accuracy of the Secant Method generally determined?",
+      "choices": [
+        "By the change in approximation values",
+        "By the function value at the approximation",
+        "By the number of iterations",
+        "By the interval size"
+      ],
+      "correct": "By the change in approximation values"
+    },
+    {
+      "id": 9,
+      "question": "How many initial guesses are required for the Secant Method?",
+      "choices": [
+        "Two",
+        "One",
+        "Three",
+        "Four"
+      ],
+      "correct": "Two"
+    },
+    {
+      "id": 10,
+      "question": "What should be done if the Secant Method does not converge?",
+      "choices": [
+        "Try different initial guesses",
+        "Increase the number of iterations",
+        "Change the function",
+        "Switch to a different method"
+      ],
+      "correct": "Try different initial guesses"
+    },
+    {
+      "id": 11,
+      "question": "Which type of methods does the Secant Method belong to?",
+      "choices": [
+        "Root-finding methods",
+        "Integration methods",
+        "Differentiation methods",
+        "Optimization methods"
+      ],
+      "correct": "Root-finding methods"
+    }
+  ]
+  
