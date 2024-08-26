@@ -4,6 +4,10 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, f
 from sympy import symbols, lambdify, parse_expr, diff
 import numpy as np
 
+import os
+from datetime import datetime
+
+
 app = Flask(__name__)
 app.secret_key = 'projectalgo2024'
 
@@ -1389,6 +1393,40 @@ def gaussian_endpoint():
     
     except Exception as e:
         return jsonify({'error': 'An unexpected error occurred.'})
+
+# Directory where feedback files will be saved
+FEEDBACK_DIR = 'feedback_files'
+os.makedirs(FEEDBACK_DIR, exist_ok=True)
+
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    try:
+        # Extract data from the request
+        name = request.form.get('name')
+        email = request.form.get('email')
+        feedback = request.form.get('feedback')
+
+        if not name or not email or not feedback:
+            raise ValueError("Name, email, and feedback are required.")
+
+        # Create a filename based on the current timestamp
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        filename = f"feedback_{timestamp}.txt"
+        filepath = os.path.join(FEEDBACK_DIR, filename)
+
+        # Write the feedback to the file
+        with open(filepath, 'w') as file:
+            file.write(f"Name: {name}\n")
+            file.write(f"Email: {email}\n")
+            file.write(f"Feedback: {feedback}\n")
+
+        return jsonify({'message': 'Feedback received and saved successfully.'})
+
+    except ValueError as e:
+        return jsonify({'error': str(e)})
+    except Exception as e:
+        return jsonify({'error': 'An unexpected error occurred.'})
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
