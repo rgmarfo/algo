@@ -866,7 +866,6 @@ def fixed_point_iteration(g, x0, tol=1e-6, max_iter=1000):
         x0 = x1  # Update the current approximation
     
     return x1, data  # Return the last estimate if max_iter is reached
-
 @app.route('/calculate_fixed_point', methods=['POST'])
 def calculate_fixed_point():
     function_str = request.form['equation']
@@ -906,15 +905,14 @@ def calculate_fixed_point():
         return jsonify({'error': str(e)})
     
     
-
 def finite_difference(f, x, h=1e-5):
     """Approximate the derivative of f at point x using the forward difference method."""
     return (f(x + h) - f(x)) / h
-
 @app.route('/calculate_finite_difference', methods=['POST'])
 def calculate_finite_difference():
     equation_str = request.form['equation']
     x = float(request.form['x0'])
+    s = float(request.form['s'])
 
     try:
         # Parse the equation string
@@ -923,12 +921,12 @@ def calculate_finite_difference():
         f = lambdify(x_symbol, f_expr)
 
         # Compute finite difference
-        derivative_approx = finite_difference(f, x)
+        derivative_approx = finite_difference(f, x, s)
 
         # Generate the response HTML
         response_html = f"<p>Approximate derivative of f(x) = {equation_str} at x = {x}:</p>\n"
         response_html += f"<p>f'({x}) ≈ {derivative_approx}</p>\n"
-        response_html += f"<p>Step size h = 1e-5</p>\n"
+        response_html += f"<p>Step size h = {s}</p>\n"
 
         return jsonify({
             'root': derivative_approx,
@@ -937,7 +935,6 @@ def calculate_finite_difference():
     except Exception as e:
         print(e)
         return jsonify({'error': str(e)})
-
 
 
 def simpsons_rule(f, a, b, n=10):
@@ -956,7 +953,6 @@ def simpsons_rule(f, a, b, n=10):
     
     integral *= h / 3
     return integral
-
 @app.route('/calculate_simpsons_rule', methods=['POST'])
 def calculate_simpsons_rule():
     equation_str = request.form['equation']

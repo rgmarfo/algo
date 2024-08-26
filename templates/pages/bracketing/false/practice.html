@@ -24,7 +24,7 @@
                 <ul class="space-y-4">
                     <li>
                         <a
-                            href="/bracketing/falsebackground"
+                            href="/bracketing/falsepositionbackground"
                             class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
                             >Background</a
                         >
@@ -70,6 +70,7 @@
         <div class="w-full md:w-3/4 p-4">
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <h2 class="text-xl font-bold mb-4">Practice Questions</h2>
+                 <div id="results" class="mb-4"></div>
                 <div
                     id="flash-message"
                     class="hidden bg-red-100 text-red-700 p-2 rounded mb-4"
@@ -121,6 +122,7 @@
         <button onclick="closeModal();" class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer w-full">Close</button>
     </div>
 </main>
+
 <script>
     function scrollToTop() {
         window.scrollTo({
@@ -128,56 +130,78 @@
             behavior: "smooth",
         });
     }
+    document
+        .getElementById("practice-form")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+            scrollToTop();
+            let form = event.target;
+            let formData = new FormData(form);
+            let data = {};
 
-    function closeModal() {
-        document.getElementById('results-modal').classList.add('hidden');
-    }
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
 
-    document.getElementById("practice-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        scrollToTop();
-        let form = event.target;
-        let formData = new FormData(form);
-        let data = {};
+            // Check if the form data is empty
+            if (Object.keys(data).length === 0) {
+                document
+                    .getElementById("flash-message")
+                    .classList.remove("hidden");
+                return; // Exit the function if no questions have been answered
+            } else {
+                document
+                    .getElementById("flash-message")
+                    .classList.add("hidden");
+            }
 
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        // Check if the form data is empty
-        if (Object.keys(data).length === 0) {
-            document.getElementById("flash-message").classList.remove("hidden");
-            return; // Exit the function if no questions have been answered
-        } else {
-            document.getElementById("flash-message").classList.add("hidden");
-        }
-
-        fetch("/false/submit_answers", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                document.getElementById("submit-button").classList.add("hidden");
-                let modalContent = document.getElementById("modal-content");
-                modalContent.innerHTML = `<p class="text-lg font-bold mb-2">${data.score} / 5</p>
-                                          <p class="mb-4">You got ${data.score} out of 5 correct!</p>`;
-
-                data.results.forEach((result, index) => {
-                    modalContent.innerHTML += `<div class="mb-4">
-                                                <p class="font-semibold">Question ${index + 1}: ${result.question}</p>
-                                                <p>Your answer: ${result.user_answer}</p>
-                                                <p>Correct answer: ${result.correct_answer}</p>
-                                                <hr class="mt-2"/>
-                                               </div>`;
-                });
-
-                document.getElementById("results-modal").classList.remove("hidden");
+            fetch("/false/submit_answers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
             })
-            .catch((error) => console.error("Error:", error));
-    });
+                .then((response) => response.json())
+                .then((data) => {
+                    document
+                        .getElementById("submit-button")
+                        .classList.add("hidden");
+                    let resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = `<div class="bg-green-50 text-green-800 border border-green-200 p-2">
+                                    <p class="text-base font-semibold mb-2">Quiz Results</p>
+                                    <p class="text-lg font-bold mb-2">${data.score} / 5 </p>
+                                    <p class="mb-0">You got ${data.score} out of 5 correct!</p>
+                                </div>`;
+
+                    data.results.forEach((result) => {
+                        let questionElement = document
+                            .querySelector(
+                                `input[name="question${result.question_id}"]`,
+                            )
+                            .closest("div.mb-6");
+                        questionElement
+                            .querySelectorAll("input")
+                            .forEach((input) => {
+                                if (input.value === result.correct_answer) {
+                                    input.parentElement.classList.add(
+                                        "bg-green-100",
+                                    );
+                                } else if (input.value === result.user_answer) {
+                                    input.parentElement.classList.add(
+                                        result.is_correct
+                                            ? "bg-green-100"
+                                            : "bg-red-100",
+                                    );
+                                }
+                            });
+                    });
+
+                    document
+                        .getElementById("next-button")
+                        .classList.remove("hidden");
+                })
+                .catch((error) => console.error("Error:", error));
+        });
 </script>
 {% endblock content %}
