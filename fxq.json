@@ -1,145 +1,224 @@
 [
-    {
+  {
       "id": 1,
-      "question": "What is the initial step in the False Position Method?",
+      "question": "What is the Fixed Point method primarily used for?",
       "choices": [
-        "Select two initial guesses",
-        "Calculate the derivative",
-        "Use Newton's formula",
-        "Find the intersection of the function with the x-axis"
+          "Finding the root of a function",
+          "Maximizing a function",
+          "Solving differential equations",
+          "Solving linear equations"
       ],
-      "correct": "Select two initial guesses"
-    },
-    {
+      "correct": "Finding the root of a function"
+  },
+  {
       "id": 2,
-      "question": "What do you do if f(a) and f(b) have the same sign in the False Position Method?",
+      "question": "In the Fixed Point method, a point x is considered a fixed point if:",
       "choices": [
-        "The interval is valid",
-        "The interval is invalid",
-        "Both points are roots",
-        "None of the above"
+          "f(x) = 0",
+          "x = f(x)",
+          "f(x) = x + 1",
+          "f(x) = 2x"
       ],
-      "correct": "The interval is invalid"
-    },
-    {
+      "correct": "x = f(x)"
+  },
+  {
       "id": 3,
-      "question": "How is the new approximation calculated in the False Position Method?",
+      "question": "Which of the following conditions must be met for the Fixed Point method to converge?",
       "choices": [
-        "Using the midpoint of the interval",
-        "Using the intersection of the function with the x-axis",
-        "Using the derivative of the function",
-        "None of the above"
+          "The function must be continuous",
+          "The derivative of the function at the fixed point must be less than 1 in absolute value",
+          "The function must be differentiable",
+          "The function must be linear"
       ],
-      "correct": "Using the intersection of the function with the x-axis"
-    },
-    {
+      "correct": "The derivative of the function at the fixed point must be less than 1 in absolute value"
+  },
+  {
       "id": 4,
-      "question": "What is the formula for the new approximation in the False Position Method?",
+      "question": "Which of the following is the Fixed Point iteration formula?",
       "choices": [
-        "x = a - (f(a) * (b - a)) / (f(b) - f(a))",
-        "x = (a + b) / 2",
-        "x = a * b",
-        "x = a + b"
+          "x_{n+1} = g(x_n)",
+          "x_{n+1} = x_n - f(x_n) / f'(x_n)",
+          "x_{n+1} = (a + b) / 2",
+          "x_{n+1} = x_n + h*f'(x_n)"
       ],
-      "correct": "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
-    },
-    {
+      "correct": "x_{n+1} = g(x_n)"
+  },
+  {
       "id": 5,
-      "question": "When do you stop the iterations in the False Position Method?",
+      "question": "What is the major advantage of the Fixed Point method?",
       "choices": [
-        "When the function value at the approximation is zero",
-        "After a fixed number of iterations",
-        "When the interval is sufficiently small",
-        "When the function value is constant"
+          "It does not require the calculation of derivatives",
+          "It always converges",
+          "It is the fastest method",
+          "It is applicable to any function"
       ],
-      "correct": "When the interval is sufficiently small"
-    },
-    {
+      "correct": "It does not require the calculation of derivatives"
+  },
+  {
       "id": 6,
-      "question": "Which type of problems is the False Position Method used for?",
+      "question": "Which of the following is a common drawback of the Fixed Point method?",
       "choices": [
-        "Finding roots of equations",
-        "Solving integrals",
-        "Calculating derivatives",
-        "Solving linear equations"
+          "It may diverge if the function is not well-chosen",
+          "It requires a large number of iterations",
+          "It is computationally expensive",
+          "It requires the function to be differentiable"
       ],
-      "correct": "Finding roots of equations"
-    },
-    {
+      "correct": "It may diverge if the function is not well-chosen"
+  },
+  {
       "id": 7,
-      "question": "Why does the False Position Method converge faster than the Bisection Method?",
+      "question": "What is the Fixed Point iteration method sensitive to?",
       "choices": [
-        "It uses a more accurate approximation for the next guess",
-        "It always halves the interval",
-        "It approximates the root directly",
-        "It does not guarantee convergence"
+          "Initial guess",
+          "Step size",
+          "Convergence rate",
+          "Number of iterations"
       ],
-      "correct": "It uses a more accurate approximation for the next guess"
-    },
-    {
+      "correct": "Initial guess"
+  },
+  {
       "id": 8,
-      "question": "What happens if the function value at the new approximation is zero?",
+      "question": "If the function g(x) in the Fixed Point method is such that |g'(x)| > 1, then the method:",
       "choices": [
-        "The approximation is a root",
-        "The interval is reduced",
-        "Iterations continue",
-        "None of the above"
+          "Will diverge",
+          "Will converge",
+          "Will oscillate",
+          "Will not work"
       ],
-      "correct": "The approximation is a root"
-    },
-    {
+      "correct": "Will diverge"
+  },
+  {
       "id": 9,
-      "question": "In the False Position Method, what is the sign of f(a) * f(x)?",
+      "question": "For the function f(x) = cos(x) - x, which of the following is a suitable transformation for the Fixed Point method?",
       "choices": [
-        "Positive",
-        "Negative",
-        "Zero",
-        "Undefined"
+          "g(x) = cos(x)",
+          "g(x) = x^2",
+          "g(x) = sin(x)",
+          "g(x) = x + 1"
       ],
-      "correct": "Negative"
-    },
-    {
+      "correct": "g(x) = cos(x)"
+  },
+  {
       "id": 10,
-      "question": "What is the primary advantage of the False Position Method?",
+      "question": "What is a necessary condition for the convergence of the Fixed Point iteration?",
       "choices": [
-        "Faster convergence compared to the Bisection Method",
-        "Simplicity and reliability",
-        "Requires no initial guesses",
-        "Works for all functions"
+          "|g'(x)| < 1 for all x in the interval",
+          "|g(x)| > 1 for all x in the interval",
+          "g(x) is a quadratic function",
+          "g(x) is a linear function"
       ],
-      "correct": "Faster convergence compared to the Bisection Method"
-    },
-    {
+      "correct": "|g'(x)| < 1 for all x in the interval"
+  },
+  {
       "id": 11,
-      "question": "Which of the following is a limitation of the False Position Method?",
+      "question": "The Fixed Point method is also known as:",
       "choices": [
-        "It can get stuck if the function is not well-behaved",
-        "Complex implementation",
-        "Requires derivatives",
-        "Limited to linear equations"
+          "Successive substitution",
+          "Newton's method",
+          "Bisection method",
+          "Secant method"
       ],
-      "correct": "It can get stuck if the function is not well-behaved"
-    },
-    {
+      "correct": "Successive substitution"
+  },
+  {
       "id": 12,
-      "question": "In which case is the False Position Method most effective?",
+      "question": "If the Fixed Point iteration diverges, what does it indicate?",
       "choices": [
-        "When the function is continuous",
-        "When the function is discontinuous",
-        "For solving matrices",
-        "For finding maxima and minima"
+          "The initial guess is poor",
+          "The function g(x) is not suitable for iteration",
+          "The derivative of g(x) is greater than 1 in magnitude",
+          "All of the above"
       ],
-      "correct": "When the function is continuous"
-    },
-    {
+      "correct": "All of the above"
+  },
+  {
       "id": 13,
-      "question": "How do you ensure that the initial interval [a, b] contains a root in the False Position Method?",
+      "question": "Which method is often compared with the Fixed Point method for finding roots?",
       "choices": [
-        "Check that f(a) * f(b) < 0",
-        "Check that f(a) = f(b)",
-        "Ensure a and b are large",
-        "Check that f(a) > f(b)"
+          "Newton's method",
+          "Bisection method",
+          "Secant method",
+          "All of the above"
       ],
-      "correct": "Check that f(a) * f(b) < 0"
-    }
-  ]
+      "correct": "All of the above"
+  },
+  {
+      "id": 14,
+      "question": "In the Fixed Point method, which of the following functions will definitely lead to divergence?",
+      "choices": [
+          "g(x) = 2x + 1",
+          "g(x) = cos(x)",
+          "g(x) = sqrt{x}",
+          "g(x) = 0.5x"
+      ],
+      "correct": "g(x) = 2x + 1"
+  },
+  {
+      "id": 15,
+      "question": "For which type of functions is the Fixed Point method guaranteed to converge?",
+      "choices": [
+          "Contraction mappings",
+          "Linear functions",
+          "Quadratic functions",
+          "Exponential functions"
+      ],
+      "correct": "Contraction mappings"
+  },
+  {
+      "id": 16,
+      "question": "In the context of Fixed Point iteration, what is a contraction mapping?",
+      "choices": [
+          "A function that brings points closer together",
+          "A function that stretches the distance between points",
+          "A function with no fixed point",
+          "A function that is not continuous"
+      ],
+      "correct": "A function that brings points closer together"
+  },
+  {
+      "id": 17,
+      "question": "What is the impact of the initial guess on the Fixed Point method?",
+      "choices": [
+          "It affects the speed of convergence",
+          "It has no impact",
+          "It determines the number of iterations",
+          "It only affects the final answer"
+      ],
+      "correct": "It affects the speed of convergence"
+  },
+  {
+      "id": 18,
+      "question": "The Fixed Point iteration can be used to solve:",
+      "choices": [
+          "Non-linear equations",
+          "Linear equations",
+          "Differential equations",
+          "Integral equations"
+      ],
+      "correct": "Non-linear equations"
+  },
+  {
+      "id": 19,
+      "question": "In practice, how is the Fixed Point method implemented?",
+      "choices": [
+          "By iterating until the change in x is below a certain threshold",
+          "By performing a fixed number of iterations",
+          "By checking if g(x) = x exactly",
+          "By using a symbolic solver"
+      ],
+      "correct": "By iterating until the change in x is below a certain threshold"
+  },
+  {
+      "id": 20,
+      "question": "Which of the following is true about the Fixed Point method?",
+      "choices": [
+          "It is not guaranteed to converge for all functions",
+          "It always converges faster than Newton's method",
+          "It requires the calculation of derivatives",
+          "It is only applicable to linear functions"
+      ],
+      "correct": "It is not guaranteed to converge for all functions"
+  }
+]
+
+
