@@ -36,9 +36,27 @@ with open('questions/fin.json') as fin:
     finite_questions = json.load(fin)
 
 
+with open('questions/bw.json') as bw:
+    backward_questions = json.load(bw)
+
+
+with open('questions/fw.json') as fw:
+    forward_questions = json.load(fw)
+
 with open('questions/sim.json') as sim:
     simpson_questions = json.load(sim)
 
+
+with open('questions/gu.json') as q:
+    guassian_questions = json.load(q)
+
+
+with open('questions/ja.json') as q:
+    jacobi_questions = json.load(q)
+
+
+with open('questions/lu.json') as q:
+    lu_questions = json.load(q)
 
 
 
@@ -486,7 +504,7 @@ def simpson_practice():
     num_questions = 5  # Change this number based on how many questions you want to display
     selected_questions = random.sample(simpson_questions, num_questions)
     return render_template('pages/open/simpson/practice.html', questions=selected_questions)
-    
+
 @app.route('/simpson/submit_answers', methods=['POST'])
 def simpson_submit_answers():
     user_answers = request.json
@@ -534,6 +552,37 @@ def forward_solve():
 def forward_exercise():
     return render_template('pages/numerical calculus/forward difference/exercise.html')
 
+@app.route('/numerical calculus/forward difference/exercise')
+def forward_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(forward_questions, num_questions)
+    return render_template('pages/open/simpson/practice.html', questions=selected_questions)
+
+
+@app.route('/forward/submit_answers', methods=['POST'])
+def forward_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
 ### Backward  Difference Methods
 @app.route('/numerical calculus/backwardbackground')
 def backward_background():
@@ -558,6 +607,37 @@ def backward_solve():
 @app.route('/numerical calculus/backward difference/exercise')
 def backward_exercise():
     return render_template('pages/numerical calculus/backward difference/exercise.html')
+
+
+@app.route('/numerical calculus/backward difference/practice')
+def backward_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(backward_questions, num_questions)
+    return render_template('pages/numerical calculus/backward difference/practice.html', questions=selected_questions)
+
+@app.route('/backward/submit_answers', methods=['POST'])
+def backward_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
 
 ### Linear systems(Gaussian Elimination)
 @app.route('/linear systems/gaussianbackground')
@@ -584,6 +664,40 @@ def gaussian_solve():
 def gaussian_exercise():
     return render_template('pages/linear systems/gaussian/exercise.html')
 
+@app.route('/linear systems/gaussian/practice')
+def gaussian_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(guassian_questions, num_questions)
+    return render_template('pages/linear systems/gaussian/exercise.html', questions=selected_questions)
+
+
+@app.route('/gaussian/submit_answers', methods=['POST'])
+def gaussian_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
+
+
+
 ### Linear systems(Jacobian Method)
 @app.route('/linear systems/jacobibackground')
 def jacobi_background():
@@ -609,6 +723,37 @@ def jacobi_solve():
 def jacobi_exercise():
     return render_template('pages/linear systems/jacobi/exercise.html')
  
+
+@app.route('/linear systems/jacobi/exercise')
+def jacobi_practice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(jacobi_questions, num_questions)
+    return render_template('pages/linear systems/jacobi/practice.html', questions=selected_questions)
+
+@app.route('/jacobi/submit_answers', methods=['POST'])
+def jacobi_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
+
+
 ### Linear systems(LU Decomposition Method)
 @app.route('/linear systems/ludecompbackground')
 def lu_background():
@@ -633,6 +778,37 @@ def lu_solve():
 @app.route('/linear systems/lu decomp/exercise')
 def lu_exercise():
     return render_template('pages/linear systems/lu decomp/exercise.html')
+
+
+@app.route('/linear systems/lu decomp/practice')
+def lupractice():
+    # Randomly select a subset of questions
+    num_questions = 5  # Change this number based on how many questions you want to display
+    selected_questions = random.sample(lu_questions, num_questions)
+    return render_template('pages/linear systems/lu decomp/practice.html', questions=selected_questions)
+
+
+@app.route('/lu/submit_answers', methods=['POST'])
+def lu_submit_answers():
+    user_answers = request.json
+    score = 0
+    results = []
+
+    # Validate answers
+    for key in user_answers:
+        q_index = int(key.replace('question', '')) - 1
+        correct_answer = trapezoidal_questions[q_index]['correct']
+        is_correct = user_answers[key] == correct_answer
+        if is_correct:
+            score += 1
+        results.append({
+            'question_id': q_index + 1,
+            'user_answer': user_answers[key],
+            'correct_answer': correct_answer,
+            'is_correct': is_correct
+        })
+
+    return jsonify({'score': score, 'results': results, 'total': len(user_answers)})
  
 
 ### Logic endpoints for bisection
