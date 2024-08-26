@@ -23,3 +23,5 @@ Thumbs.db
 # Ignore compiled Python files
 *.pyc
 *.pyo
+
+.venv/
