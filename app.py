@@ -669,7 +669,7 @@ def gaussian_practice():
     # Randomly select a subset of questions
     num_questions = 5  # Change this number based on how many questions you want to display
     selected_questions = random.sample(guassian_questions, num_questions)
-    return render_template('pages/linear systems/gaussian/exercise.html', questions=selected_questions)
+    return render_template('pages/linear systems/gaussian/practice.html', questions=selected_questions)
 
 
 @app.route('/gaussian/submit_answers', methods=['POST'])
