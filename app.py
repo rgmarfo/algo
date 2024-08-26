@@ -552,12 +552,12 @@ def forward_solve():
 def forward_exercise():
     return render_template('pages/numerical calculus/forward difference/exercise.html')
 
-@app.route('/numerical calculus/forward difference/exercise')
+@app.route('/numerical calculus/forward difference/practice')
 def forward_practice():
     # Randomly select a subset of questions
     num_questions = 5  # Change this number based on how many questions you want to display
     selected_questions = random.sample(forward_questions, num_questions)
-    return render_template('pages/open/simpson/practice.html', questions=selected_questions)
+    return render_template('pages/numerical calculus/forward difference/practice.html', questions=selected_questions)
 
 
 @app.route('/forward/submit_answers', methods=['POST'])

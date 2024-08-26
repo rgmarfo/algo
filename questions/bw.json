@@ -1,124 +1,222 @@
 [
-    {
-      "id": 1,
-      "question": "What is the primary goal of the Secant Method?",
-      "choices": [
-        "To find an approximation of a root",
-        "To integrate functions",
-        "To solve differential equations",
-        "To simplify polynomials"
-      ],
-      "correct": "To find an approximation of a root"
-    },
-    {
-      "id": 2,
-      "question": "What is the formula for the next approximation in the Secant Method?",
-      "choices": [
-        "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))",
-        "x = x - f(x) / f'(x)",
-        "x = (a + b) / 2",
-        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
-      ],
-      "correct": "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))"
-    },
-    {
-      "id": 3,
-      "question": "When should you stop the iterations in the Secant Method?",
-      "choices": [
-        "When the approximation does not change significantly",
-        "When the function value at the approximation is zero",
-        "When the interval is sufficiently small",
-        "When the derivative is zero"
-      ],
-      "correct": "When the approximation does not change significantly"
-    },
-    {
-      "id": 4,
-      "question": "What is the main advantage of the Secant Method over the Newton-Raphson Method?",
-      "choices": [
-        "Does not require the calculation of derivatives",
-        "Requires fewer initial guesses",
-        "Converges faster",
-        "Works for all functions"
-      ],
-      "correct": "Does not require the calculation of derivatives"
-    },
-    {
-      "id": 5,
-      "question": "What happens if the function values at the two initial points are equal in the Secant Method?",
-      "choices": [
-        "The method fails as it will result in division by zero",
-        "The method converges immediately",
-        "The method requires additional iterations",
-        "The method will use an arbitrary value to proceed"
-      ],
-      "correct": "The method fails as it will result in division by zero"
-    },
-    {
-      "id": 6,
-      "question": "Which types of functions can the Secant Method be used on?",
-      "choices": [
-        "Continuous functions where derivatives are not easily available",
-        "Discontinuous functions",
-        "Linear functions",
-        "Functions with complex roots"
-      ],
-      "correct": "Continuous functions where derivatives are not easily available"
-    },
-    {
-      "id": 7,
-      "question": "What is a common issue when using the Secant Method?",
-      "choices": [
-        "It can fail to converge if the initial guesses are not chosen wisely",
-        "It requires exact derivatives",
-        "It is very slow to converge",
-        "It is limited to linear equations"
-      ],
-      "correct": "It can fail to converge if the initial guesses are not chosen wisely"
-    },
-    {
-      "id": 8,
-      "question": "How is the accuracy of the Secant Method generally determined?",
-      "choices": [
-        "By the change in approximation values",
-        "By the function value at the approximation",
-        "By the number of iterations",
-        "By the interval size"
-      ],
-      "correct": "By the change in approximation values"
-    },
-    {
-      "id": 9,
-      "question": "How many initial guesses are required for the Secant Method?",
-      "choices": [
-        "Two",
-        "One",
-        "Three",
-        "Four"
-      ],
-      "correct": "Two"
-    },
-    {
-      "id": 10,
-      "question": "What should be done if the Secant Method does not converge?",
-      "choices": [
-        "Try different initial guesses",
-        "Increase the number of iterations",
-        "Change the function",
-        "Switch to a different method"
-      ],
-      "correct": "Try different initial guesses"
-    },
-    {
-      "id": 11,
-      "question": "Which type of methods does the Secant Method belong to?",
-      "choices": [
-        "Root-finding methods",
-        "Integration methods",
-        "Differentiation methods",
-        "Optimization methods"
-      ],
-      "correct": "Root-finding methods"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What is the Backward Difference Method primarily used for?",
+    "choices": [
+      "Solving ordinary differential equations",
+      "Approximating derivatives",
+      "Solving algebraic equations",
+      "Finding integrals"
+    ],
+    "correct": "Approximating derivatives"
+  },
+  {
+    "id": 2,
+    "question": "The Backward Difference formula for the first derivative is given by:",
+    "choices": [
+      "f'(x) ≈ (f(x) - f(x-h)) / h",
+      "f'(x) ≈ (f(x+h) - f(x)) / h",
+      "f'(x) ≈ (f(x+h) - f(x-h)) / 2h",
+      "f'(x) ≈ (f(x+h) - f(x)) / h^2"
+    ],
+    "correct": "f'(x) ≈ (f(x) - f(x-h)) / h"
+  },
+  {
+    "id": 3,
+    "question": "In the Backward Difference Method, what does 'h' represent?",
+    "choices": [
+      "The step size",
+      "The function value",
+      "The derivative",
+      "The slope"
+    ],
+    "correct": "The step size"
+  },
+  {
+    "id": 4,
+    "question": "Which of the following is a higher-order Backward Difference formula?",
+    "choices": [
+      "f''(x) ≈ (f(x) - 2f(x-h) + f(x-2h)) / h^2",
+      "f''(x) ≈ (f(x+h) - 2f(x) + f(x-h)) / h^2",
+      "f''(x) ≈ (f(x+h) - f(x-h)) / 2h",
+      "f''(x) ≈ (f(x+h) - f(x)) / h"
+    ],
+    "correct": "f''(x) ≈ (f(x) - 2f(x-h) + f(x-2h)) / h^2"
+  },
+  {
+    "id": 5,
+    "question": "The Backward Difference Method is particularly useful when:",
+    "choices": [
+      "Future values are unknown",
+      "Past values are unknown",
+      "The function is linear",
+      "The step size is large"
+    ],
+    "correct": "Future values are unknown"
+  },
+  {
+    "id": 6,
+    "question": "Which of the following is true about the Backward Difference Method?",
+    "choices": [
+      "It uses past values of the function to approximate derivatives.",
+      "It uses future values of the function to approximate derivatives.",
+      "It is less accurate than the Forward Difference Method.",
+      "It requires knowledge of the second derivative."
+    ],
+    "correct": "It uses past values of the function to approximate derivatives."
+  },
+  {
+    "id": 7,
+    "question": "Which method is often used in conjunction with the Backward Difference Method for solving differential equations?",
+    "choices": [
+      "Euler's Method",
+      "Crank-Nicolson Method",
+      "Runge-Kutta Method",
+      "Trapezoidal Rule"
+    ],
+    "correct": "Crank-Nicolson Method"
+  },
+  {
+    "id": 8,
+    "question": "What is a key advantage of the Backward Difference Method?",
+    "choices": [
+      "It is stable for stiff equations.",
+      "It is faster than the Forward Difference Method.",
+      "It requires fewer computations.",
+      "It always converges."
+    ],
+    "correct": "It is stable for stiff equations."
+  },
+  {
+    "id": 9,
+    "question": "The Backward Difference Method is classified as:",
+    "choices": [
+      "An implicit method",
+      "An explicit method",
+      "A semi-implicit method",
+      "A semi-explicit method"
+    ],
+    "correct": "An implicit method"
+  },
+  {
+    "id": 10,
+    "question": "In numerical analysis, the Backward Difference Method is often preferred for:",
+    "choices": [
+      "Backward time-stepping",
+      "Forward time-stepping",
+      "Midpoint time-stepping",
+      "Centered time-stepping"
+    ],
+    "correct": "Backward time-stepping"
+  },
+  {
+    "id": 11,
+    "question": "Which of the following is an application of the Backward Difference Method?",
+    "choices": [
+      "Numerical differentiation",
+      "Numerical integration",
+      "Finding roots of equations",
+      "Interpolation of functions"
+    ],
+    "correct": "Numerical differentiation"
+  },
+  {
+    "id": 12,
+    "question": "How is the Backward Difference Method applied in solving heat equations?",
+    "choices": [
+      "By discretizing time and approximating spatial derivatives",
+      "By directly solving the differential equation analytically",
+      "By using midpoint integration",
+      "By approximating the solution using Monte Carlo methods"
+    ],
+    "correct": "By discretizing time and approximating spatial derivatives"
+  },
+  {
+    "id": 13,
+    "question": "The Backward Difference Method provides an approximation for:",
+    "choices": [
+      "Backward derivatives",
+      "Forward derivatives",
+      "Centered derivatives",
+      "None of the above"
+    ],
+    "correct": "Backward derivatives"
+  },
+  {
+    "id": 14,
+    "question": "In the context of Backward Difference, what is meant by 'stability'?",
+    "choices": [
+      "The solution does not grow unbounded over time",
+      "The method requires fewer steps",
+      "The method always converges to the exact solution",
+      "The step size remains constant"
+    ],
+    "correct": "The solution does not grow unbounded over time"
+  },
+  {
+    "id": 15,
+    "question": "Which of the following represents the Backward Difference for the third derivative?",
+    "choices": [
+      "f'''(x) = (f(x) - 3f(x-h) + 3f(x-2h) - f(x-3h)) / h^3",
+      "f'''(x) = (f(x+h) - f(x-h)) / 2h",
+      "f'''(x) = (f(x+2h) - 2f(x+h) + f(x)) / h^2",
+      "f'''(x) = (f(x+h) - 3f(x) + 3f(x-h) - f(x-2h)) / h^3"
+    ],
+    "correct": "f'''(x) ≈ (f(x) - 3f(x-h) + 3f(x-2h) - f(x-3h)) / h^3"
+  },
+  {
+    "id": 16,
+    "question": "What is the main difference between the Backward Difference Method and the Forward Difference Method?",
+    "choices": [
+      "The Backward Difference Method uses past values, while the Forward Difference Method uses future values.",
+      "The Backward Difference Method is implicit, while the Forward Difference Method is explicit.",
+      "The Backward Difference Method is more accurate.",
+      "The Forward Difference Method is stable for all step sizes."
+    ],
+    "correct": "The Backward Difference Method uses past values, while the Forward Difference Method uses future values."
+  },
+  {
+    "id": 17,
+    "question": "Which of the following best describes a higher-order Backward Difference?",
+    "choices": [
+      "It involves more terms from the function's past values.",
+      "It is less accurate than the first-order Backward Difference.",
+      "It requires a smaller step size.",
+      "It only applies to linear functions."
+    ],
+    "correct": "It involves more terms from the function's past values."
+  },
+  {
+    "id": 18,
+    "question": "Why is the Backward Difference Method often used in finite difference schemes?",
+    "choices": [
+      "It is unconditionally stable for linear problems.",
+      "It requires fewer computations.",
+      "It is easier to implement.",
+      "It guarantees exact solutions."
+    ],
+    "correct": "It is unconditionally stable for linear problems."
+  },
+  {
+    "id": 19,
+    "question": "Which of the following is a limitation of the Backward Difference Method?",
+    "choices": [
+      "It may require solving a system of equations at each step.",
+      "It is unstable for stiff equations.",
+      "It does not converge for non-linear equations.",
+      "It is less accurate than the Forward Difference Method."
+    ],
+    "correct": "It may require solving a system of equations at each step."
+  },
+  {
+    "id": 20,
+    "question": "What does a negative value for the Backward Difference indicate?",
+    "choices": [
+      "The function is decreasing at that point.",
+      "The function is increasing at that point.",
+      "The function has a maximum at that point.",
+      "The function has a minimum at that point."
+    ],
+    "correct": "The function is decreasing at that point."
+  }
+]

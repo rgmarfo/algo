@@ -1,124 +1,222 @@
 [
-    {
-      "id": 1,
-      "question": "What is the primary goal of the Secant Method?",
-      "choices": [
-        "To find an approximation of a root",
-        "To integrate functions",
-        "To solve differential equations",
-        "To simplify polynomials"
-      ],
-      "correct": "To find an approximation of a root"
-    },
-    {
-      "id": 2,
-      "question": "What is the formula for the next approximation in the Secant Method?",
-      "choices": [
-        "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))",
-        "x = x - f(x) / f'(x)",
-        "x = (a + b) / 2",
-        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
-      ],
-      "correct": "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))"
-    },
-    {
-      "id": 3,
-      "question": "When should you stop the iterations in the Secant Method?",
-      "choices": [
-        "When the approximation does not change significantly",
-        "When the function value at the approximation is zero",
-        "When the interval is sufficiently small",
-        "When the derivative is zero"
-      ],
-      "correct": "When the approximation does not change significantly"
-    },
-    {
-      "id": 4,
-      "question": "What is the main advantage of the Secant Method over the Newton-Raphson Method?",
-      "choices": [
-        "Does not require the calculation of derivatives",
-        "Requires fewer initial guesses",
-        "Converges faster",
-        "Works for all functions"
-      ],
-      "correct": "Does not require the calculation of derivatives"
-    },
-    {
-      "id": 5,
-      "question": "What happens if the function values at the two initial points are equal in the Secant Method?",
-      "choices": [
-        "The method fails as it will result in division by zero",
-        "The method converges immediately",
-        "The method requires additional iterations",
-        "The method will use an arbitrary value to proceed"
-      ],
-      "correct": "The method fails as it will result in division by zero"
-    },
-    {
-      "id": 6,
-      "question": "Which types of functions can the Secant Method be used on?",
-      "choices": [
-        "Continuous functions where derivatives are not easily available",
-        "Discontinuous functions",
-        "Linear functions",
-        "Functions with complex roots"
-      ],
-      "correct": "Continuous functions where derivatives are not easily available"
-    },
-    {
-      "id": 7,
-      "question": "What is a common issue when using the Secant Method?",
-      "choices": [
-        "It can fail to converge if the initial guesses are not chosen wisely",
-        "It requires exact derivatives",
-        "It is very slow to converge",
-        "It is limited to linear equations"
-      ],
-      "correct": "It can fail to converge if the initial guesses are not chosen wisely"
-    },
-    {
-      "id": 8,
-      "question": "How is the accuracy of the Secant Method generally determined?",
-      "choices": [
-        "By the change in approximation values",
-        "By the function value at the approximation",
-        "By the number of iterations",
-        "By the interval size"
-      ],
-      "correct": "By the change in approximation values"
-    },
-    {
-      "id": 9,
-      "question": "How many initial guesses are required for the Secant Method?",
-      "choices": [
-        "Two",
-        "One",
-        "Three",
-        "Four"
-      ],
-      "correct": "Two"
-    },
-    {
-      "id": 10,
-      "question": "What should be done if the Secant Method does not converge?",
-      "choices": [
-        "Try different initial guesses",
-        "Increase the number of iterations",
-        "Change the function",
-        "Switch to a different method"
-      ],
-      "correct": "Try different initial guesses"
-    },
-    {
-      "id": 11,
-      "question": "Which type of methods does the Secant Method belong to?",
-      "choices": [
-        "Root-finding methods",
-        "Integration methods",
-        "Differentiation methods",
-        "Optimization methods"
-      ],
-      "correct": "Root-finding methods"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What is the forward difference method primarily used for?",
+    "choices": [
+      "Solving linear equations",
+      "Approximating derivatives",
+      "Finding roots of equations",
+      "Interpolating data points"
+    ],
+    "correct": "Approximating derivatives"
+  },
+  {
+    "id": 2,
+    "question": "Which of the following represents the forward difference of a function f(x) at a point x?",
+    "choices": [
+      "f(x+h) - f(x)",
+      "f(x) - f(x-h)",
+      "f(x+h) + f(x)",
+      "f(x) + f(x-h)"
+    ],
+    "correct": "f(x+h) - f(x)"
+  },
+  {
+    "id": 3,
+    "question": "In the forward difference method, what does 'h' typically represent?",
+    "choices": [
+      "A small increment in x",
+      "The value of the function at x",
+      "The derivative of the function",
+      "The root of the function"
+    ],
+    "correct": "A small increment in x"
+  },
+  {
+    "id": 4,
+    "question": "How is the first forward difference of a function denoted?",
+    "choices": [
+      "Δf(x)",
+      "Δ^2f(x)",
+      "∇f(x)",
+      "∂f(x)"
+    ],
+    "correct": "Δf(x)"
+  },
+  {
+    "id": 5,
+    "question": "What is the order of accuracy for the forward difference approximation of the first derivative?",
+    "choices": [
+      "First order",
+      "Second order",
+      "Third order",
+      "Fourth order"
+    ],
+    "correct": "First order"
+  },
+  {
+    "id": 6,
+    "question": "Which of the following formulas represents the forward difference approximation for the first derivative of f(x)?",
+    "choices": [
+      "f'(x) ≈ [f(x+h) - f(x)] / h",
+      "f'(x) ≈ [f(x) - f(x-h)] / h",
+      "f'(x) ≈ [f(x+h) + f(x)] / 2h",
+      "f'(x) ≈ [f(x+h) - f(x-h)] / 2h"
+    ],
+    "correct": "f'(x) ≈ [f(x+h) - f(x)] / h"
+  },
+  {
+    "id": 7,
+    "question": "The forward difference method is most accurate when h is:",
+    "choices": [
+      "Small",
+      "Large",
+      "Zero",
+      "Infinite"
+    ],
+    "correct": "Small"
+  },
+  {
+    "id": 8,
+    "question": "What is a potential disadvantage of using the forward difference method?",
+    "choices": [
+      "It may introduce truncation errors",
+      "It requires large values of h",
+      "It cannot be used for non-linear functions",
+      "It always overestimates the derivative"
+    ],
+    "correct": "It may introduce truncation errors"
+  },
+  {
+    "id": 9,
+    "question": "How is the second forward difference of a function f(x) denoted?",
+    "choices": [
+      "Δ^2f(x)",
+      "Δf(x)",
+      "∇^2f(x)",
+      "∂^2f(x)"
+    ],
+    "correct": "Δ^2f(x)"
+  },
+  {
+    "id": 10,
+    "question": "Which of the following is a correct expression for the second forward difference of f(x)?",
+    "choices": [
+      "Δ^2f(x) = f(x+2h) - 2f(x+h) + f(x)",
+      "Δ^2f(x) = f(x+h) - 2f(x)",
+      "Δ^2f(x) = f(x+2h) - f(x)",
+      "Δ^2f(x) = f(x+h) - f(x-h)"
+    ],
+    "correct": "Δ^2f(x) = f(x+2h) - 2f(x+h) + f(x)"
+  },
+  {
+    "id": 11,
+    "question": "In the forward difference method, the step size 'h' affects:",
+    "choices": [
+      "Both the accuracy and stability of the approximation",
+      "Only the accuracy of the approximation",
+      "Only the stability of the approximation",
+      "Neither the accuracy nor stability of the approximation"
+    ],
+    "correct": "Both the accuracy and stability of the approximation"
+  },
+  {
+    "id": 12,
+    "question": "Which method is often used alongside the forward difference method for higher accuracy?",
+    "choices": [
+      "Central difference method",
+      "Backward difference method",
+      "Simpson's rule",
+      "Bisection method"
+    ],
+    "correct": "Central difference method"
+  },
+  {
+    "id": 13,
+    "question": "The forward difference method is best suited for functions that are:",
+    "choices": [
+      "Smooth and continuous",
+      "Highly oscillatory",
+      "Discontinuous",
+      "Piecewise defined"
+    ],
+    "correct": "Smooth and continuous"
+  },
+  {
+    "id": 14,
+    "question": "What does the forward difference method approximate?",
+    "choices": [
+      "The derivative of a function at a given point",
+      "The integral of a function over an interval",
+      "The maximum value of a function",
+      "The minimum value of a function"
+    ],
+    "correct": "The derivative of a function at a given point"
+  },
+  {
+    "id": 15,
+    "question": "Which of the following is a common application of the forward difference method?",
+    "choices": [
+      "Numerical differentiation",
+      "Numerical integration",
+      "Finding the roots of equations",
+      "Interpolating polynomials"
+    ],
+    "correct": "Numerical differentiation"
+  },
+  {
+    "id": 16,
+    "question": "What is the main difference between the forward difference and backward difference methods?",
+    "choices": [
+      "The point of reference for the function values",
+      "The step size used",
+      "The type of functions they can be applied to",
+      "The accuracy of the methods"
+    ],
+    "correct": "The point of reference for the function values"
+  },
+  {
+    "id": 17,
+    "question": "The forward difference method can be extended to approximate which of the following?",
+    "choices": [
+      "Higher-order derivatives",
+      "Definite integrals",
+      "System of linear equations",
+      "Discrete Fourier transforms"
+    ],
+    "correct": "Higher-order derivatives"
+  },
+  {
+    "id": 18,
+    "question": "For a sufficiently small h, the forward difference method provides a good approximation of:",
+    "choices": [
+      "The first derivative of a function",
+      "The second derivative of a function",
+      "The integral of a function",
+      "The maximum value of a function"
+    ],
+    "correct": "The first derivative of a function"
+  },
+  {
+    "id": 19,
+    "question": "The error in the forward difference approximation is proportional to:",
+    "choices": [
+      "The step size h",
+      "The square of the step size h",
+      "The cube of the step size h",
+      "The inverse of the step size h"
+    ],
+    "correct": "The step size h"
+  },
+  {
+    "id": 20,
+    "question": "What is a common alternative to the forward difference method when higher accuracy is required?",
+    "choices": [
+      "Central difference method",
+      "Monte Carlo method",
+      "Newton-Raphson method",
+      "Lagrange interpolation"
+    ],
+    "correct": "Central difference method"
+  }
+]
