@@ -1,20 +1,26 @@
 {% extends 'base.html' %} {% block header %}
 <h2 class="text-2xl font-bold text-center mt-8">
-    {% block title %} Simpson's Solver{% endblock title %}
+  {% block title %} Simpson's Solver{% endblock title %}
 </h2>
 {% endblock header %} {% block content %}
 
-<main class="bg-gray-100 py-8" style="
+<main
+  class="bg-gray-100 py-8"
+  style="
     background-image: url('https://www.transparenttextures.com/patterns/inflicted.png');
-  ">
-    <div class="container mx-auto flex flex-wrap justify-center mb-20">
-        <div class="w-full md:w-1/4 p-4">
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <h3 class="text-lg font-bold mb-4">SIMPSON'S RULE</h3>
-                <hr class="mb-4" />
-                <ul class="space-y-4">
-                    <li>
-                        <a href="/open/simpsonbackground" class="block text-gray-700 hover:bg-gray-200 p-2 rounded">Background</a
+  "
+>
+  <div class="container mx-auto flex flex-wrap justify-center mb-20">
+    <div class="w-full md:w-1/4 p-4">
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h3 class="text-lg font-bold mb-4">SIMPSON'S RULE</h3>
+        <hr class="mb-4" />
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="/open/simpsonbackground"
+              class="block text-gray-700 hover:bg-gray-200 p-2 rounded"
+              >Background</a
             >
           </li>
           <li>
@@ -63,19 +69,45 @@
           <div class="mb-6">
             <h3 class="text-xl font-semibold mb-4">Legend</h3>
             <ul class="list-disc pl-5 space-y-2">
-              <li><span class="font-semibold text-lg">exp(x)</span> - Exponential Function</li><br>
-              <li class=' px-2 py-3 flex gap-4'>
-                <div class='border bg-gray-200 w-1/2 px-3 py-5 text-lg font-bold'><p class='text-xl text-red-500'> Instead Of This:</p>\(f(x) = 3x - e^x\)</div><div class='border bg-green-200 w-1/2 px-3 py-5 text-lg font-bold'> <p class='text-xl text-red-500'>Input Accepts:</p>\( f(x)=3x-exp(x)\)</div>
+              <li>
+                <span class="font-semibold text-lg">exp(x)</span> - Exponential
+                Function
+              </li>
+              <br />
+              <li class="px-2 py-3 flex gap-4">
+                <div
+                  class="border bg-gray-200 w-1/2 px-3 py-5 text-lg font-bold"
+                >
+                  <p class="text-xl text-red-500">Instead Of This:</p>
+                  \(f(x) = 3x - e^x\)
+                </div>
+                <div
+                  class="border bg-green-200 w-1/2 px-3 py-5 text-lg font-bold"
+                >
+                  <p class="text-xl text-red-500">Input Accepts:</p>
+                  \( f(x)=3x-exp(x)\)
+                </div>
               </li>
               <li>
                 <span class="font-semibold">**</span> - Caret (raise the
                 preceding value to the power of the following value)
-              </li><br>
-              <li class=' px-2 py-3 flex gap-4'>
-                <div class='border bg-gray-200 w-1/2 md:w-50 px-3 py-5 text-lg font-bold'><p class='text-xl text-red-500'> Instead Of This:</p>\(f(x) = x^3 - x^2 + x - 1\)</div><div class='border bg-green-200 w-1/2  px-3 py-5 text-lg font-bold'> <p class='text-xl text-red-500'>Input Accepts:</p>\(f(x) = x^{**}3 - x^{**}2 + x - 1\)</div>
+              </li>
+              <br />
+              <li class="px-2 py-3 flex gap-4">
+                <div
+                  class="border bg-gray-200 w-1/2 md:w-50 px-3 py-5 text-lg font-bold"
+                >
+                  <p class="text-xl text-red-500">Instead Of This:</p>
+                  \(f(x) = x^3 - x^2 + x - 1\)
+                </div>
+                <div
+                  class="border bg-green-200 w-1/2 px-3 py-5 text-lg font-bold"
+                >
+                  <p class="text-xl text-red-500">Input Accepts:</p>
+                  \(f(x) = x^{**}3 - x^{**}2 + x - 1\)
+                </div>
               </li>
             </ul>
-            
           </div>
 
           <form id="bisection-form">
@@ -88,10 +120,36 @@
               placeholder="Enter equation f(x)"
               required
             />
+            <div class="flex gap-2 mb-4">
+              <div class="w-1/2">
+                <label for="a" class="block font-bold mb-2">Enter a :</label>
+                <input
+                  type="text"
+                  id="a"
+                  name="a"
+                  class="w-full p-2 border border-gray-300 rounded"
+                  placeholder="Enter a"
+                  required
+                />
+              </div>
+              <div class="w-1/2">
+                <label for="a" class="block font-bold mb-2">Enter b :</label>
+                <input
+                  type="text"
+                  id="a"
+                  name="a"
+                  class="w-full p-2 border border-gray-300 rounded"
+                  placeholder="Enter b"
+                  required
+                />
+              </div>
+            </div>
 
             <div class="flex space-x-4 mb-4">
               <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Number of Subinterval (Segment) \(n\) :</label>
+                <label for="n" class="block font-bold mb-2"
+                  >Number of Subinterval (Segment) \(n\) :</label
+                >
                 <input
                   type="text"
                   id="a"
