@@ -82,25 +82,27 @@
           </div>
 
           <form id="bisection-form">
-            <label for="equation" class="block font-bold mb-2">Equation:</label>
-            <input
-              type="text"
-              id="equation"
-              class="w-full p-2 border border-gray-300 rounded mb-4"
-              name="equation"
-              placeholder="Enter equation f(x)"
-              required
-            />
-
-            <div class="flex space-x-4 mb-4">
+            <div class="flex gap-4 mt-8">
               <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Initial Guess \((x_0\)) :</label>
+                <label for="A" class="block font-bold mb-2">A ( Matrix ):</label>
                 <input
                   type="text"
-                  id="a"
-                  name="a"
+                  id="A"
+                  class="w-full p-2 border border-gray-300 rounded mb-4"
+                  name="A"
+                  placeholder="Enter your matrix [ [1, 2, 4, ], [1, 2, 4, ], [1, 3, 4,] ]"
+                  required
+                />
+              </div>
+  
+              <div class="w-1/2">
+                <label for="b" class="block font-bold mb-2">b ( Vector ):</label>
+                <input
+                  type="text"
+                  id="b"
+                  name="b"
                   class="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Enter initial guess"
+                  placeholder="Enter your vector [1, 3, 5,]"
                   required
                 />
               </div>
@@ -139,46 +141,37 @@
 
       $.ajax({
         type: "POST",
-        url: "/calculate",
+        url: "/calculate_gaussian",
         data: formData,
         success: function (response) {
           console.log(response);
           // Hide overlay loading indicator
           $("#loading-overlay").hide();
+
           if (!response.error) {
-            // Root is defined, display the result
-            var root = response.root;
-            var stepsHtml = response.steps_html;
-            var tableHtml = response.table_html;
-            var updatedIntervals = response.updated_intervals;
+    // Solution is defined, display the result
+    var solution = response.solution.map(val => val.toFixed(2)); // Format solution values
+    var solutionText = solution.map(val => `<span class="block text-gray-800">${val}</span>`).join('');
 
-            $("#result-section").html(
-              "<h3 class='text-lg font-bold'>The root of the equation: " +
-                root +
-                "</h3><br/>" +
-                stepsHtml +
-                "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
-                tableHtml
-            );
+    $("#result-section").html(
+        `<div class="p-4 bg-gray-100 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold text-blue-600 mb-2">The solution to the matrix is:</h3>
+            <div class="bg-white p-4 rounded-lg border border-gray-300">
+                <div class="text-gray-800">
+                    ${solutionText}
+                </div>
+            </div>
+        </div>`
+    );
+} else {
+    // Display the error message
+    $("#result-section").html(
+        `<div class="p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg">
+            <p class="text-sm font-medium">Error: ${response.error}: Invalid intervals</p>
+        </div>`
+    );
+}
 
-            // Apply Tailwind classes to the dynamically generated table
-            $("table").addClass("min-w-full bg-white border-collapse");
-            $("th").addClass(
-              "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
-            );
-            $("td").addClass("py-2 px-4 border");
-
-            // Apply Tailwind classes to the stepsHtml section if needed
-            $("#stepsHtml").addClass("mt-4");
-          } else {
-            // Root is undefined, display the error message
-            $("#result-section").html(
-              '<p class="text-red-500">Error: ' +
-                response.error +
-                ": Invalid intervals" +
-                "</p>"
-            );
-          }
         },
         error: function (xhr, status, error) {
           // Hide overlay loading indicator

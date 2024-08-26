@@ -4,6 +4,10 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, f
 from sympy import symbols, lambdify, parse_expr, diff
 import numpy as np
 
+import os
+from datetime import datetime
+
+
 app = Flask(__name__)
 app.secret_key = 'projectalgo2024'
 
@@ -724,7 +728,7 @@ def jacobi_exercise():
     return render_template('pages/linear systems/jacobi/exercise.html')
  
 
-@app.route('/linear systems/jacobi/exercise')
+@app.route('/linear systems/jacobi/practice')
 def jacobi_practice():
     # Randomly select a subset of questions
     num_questions = 5  # Change this number based on how many questions you want to display
@@ -1279,6 +1283,57 @@ def calculate_simpsons_rule():
         return jsonify({'error': 'An unexpected error occurred.'})
 
 
+def lu_decomposition(A):
+    """Perform LU decomposition on matrix A."""
+    A = np.array(A, dtype=float)
+    n = len(A)
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+
+    for i in range(n):
+        # Upper triangular matrix U
+        for k in range(i, n):
+            U[i, k] = A[i, k] - np.sum(L[i, :i] * U[:i, k])
+        
+        # Lower triangular matrix L
+        for k in range(i, n):
+            if U[i, i] == 0:
+                raise ValueError("Matrix is singular.")
+            L[k, i] = (A[k, i] - np.sum(L[k, :i] * U[:i, i])) / U[i, i]
+
+    return L, U
+
+@app.route('/calculate_lu', methods=['POST'])
+def lu_endpoint():
+    try:
+        # Get the input data from the form
+        A_str = request.form['A']
+        
+        # Convert the string input to a Python list
+        A = json.loads(A_str)
+        
+        # Ensure that A is a list of lists
+        if not isinstance(A, list) or not all(isinstance(row, list) for row in A):
+            raise ValueError("Matrix A must be a list of lists.")
+        
+        # Perform LU decomposition
+        L, U = lu_decomposition(A)
+        
+        return jsonify({
+            'L': L.tolist(),
+            'U': U.tolist()
+        })
+    
+    except ValueError as e:
+        return jsonify({'error': str(e)})
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format.'})
+    except Exception as e:
+        return jsonify({'error': 'An unexpected error occurred.'})
+
+
+
+
 def gaussian_elimination(A, b):
     """Solve the system of linear equations Ax = b using Gaussian elimination."""
     A = np.array(A, dtype=float)
@@ -1306,39 +1361,72 @@ def gaussian_elimination(A, b):
         x[i] = (b[i] - np.dot(A[i, i + 1:], x[i + 1:])) / A[i, i]
     
     return x
+
 @app.route('/calculate_gaussian', methods=['POST'])
 def gaussian_endpoint():
-    data = request.json
-    A = data['A']
-    b = data['b']
-    x = gaussian_elimination(A, b)
-    return jsonify({'solution': x.tolist()})
-
-
-def lu_decomposition(A):
-    """Perform LU decomposition of matrix A."""
-    A = np.array(A, dtype=float)
-    n = A.shape[0]
-    L = np.eye(n)
-    U = A.copy()
+    try:
+        # Get the input data from the form
+        A_str = request.form['A']
+        b_str = request.form['b']
+        
+        # Convert the string inputs to Python lists
+        A = json.loads(A_str)
+        b = json.loads(b_str)
+        
+        # Ensure that A and b are lists
+        if not isinstance(A, list) or not isinstance(b, list):
+            raise ValueError("Input data must be lists.")
+        
+        # Ensure A is a 2D list and b is a 1D list
+        if not all(isinstance(row, list) for row in A) or not all(isinstance(x, (int, float)) for x in b):
+            raise ValueError("Matrix A must be a list of lists and b must be a list of numbers.")
+        
+        # Solve using Gaussian Elimination
+        x = gaussian_elimination(A, b)
+        return jsonify({'solution': x.tolist()})
     
-    for i in range(n):
-        for j in range(i, n):
-            L[j, i] = U[j, i] / U[i, i]
-            U[j, i:] -= L[j, i] * U[i, i:]
+    except ValueError as e:
+        return jsonify({'error': str(e)})
     
-    for i in range(n):
-        U[i, i:] /= U[i, i]
-        L[i, i] = 1
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format.'})
     
-    return L, U
-@app.route('/calculate_lu', methods=['POST'])
-def lu_endpoint():
-    data = request.json
-    A = data['A']
-    L, U = lu_decomposition(A)
-    return jsonify({'L': L.tolist(), 'U': U.tolist()})
+    except Exception as e:
+        return jsonify({'error': 'An unexpected error occurred.'})
 
+# Directory where feedback files will be saved
+FEEDBACK_DIR = 'feedback_files'
+os.makedirs(FEEDBACK_DIR, exist_ok=True)
+
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    try:
+        # Extract data from the request
+        name = request.form.get('name')
+        email = request.form.get('email')
+        feedback = request.form.get('feedback')
+
+        if not name or not email or not feedback:
+            raise ValueError("Name, email, and feedback are required.")
+
+        # Create a filename based on the current timestamp
+        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        filename = f"feedback_{timestamp}.txt"
+        filepath = os.path.join(FEEDBACK_DIR, filename)
+
+        # Write the feedback to the file
+        with open(filepath, 'w') as file:
+            file.write(f"Name: {name}\n")
+            file.write(f"Email: {email}\n")
+            file.write(f"Feedback: {feedback}\n")
+
+        return jsonify({'message': 'Feedback received and saved successfully.'})
+
+    except ValueError as e:
+        return jsonify({'error': str(e)})
+    except Exception as e:
+        return jsonify({'error': 'An unexpected error occurred.'})
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
