@@ -99,30 +99,6 @@
               placeholder="Enter equation f(x)"
               required
             />
-            <div class="flex gap-2 mb-4">
-              <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Enter a :</label>
-                <input
-                  type="text"
-                  id="a"
-                  name="a"
-                  class="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Enter a"
-                  required
-                />
-              </div>
-              <div class="w-1/2">
-                <label for="a" class="block font-bold mb-2">Enter b :</label>
-                <input
-                  type="text"
-                  id="a"
-                  name="a"
-                  class="w-full p-2 border border-gray-300 rounded"
-                  placeholder="Enter b"
-                  required
-                />
-              </div>
-            </div>
 
             <div class="flex space-x-4 mb-4">
               <div class="w-1/2">
@@ -131,8 +107,8 @@
                 >
                 <input
                   type="text"
-                  id="a"
-                  name="a"
+                  id="n"
+                  name="n"
                   class="w-full p-2 border border-gray-300 rounded"
                   placeholder="Enter number of subinterval"
                   required
@@ -173,7 +149,7 @@
 
       $.ajax({
         type: "POST",
-        url: "/calculate",
+        url: "/calculate_simpsons_rule",
         data: formData,
         success: function (response) {
           console.log(response);
@@ -181,29 +157,17 @@
           $("#loading-overlay").hide();
           if (!response.error) {
             // Root is defined, display the result
-            var root = response.root;
-            var stepsHtml = response.steps_html;
-            var tableHtml = response.table_html;
-            var updatedIntervals = response.updated_intervals;
+                       // Root is defined, display the result
+                       var integral = response.integral;
+            var steps = response.steps;
+            var response_html = response.response_html
 
             $("#result-section").html(
-              "<h3 class='text-lg font-bold'>The root of the equation: " +
-                root +
+              "<h3 class='text-lg font-bold'>The integral of the equation: " +
+                integral +
                 "</h3><br/>" +
-                stepsHtml +
-                "<p class='mt-4 mb-2'>First 10 iterations:</p><br/>" +
-                tableHtml
+                response_html
             );
-
-            // Apply Tailwind classes to the dynamically generated table
-            $("table").addClass("min-w-full bg-white border-collapse");
-            $("th").addClass(
-              "py-2 px-4 bg-gray-200 text-gray-700 font-semibold border"
-            );
-            $("td").addClass("py-2 px-4 border");
-
-            // Apply Tailwind classes to the stepsHtml section if needed
-            $("#stepsHtml").addClass("mt-4");
           } else {
             // Root is undefined, display the error message
             $("#result-section").html(
