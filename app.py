@@ -2,7 +2,6 @@ import json, re
 import random
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from sympy import symbols, lambdify, parse_expr, diff
-from bisection import bisection_method
 import numpy as np
 
 app = Flask(__name__)
