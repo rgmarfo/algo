@@ -1,124 +1,222 @@
 [
-    {
-      "id": 1,
-      "question": "What is the primary goal of the Secant Method?",
-      "choices": [
-        "To find an approximation of a root",
-        "To integrate functions",
-        "To solve differential equations",
-        "To simplify polynomials"
-      ],
-      "correct": "To find an approximation of a root"
-    },
-    {
-      "id": 2,
-      "question": "What is the formula for the next approximation in the Secant Method?",
-      "choices": [
-        "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))",
-        "x = x - f(x) / f'(x)",
-        "x = (a + b) / 2",
-        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
-      ],
-      "correct": "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))"
-    },
-    {
-      "id": 3,
-      "question": "When should you stop the iterations in the Secant Method?",
-      "choices": [
-        "When the approximation does not change significantly",
-        "When the function value at the approximation is zero",
-        "When the interval is sufficiently small",
-        "When the derivative is zero"
-      ],
-      "correct": "When the approximation does not change significantly"
-    },
-    {
-      "id": 4,
-      "question": "What is the main advantage of the Secant Method over the Newton-Raphson Method?",
-      "choices": [
-        "Does not require the calculation of derivatives",
-        "Requires fewer initial guesses",
-        "Converges faster",
-        "Works for all functions"
-      ],
-      "correct": "Does not require the calculation of derivatives"
-    },
-    {
-      "id": 5,
-      "question": "What happens if the function values at the two initial points are equal in the Secant Method?",
-      "choices": [
-        "The method fails as it will result in division by zero",
-        "The method converges immediately",
-        "The method requires additional iterations",
-        "The method will use an arbitrary value to proceed"
-      ],
-      "correct": "The method fails as it will result in division by zero"
-    },
-    {
-      "id": 6,
-      "question": "Which types of functions can the Secant Method be used on?",
-      "choices": [
-        "Continuous functions where derivatives are not easily available",
-        "Discontinuous functions",
-        "Linear functions",
-        "Functions with complex roots"
-      ],
-      "correct": "Continuous functions where derivatives are not easily available"
-    },
-    {
-      "id": 7,
-      "question": "What is a common issue when using the Secant Method?",
-      "choices": [
-        "It can fail to converge if the initial guesses are not chosen wisely",
-        "It requires exact derivatives",
-        "It is very slow to converge",
-        "It is limited to linear equations"
-      ],
-      "correct": "It can fail to converge if the initial guesses are not chosen wisely"
-    },
-    {
-      "id": 8,
-      "question": "How is the accuracy of the Secant Method generally determined?",
-      "choices": [
-        "By the change in approximation values",
-        "By the function value at the approximation",
-        "By the number of iterations",
-        "By the interval size"
-      ],
-      "correct": "By the change in approximation values"
-    },
-    {
-      "id": 9,
-      "question": "How many initial guesses are required for the Secant Method?",
-      "choices": [
-        "Two",
-        "One",
-        "Three",
-        "Four"
-      ],
-      "correct": "Two"
-    },
-    {
-      "id": 10,
-      "question": "What should be done if the Secant Method does not converge?",
-      "choices": [
-        "Try different initial guesses",
-        "Increase the number of iterations",
-        "Change the function",
-        "Switch to a different method"
-      ],
-      "correct": "Try different initial guesses"
-    },
-    {
-      "id": 11,
-      "question": "Which type of methods does the Secant Method belong to?",
-      "choices": [
-        "Root-finding methods",
-        "Integration methods",
-        "Differentiation methods",
-        "Optimization methods"
-      ],
-      "correct": "Root-finding methods"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What is the Trapezoidal Rule primarily used for?",
+    "choices": [
+      "Solving differential equations",
+      "Approximating definite integrals",
+      "Finding roots of equations",
+      "Calculating derivatives"
+    ],
+    "correct": "Approximating definite integrals"
+  },
+  {
+    "id": 2,
+    "question": "The basic formula of the Trapezoidal Rule is:",
+    "choices": [
+      "∫_a^b f(x) dx ≈ (b-a)/2 * [f(a) + f(b)]",
+      "∫_a^b f(x) dx ≈ (b-a) * [f(a) + f(b)] / 2",
+      "∫_a^b f(x) dx ≈ (b-a) * f(a)",
+      "∫_a^b f(x) dx ≈ (b-a) * [f(a) - f(b)] / 2"
+    ],
+    "correct": "∫_a^b f(x) dx ≈ (b-a)/2 * [f(a) + f(b)]"
+  },
+  {
+    "id": 3,
+    "question": "In the Trapezoidal Rule, what shape is used to approximate the area under the curve?",
+    "choices": [
+      "Rectangle",
+      "Parabola",
+      "Trapezoid",
+      "Triangle"
+    ],
+    "correct": "Trapezoid"
+  },
+  {
+    "id": 4,
+    "question": "Which of the following increases the accuracy of the Trapezoidal Rule?",
+    "choices": [
+      "Increasing the number of subintervals",
+      "Decreasing the number of subintervals",
+      "Using larger step sizes",
+      "Using smaller step sizes"
+    ],
+    "correct": "Increasing the number of subintervals"
+  },
+  {
+    "id": 5,
+    "question": "The Trapezoidal Rule is an example of which type of numerical integration method?",
+    "choices": [
+      "Open",
+      "Closed",
+      "Gaussian",
+      "Monte Carlo"
+    ],
+    "correct": "Closed"
+  },
+  {
+    "id": 6,
+    "question": "Which of the following best describes the error in the Trapezoidal Rule?",
+    "choices": [
+      "Proportional to the square of the step size",
+      "Proportional to the step size",
+      "Proportional to the cube of the step size",
+      "Independent of the step size"
+    ],
+    "correct": "Proportional to the square of the step size"
+  },
+  {
+    "id": 7,
+    "question": "The error term in the Trapezoidal Rule is dependent on which of the following?",
+    "choices": [
+      "The second derivative of the function",
+      "The first derivative of the function",
+      "The third derivative of the function",
+      "The value of the function at the endpoints"
+    ],
+    "correct": "The second derivative of the function"
+  },
+  {
+    "id": 8,
+    "question": "When applying the Trapezoidal Rule to a linear function, the result is:",
+    "choices": [
+      "Exact",
+      "Overestimated",
+      "Underestimated",
+      "Dependent on the step size"
+    ],
+    "correct": "Exact"
+  },
+  {
+    "id": 9,
+    "question": "What is the main limitation of the Trapezoidal Rule?",
+    "choices": [
+      "It is only accurate for linear functions.",
+      "It requires a large number of subintervals for high accuracy.",
+      "It is less accurate than Simpson's Rule for the same number of subintervals.",
+      "It cannot be applied to functions with discontinuities."
+    ],
+    "correct": "It is less accurate than Simpson's Rule for the same number of subintervals."
+  },
+  {
+    "id": 10,
+    "question": "How does the Trapezoidal Rule compare to the Midpoint Rule in terms of accuracy?",
+    "choices": [
+      "The Trapezoidal Rule is generally more accurate.",
+      "The Midpoint Rule is generally more accurate.",
+      "Both are equally accurate.",
+      "Accuracy depends on the function being integrated."
+    ],
+    "correct": "Accuracy depends on the function being integrated."
+  },
+  {
+    "id": 11,
+    "question": "For which of the following functions would the Trapezoidal Rule give an exact result?",
+    "choices": [
+      "f(x) = x^2",
+      "f(x) = sin(x)",
+      "f(x) = x + 2",
+      "f(x) = e^x"
+    ],
+    "correct": "f(x) = x + 2"
+  },
+  {
+    "id": 12,
+    "question": "Which of the following improves the accuracy of the Trapezoidal Rule when applied to non-linear functions?",
+    "choices": [
+      "Decreasing the step size",
+      "Increasing the step size",
+      "Using fewer subintervals",
+      "None of the above"
+    ],
+    "correct": "Decreasing the step size"
+  },
+  {
+    "id": 13,
+    "question": "When would you prefer using the Trapezoidal Rule over Simpson's Rule?",
+    "choices": [
+      "When the function is nearly linear",
+      "When the function is highly non-linear",
+      "When fewer subintervals are desired",
+      "When the second derivative of the function is zero"
+    ],
+    "correct": "When the function is nearly linear"
+  },
+  {
+    "id": 14,
+    "question": "In the Trapezoidal Rule, the area under the curve is approximated by:",
+    "choices": [
+      "Summing the areas of several rectangles",
+      "Summing the areas of several trapezoids",
+      "Calculating the exact area under each interval",
+      "None of the above"
+    ],
+    "correct": "Summing the areas of several trapezoids"
+  },
+  {
+    "id": 15,
+    "question": "The composite Trapezoidal Rule divides the interval into multiple subintervals to:",
+    "choices": [
+      "Increase accuracy",
+      "Decrease computation time",
+      "Simplify the function",
+      "Match the Midpoint Rule"
+    ],
+    "correct": "Increase accuracy"
+  },
+  {
+    "id": 16,
+    "question": "What is the general form of the composite Trapezoidal Rule?",
+    "choices": [
+      "∫_a^b f(x) dx ≈ (b-a)/n * [f(a)/2 + Σ f(x_i) + f(b)/2]",
+      "∫_a^b f(x) dx ≈ (b-a)/n * Σ [f(x_i) + f(x_(i+1))]",
+      "∫_a^b f(x) dx ≈ (b-a)/n * [f(a) + f(b)] / 2",
+      "∫_a^b f(x) dx ≈ (b-a)/n * [f(a) + 2Σ f(x_i) + f(b)]"
+    ],
+    "correct": "∫_a^b f(x) dx ≈ (b-a)/n * [f(a)/2 + Σ f(x_i) + f(b)/2]"
+  },
+  {
+    "id": 17,
+    "question": "In which scenario would the Trapezoidal Rule perform poorly?",
+    "choices": [
+      "For a function with a steep slope",
+      "For a smooth, nearly linear function",
+      "For a polynomial of degree 2",
+      "For a function with low curvature"
+    ],
+    "correct": "For a function with a steep slope"
+  },
+  {
+    "id": 18,
+    "question": "Which of the following can help reduce the error in the Trapezoidal Rule?",
+    "choices": [
+      "Increasing the number of subintervals",
+      "Decreasing the number of subintervals",
+      "Using a larger step size",
+      "Using a smaller number of evaluations"
+    ],
+    "correct": "Increasing the number of subintervals"
+  },
+  {
+    "id": 19,
+    "question": "The Trapezoidal Rule is most accurate for which type of functions?",
+    "choices": [
+      "Linear functions",
+      "Quadratic functions",
+      "Exponential functions",
+      "Trigonometric functions"
+    ],
+    "correct": "Linear functions"
+  },
+  {
+    "id": 20,
+    "question": "What does a positive error in the Trapezoidal Rule indicate?",
+    "choices": [
+      "The approximation is an overestimate",
+      "The approximation is an underestimate",
+      "The approximation is exact",
+      "The approximation is invalid"
+    ],
+    "correct": "The approximation is an underestimate"
+  }
+]

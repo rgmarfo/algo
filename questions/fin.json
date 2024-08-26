@@ -1,124 +1,222 @@
 [
-    {
+  {
       "id": 1,
-      "question": "What is the primary goal of the Secant Method?",
+      "question": "What is the finite difference method primarily used for?",
       "choices": [
-        "To find an approximation of a root",
-        "To integrate functions",
-        "To solve differential equations",
-        "To simplify polynomials"
+          "Solving differential equations",
+          "Maximizing a function",
+          "Finding the root of a function",
+          "Solving linear equations"
       ],
-      "correct": "To find an approximation of a root"
-    },
-    {
+      "correct": "Solving differential equations"
+  },
+  {
       "id": 2,
-      "question": "What is the formula for the next approximation in the Secant Method?",
+      "question": "In the forward difference method, how is the derivative of a function approximated?",
       "choices": [
-        "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))",
-        "x = x - f(x) / f'(x)",
-        "x = (a + b) / 2",
-        "x = a - (f(a) * (b - a)) / (f(b) - f(a))"
+          "(f(x+h) - f(x)) / h",
+          "(f(x) - f(x-h)) / h",
+          "(f(x+h) - f(x-h)) / (2h)",
+          "(f(x) + f(x+h)) / 2"
       ],
-      "correct": "x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))"
-    },
-    {
+      "correct": "(f(x+h) - f(x)) / h"
+  },
+  {
       "id": 3,
-      "question": "When should you stop the iterations in the Secant Method?",
+      "question": "Which of the following is a characteristic of the backward difference method?",
       "choices": [
-        "When the approximation does not change significantly",
-        "When the function value at the approximation is zero",
-        "When the interval is sufficiently small",
-        "When the derivative is zero"
+          "It uses the function value at the next point",
+          "It approximates the derivative using previous points",
+          "It is less accurate than the forward difference",
+          "It requires the calculation of the second derivative"
       ],
-      "correct": "When the approximation does not change significantly"
-    },
-    {
+      "correct": "It approximates the derivative using previous points"
+  },
+  {
       "id": 4,
-      "question": "What is the main advantage of the Secant Method over the Newton-Raphson Method?",
+      "question": "What is the central difference method known for?",
       "choices": [
-        "Does not require the calculation of derivatives",
-        "Requires fewer initial guesses",
-        "Converges faster",
-        "Works for all functions"
+          "Using both forward and backward points",
+          "Being the least accurate method",
+          "Only using forward points",
+          "Only using backward points"
       ],
-      "correct": "Does not require the calculation of derivatives"
-    },
-    {
+      "correct": "Using both forward and backward points"
+  },
+  {
       "id": 5,
-      "question": "What happens if the function values at the two initial points are equal in the Secant Method?",
+      "question": "How does the finite difference method relate to the Taylor series?",
       "choices": [
-        "The method fails as it will result in division by zero",
-        "The method converges immediately",
-        "The method requires additional iterations",
-        "The method will use an arbitrary value to proceed"
+          "It is derived from the Taylor series expansion",
+          "It uses the Taylor series directly",
+          "It ignores the Taylor series",
+          "It approximates the Taylor series to the first order"
       ],
-      "correct": "The method fails as it will result in division by zero"
-    },
-    {
+      "correct": "It is derived from the Taylor series expansion"
+  },
+  {
       "id": 6,
-      "question": "Which types of functions can the Secant Method be used on?",
+      "question": "In the finite difference method, what does the step size h represent?",
       "choices": [
-        "Continuous functions where derivatives are not easily available",
-        "Discontinuous functions",
-        "Linear functions",
-        "Functions with complex roots"
+          "The distance between consecutive points",
+          "The derivative of the function",
+          "The second derivative of the function",
+          "The root of the equation"
       ],
-      "correct": "Continuous functions where derivatives are not easily available"
-    },
-    {
+      "correct": "The distance between consecutive points"
+  },
+  {
       "id": 7,
-      "question": "What is a common issue when using the Secant Method?",
+      "question": "What is the order of accuracy for the forward difference method?",
       "choices": [
-        "It can fail to converge if the initial guesses are not chosen wisely",
-        "It requires exact derivatives",
-        "It is very slow to converge",
-        "It is limited to linear equations"
+          "First order",
+          "Second order",
+          "Third order",
+          "Zero order"
       ],
-      "correct": "It can fail to converge if the initial guesses are not chosen wisely"
-    },
-    {
+      "correct": "First order"
+  },
+  {
       "id": 8,
-      "question": "How is the accuracy of the Secant Method generally determined?",
+      "question": "Which finite difference method is most accurate for approximating the first derivative?",
       "choices": [
-        "By the change in approximation values",
-        "By the function value at the approximation",
-        "By the number of iterations",
-        "By the interval size"
+          "Central difference",
+          "Forward difference",
+          "Backward difference",
+          "None of the above"
       ],
-      "correct": "By the change in approximation values"
-    },
-    {
+      "correct": "Central difference"
+  },
+  {
       "id": 9,
-      "question": "How many initial guesses are required for the Secant Method?",
+      "question": "Why is the central difference method preferred over forward and backward differences?",
       "choices": [
-        "Two",
-        "One",
-        "Three",
-        "Four"
+          "It is more accurate",
+          "It is easier to compute",
+          "It requires fewer points",
+          "It uses a smaller step size"
       ],
-      "correct": "Two"
-    },
-    {
+      "correct": "It is more accurate"
+  },
+  {
       "id": 10,
-      "question": "What should be done if the Secant Method does not converge?",
+      "question": "In the finite difference method, which difference scheme would you use to approximate a boundary point?",
       "choices": [
-        "Try different initial guesses",
-        "Increase the number of iterations",
-        "Change the function",
-        "Switch to a different method"
+          "Forward difference",
+          "Central difference",
+          "Backward difference",
+          "None of the above"
       ],
-      "correct": "Try different initial guesses"
-    },
-    {
+      "correct": "Forward difference"
+  },
+  {
       "id": 11,
-      "question": "Which type of methods does the Secant Method belong to?",
+      "question": "What is the main disadvantage of the backward difference method?",
       "choices": [
-        "Root-finding methods",
-        "Integration methods",
-        "Differentiation methods",
-        "Optimization methods"
+          "It is less accurate than central difference",
+          "It requires more function evaluations",
+          "It can only be used for periodic functions",
+          "It requires knowledge of future points"
       ],
-      "correct": "Root-finding methods"
-    }
-  ]
-  
+      "correct": "It is less accurate than central difference"
+  },
+  {
+      "id": 12,
+      "question": "What does the finite difference method approximate?",
+      "choices": [
+          "Derivatives",
+          "Integrals",
+          "Roots of equations",
+          "Maxima and minima"
+      ],
+      "correct": "Derivatives"
+  },
+  {
+      "id": 13,
+      "question": "Which method is typically more stable, forward or backward difference?",
+      "choices": [
+          "Backward difference",
+          "Forward difference",
+          "Both are equally stable",
+          "Neither is stable"
+      ],
+      "correct": "Backward difference"
+  },
+  {
+      "id": 14,
+      "question": "Which of the following is true about the central difference method?",
+      "choices": [
+          "It has second-order accuracy",
+          "It has first-order accuracy",
+          "It is only applicable to linear functions",
+          "It is less accurate than forward difference"
+      ],
+      "correct": "It has second-order accuracy"
+  },
+  {
+      "id": 15,
+      "question": "For a uniform grid, how does reducing the step size h affect the accuracy of the finite difference method?",
+      "choices": [
+          "Increases accuracy",
+          "Decreases accuracy",
+          "No effect on accuracy",
+          "May increase or decrease accuracy"
+      ],
+      "correct": "Increases accuracy"
+  },
+  {
+      "id": 16,
+      "question": "What is the relationship between the step size h and the truncation error in the finite difference method?",
+      "choices": [
+          "Truncation error decreases as h decreases",
+          "Truncation error increases as h decreases",
+          "Truncation error is independent of h",
+          "Truncation error is zero for any h"
+      ],
+      "correct": "Truncation error decreases as h decreases"
+  },
+  {
+      "id": 17,
+      "question": "In the context of numerical differentiation, what is a finite difference?",
+      "choices": [
+          "An approximation of a derivative using discrete points",
+          "A method to integrate functions",
+          "A way to solve linear systems",
+          "A technique for finding maxima"
+      ],
+      "correct": "An approximation of a derivative using discrete points"
+  },
+  {
+      "id": 18,
+      "question": "Why might one choose a forward difference over a central difference in some cases?",
+      "choices": [
+          "It is easier to implement at boundaries",
+          "It is more accurate",
+          "It requires fewer computations",
+          "It is more stable"
+      ],
+      "correct": "It is easier to implement at boundaries"
+  },
+  {
+      "id": 19,
+      "question": "In the finite difference method, what does a smaller step size h generally lead to?",
+      "choices": [
+          "Greater accuracy",
+          "Greater computational cost",
+          "Potential for numerical instability",
+          "All of the above"
+      ],
+      "correct": "All of the above"
+  },
+  {
+      "id": 20,
+      "question": "What is the purpose of using the finite difference method in numerical analysis?",
+      "choices": [
+          "To approximate derivatives and solve differential equations",
+          "To find exact solutions to algebraic equations",
+          "To integrate functions analytically",
+          "To minimize functions"
+      ],
+      "correct": "To approximate derivatives and solve differential equations"
+  }
+]
